@@ -5,3 +5,7 @@ base:
 
   '*smi*':
     - minion
+
+  '*':
+    - users.sudo
+    - users
