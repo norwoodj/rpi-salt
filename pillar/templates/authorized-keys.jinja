@@ -1,0 +1,10 @@
+{% load_yaml as authorized_keys_by_user %}
+
+veintitres:
+  - salt://files/ssh_keys/veintitres.id_rsa.pub
+  - salt://files/ssh_keys/android.id_ecdsa.pub
+
+git:
+  - salt://files/ssh_keys/veintitres.id_rsa.pub
+
+{% endload %}

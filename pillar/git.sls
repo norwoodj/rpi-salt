@@ -1,5 +1,5 @@
-{% from 'templates/git-authorized-keys.jinja' import keys %}
+{% from 'templates/authorized-keys.jinja' import authorized_keys_by_user %}
 
 users:
   git:
-    ssh_auth_sources: {{ keys }}
+    ssh_auth_sources: {{ authorized_keys_by_user['git'] }}
