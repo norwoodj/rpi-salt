@@ -1,7 +1,8 @@
 base:
   '*':
-    - users.sudo
     - users
+    - openssh
+    - openssh.config
     - remove-pirate
 
   '*git*':
