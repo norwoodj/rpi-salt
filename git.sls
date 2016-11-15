@@ -11,10 +11,15 @@ git:
     - args: '{{ pillar['git']['version'] }}'
     - unless: |
         hash git || exit 1
-        version=`git --version | sed 's|git version \(.*\)|\1|g'`
-        major=`echo ${version} | awk -F . '{ print $1 }'`
-        minor=`echo ${version} | awk -F . '{ print $2 }'`
-        [ ${major} -gt 2 ] || [ ${minor} -gt 9 ]
+        required_version="{{ pillar['git']['version'] }}"
+        required_major=`echo ${required_version} | awk -F . '{ print $1 }'`
+        required_minor=`echo ${required_version} | awk -F . '{ print $2 }'`
+
+        current_version=`git --version | sed 's|git version \(.*\)|\1|g'`
+        current_major=`echo ${current_version} | awk -F . '{ print $1 }'`
+        current_minor=`echo ${current_version} | awk -F . '{ print $2 }'`
+
+        [ ${current_major} -gt ${required_major} ] || [ ${current_major} -eq ${required_major} -a ${current_minor} -ge ${required_minor} ]
 
   environ.setenv:
     - name: HOME
