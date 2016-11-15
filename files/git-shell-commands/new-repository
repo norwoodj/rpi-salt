@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+if [[ ${#} < 1 ]]; then
+    echo "Usage: ${0} <repository path>"
+    exit 1
+fi
+
+repository_path=${1}
+full_repo_path="/home/git/${repository_path}"
+mkdir -p ${full_repo_path}
+
+git init --bare ${full_repo_path}
