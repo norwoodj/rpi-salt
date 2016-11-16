@@ -2,6 +2,7 @@
 sshd_config:
   Protocol: 2
   Port: 22
+  PrintMotd: yes
 
   ServerKeyBits: 4096
   PermitRootLogin: no
