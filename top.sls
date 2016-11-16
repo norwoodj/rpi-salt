@@ -6,6 +6,7 @@ base:
     - openssh.config
     - remove-pirate
     - motd
+    - kubernetes
 
   '*git*':
     - git
