@@ -1,12 +1,19 @@
 base:
   '*':
-    - users.sudo
     - users
     - openssh
     - openssh.config
     - remove-pirate
     - motd
-    - kubernetes
+
+  '*kb*':
+    - kubernetes-install
+
+  '*kbm*':
+    - kubernetes-master
+
+  '*kbw*':
+    - kubernetes-worker
 
   '*git*':
     - git

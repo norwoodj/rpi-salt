@@ -13,7 +13,3 @@ kubernetes-packages-installed:
         - kubectl
         - kubelet
         - kubernetes-cni
-
-kubernetes-master-running:
-  cmd.run:
-    - name: 'kubeadm init'
