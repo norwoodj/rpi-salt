@@ -1,6 +1,6 @@
 UseRoaming no
 
-Host rp3-smi-git-000
+Host {{ hostname }}
   HostName localhost
   User git
   Port 22
