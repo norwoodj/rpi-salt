@@ -13,3 +13,8 @@ kubernetes-packages-installed:
         - kubectl
         - kubelet
         - kubernetes-cni
+
+kubelet-running:
+  service.running:
+    - name: kubelet
+    - enable: true
