@@ -21,15 +21,13 @@ git:
 
         [ ${current_major} -gt ${required_major} ] || [ ${current_major} -eq ${required_major} -a ${current_minor} -ge ${required_minor} ]
 
-  environ.setenv:
-    - name: HOME
-    - value: /home/git
-
   git.config_set:
     - name: receive.denyCurrentBranch
     - value: updateInstead
     - user: git
     - global: True
+    - env:
+      - HOME: /home/git
 
   file.recurse:
     - name: '/home/git/git-shell-commands'
