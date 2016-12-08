@@ -1,11 +1,11 @@
 base:
   '*':
+    - zsh
     - users
     - openssh
     - openssh.config
     - remove-pirate
     - motd
-    - kubernetes-install # JUST FOR TESTING
 
   '*kb*':
     - kubernetes-install
@@ -15,12 +15,6 @@ base:
 
   '*kbw*':
     - kubernetes-worker
-
-  # JUST FOR TESTING
-  '*sma*':
-    - kubernetes-worker
-  '*smi*':
-    - kubernetes-master
 
   '*git*':
     - git
