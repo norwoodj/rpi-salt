@@ -7,6 +7,7 @@ base:
     - openssh.config
     - remove-pirate
     - motd
+    - nfs.client
 
   '*git*':
     - git
