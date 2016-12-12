@@ -8,6 +8,10 @@ base:
     - remove-pirate
     - motd
 
+  '*git*':
+    - git
+    - git-access
+
   '*kb*':
     - kubernetes-install
 
@@ -16,7 +20,3 @@ base:
 
   '*kbw*':
     - kubernetes-worker
-
-  '*git*':
-    - git
-    - git-access
