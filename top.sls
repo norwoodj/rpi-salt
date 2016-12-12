@@ -12,6 +12,9 @@ base:
     - git
     - git-access
 
+  '*nfs*':
+    - nfs.server
+
   '*kb*':
     - kubernetes-install
 

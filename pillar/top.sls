@@ -6,3 +6,6 @@ base:
 
   '*git*':
     - git
+
+  '*nfs*':
+    - nfs
