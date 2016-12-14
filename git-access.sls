@@ -1,3 +1,11 @@
+add-shell-commands:
+  file.recurse:
+    - name: '/home/git/git-shell-commands'
+    - source: salt://files/git-shell-commands
+    - user: git
+    - group: git
+    - file_mode: 0550
+
 generate-key:
   cmd.run:
     - name: |

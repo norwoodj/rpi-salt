@@ -9,3 +9,6 @@ base:
 
   '*nfs*':
     - nfs
+
+  '*kbm*':
+    - kubernetes

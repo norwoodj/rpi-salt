@@ -10,7 +10,6 @@ base:
     - nfs.client
 
   '*git*':
-    - git
     - git-access
 
   '*nfs*':

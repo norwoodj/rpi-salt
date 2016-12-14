@@ -7,7 +7,7 @@ kubernetes-package-repo:
     - key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
 kubernetes-packages-installed:
-  pkg.installed:
+  pkg.latest:
     - pkgs:
         - kubeadm
         - kubectl
