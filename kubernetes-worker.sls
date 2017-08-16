@@ -1,5 +1,5 @@
 {% if pillar['kubernetes'] is defined and pillar.get('kubernetes', {})['token'] is defined %}
-    {% set command = 'kubeadm join --token=' ~ pillar['kubernetes']['token'] ~ ' kubernetes' %}
+    {% set command = 'kubeadm join --token=' ~ pillar['kubernetes']['token'] ~ ' kubernetes:6443' %}
 {% else %}
     {% set command = 'echo "pillar[\'kubernetes\'][\'token\'] must be defined to initialize kubernetes worker" && exit 1' %}
 {% endif %}

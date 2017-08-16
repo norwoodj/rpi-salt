@@ -1,12 +1,10 @@
 {% if pillar['kubernetes'] is defined and pillar.get('kubernetes', {})['token'] is defined %}
     {% set command = (
         'kubeadm init ' ~
-        '  --api-external-dns-names=' ~ pillar['kubernetes']['cluster_extra_hostname'] ~
-        '  --pod-network-cidr=10.244.0.0/16' ~
+        '  --apiserver-cert-extra-sans=' ~ pillar['kubernetes']['cluster_extra_hostnames'] | join(',') ~
         '  --token=' ~ pillar['kubernetes']['token'] ~ ' ' ~
-        '&& export ARCH=arm ' ~
-        '&& curl -sSL "https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml?raw=true" | sed "s/amd64/${ARCH}/g" | kubectl create -f - ' ~
-        '&& echo "changed=yes comment=\'Started Kubernetes Master\'"'
+        '&& export kubever=$(kubectl version | base64 | tr -d "\\n") ' ~
+        '&& kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=${kubever}"'
     )%}
 {% else %}
     {% set command = 'echo "pillar[\'kubernetes\'][\'token\'] must be defined to initialize kubernetes master" && exit 1' %}
