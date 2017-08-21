@@ -2,9 +2,10 @@
     {% set command = (
         'kubeadm init ' ~
         '  --apiserver-cert-extra-sans=' ~ pillar['kubernetes']['cluster_extra_hostnames'] | join(',') ~
+        '  --pod-network-cidr=10.244.0.0/16' ~
         '  --token=' ~ pillar['kubernetes']['token'] ~ ' ' ~
-        '&& export kubever=$(kubectl version | base64 | tr -d "\\n") ' ~
-        '&& kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=${kubever}"'
+        '&& curl -S "https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml" | sed "s|amd64|arm|g" | kubectl apply -f - ' ~
+        '&& curl -S "https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel-rbac.yml" | sed "s|amd64|arm|g" | kubectl apply -f -'
     )%}
 {% else %}
     {% set command = 'echo "pillar[\'kubernetes\'][\'token\'] must be defined to initialize kubernetes master" && exit 1' %}
