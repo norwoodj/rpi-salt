@@ -8,6 +8,7 @@ base:
     - remove-pirate
     - motd
     - nfs.client
+    - logrotate.jobs
 
   '*git*':
     - git-access
