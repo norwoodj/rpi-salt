@@ -6,7 +6,6 @@ logrotate:
       config:
         - daily
         - compress
-        - size 1M
         - rotate 7
         - missingok
         - delaycompress
