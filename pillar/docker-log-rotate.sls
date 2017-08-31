@@ -1,4 +1,8 @@
 logrotate:
+  default_config:
+    weekly: True
+    dateext: True
+    compress: True
   jobs:
     docker:
       path:
