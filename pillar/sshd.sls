@@ -11,10 +11,6 @@ sshd_config:
     - /etc/ssh/ssh_host_ed25519_key
     - /etc/ssh/ssh_host_rsa_key
 
-  KexAlgorithms: curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
-  Ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-  MACs: hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-ripemd160-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,hmac-ripemd160,umac-128@openssh.com
-
   PubkeyAuthentication: yes
 
   UsePAM: no
@@ -34,7 +30,6 @@ sshd_config:
   LogLevel: INFO
 
   AllowTcpForwarding: no
-  UsePrivilegeSeparation: yes
   StrictModes: yes
   VerifyReverseMapping: yes
   X11Forwarding: no
