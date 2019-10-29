@@ -1,3 +1,3 @@
-pirate:
+pi:
   user.absent:
     - purge: True
