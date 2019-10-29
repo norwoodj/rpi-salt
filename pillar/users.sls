@@ -4,7 +4,8 @@ users:
       - docker
       - ssh
     password: "*" # http://arlimus.github.io/articles/usepam/
-    ssh_auth_sources: "salt://files/ssh_keys/veintitres.id_ecdsa.pub"
+    ssh_auth_sources:
+      - "salt://files/ssh_keys/veintitres.id_ecdsa.pub"
     shell: "/usr/bin/zsh"
     sudouser: True
     sudo_rules:
