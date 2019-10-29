@@ -5,7 +5,7 @@ base:
     - oh-my-zsh
     - openssh
     - openssh.config
-    - remove-pirate
+    - remove-pi
     - motd
 
   '*git*':
