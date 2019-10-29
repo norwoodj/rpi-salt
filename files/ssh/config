@@ -4,4 +4,4 @@ Host {{ hostname }}
   HostName localhost
   User git
   Port 22
-  IdentityFile ~/.ssh/rpi_git.id_rsa
+  IdentityFile ~/.ssh/rpi_git.id_ecdsa

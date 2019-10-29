@@ -9,15 +9,15 @@ add-shell-commands:
 generate-key:
   cmd.run:
     - name: |
-        ssh-keygen -b 4096 -f /home/veintitres/.ssh/rpi_git.id_rsa -q -N ""
-        echo "changed=yes comment='Generated new rsa key for veintitres to push to git'"
+        ssh-keygen -t ecdsa -b 521 -f /home/veintitres/.ssh/rpi_git.id_ecdsa -q -N ""
+        echo "changed=yes comment='Generated new ecdsa key for veintitres to push to git'"
     - runas: veintitres
-    - creates: '/home/veintitres/.ssh/rpi_git.id_rsa'
+    - creates: '/home/veintitres/.ssh/rpi_git.id_ecdsa'
     - stateful: True
 
 add-key-to-git:
   cmd.run:
-    - name: 'cat /home/veintitres/.ssh/rpi_git.id_rsa.pub >> /home/git/.ssh/authorized_keys'
+    - name: 'cat /home/veintitres/.ssh/rpi_git.id_ecdsa.pub >> /home/git/.ssh/authorized_keys'
     - onchanges:
         - cmd: generate-key
 
