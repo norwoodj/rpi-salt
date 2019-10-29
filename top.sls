@@ -1,6 +1,6 @@
 base:
   '*':
-    - zsh
+    - packages
     - users
     - oh-my-zsh
     - openssh
