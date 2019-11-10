@@ -1,9 +1,9 @@
 install-stupidchess:
   pkg.installed:
       - sources:
-          - stupidchess-deployment: https://github.com/norwoodj/stupidchess-backend/releases/download/19.1110.2/stupidchess-deployment-19.1110.2.deb
+          - stupidchess-deployment: https://github.com/norwoodj/stupidchess-backend/releases/download/19.1110.3/stupidchess-deployment-19.1110.3.deb
           - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/19.1109.0/stupidchess-nginx-19.1109.0.deb
-          - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/19.1110.2/stupidchess_19.1110.2_armhf.deb
+          - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/19.1110.3/stupidchess_19.1110.3_armhf.deb
 
 stupidchess-app-secret-key:
   file.managed:
