@@ -13,4 +13,8 @@ base:
     - nginx-load-balancer
 
   '*git*':
+    - build-tools
     - git-access
+
+  '*mdb*':
+    - mongo
