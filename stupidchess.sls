@@ -8,12 +8,12 @@ install-stupidchess:
 stupidchess-app-secret-key:
   file.managed:
     - name: /opt/stupidchess/secrets/flask-app-secret-key
-    - contents: fill-with-real-password
+    - contents: {{ pillar['stupidchess']['flask-app-secret-key'] }}
 
 stupidchess-mongo-password:
   file.managed:
     - name: /opt/stupidchess/secrets/mongo-password
-    - contents: fill-with-real-password
+    - contents: {{ pillar['stupidchess']['mongo-password'] }}
 
 stupidchess-nginx:
   service.running:
