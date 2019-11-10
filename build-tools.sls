@@ -7,3 +7,4 @@ packages:
         - dh-virtualenv
         - equivs
         - python3.7-dev
+        - screen
