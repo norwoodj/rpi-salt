@@ -7,7 +7,7 @@ base:
     - openssh.config
     - remove-pi
     - motd
-    - stupidchess-nginx
+    - stupidchess
 
   '*elb*':
     - nginx-load-balancer
