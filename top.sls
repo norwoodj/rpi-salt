@@ -10,7 +10,7 @@ base:
     - stupidchess
 
   '*elb*':
-    - nginx-load-balancer
+    - rpi-loadbalancer
 
   '*git*':
     - build-tools
