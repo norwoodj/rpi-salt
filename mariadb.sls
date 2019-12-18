@@ -1,4 +1,4 @@
-mongo:
+mariadb:
   pkg.installed:
     - pkgs:
         - mariadb-server
