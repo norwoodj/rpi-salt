@@ -2,4 +2,4 @@ mongo:
   pkg.installed:
     - pkgs:
         - mariadb-server
-        - prometheus-mysql-exporter
+        - prometheus-mysqld-exporter

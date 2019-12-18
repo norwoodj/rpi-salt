@@ -1,0 +1,33 @@
+# Sample config for Prometheus.
+
+global:
+  scrape_interval:     60s
+  evaluation_interval: 60s
+
+scrape_configs:
+  # prometheus server
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - localhost:9090
+
+  # node-exporters for each raspberry pi in the cluster
+  - job_name: rpi-nodes
+    static_configs:
+      - targets:
+          - rp4-sma-mon-rmq-000:9100
+          - rp3-smi-elb-git-000:9100
+          - rp3-smi-mdb-000:9100
+          - rp3-smi-sql-000:9100
+
+  # mongodb-exporter
+  - job_name: mongodb
+    static_configs:
+      - targets:
+          - rp3-smi-mdb-000:9001
+
+  # mysql-exporter
+  - job_name: mariadb
+    static_configs:
+      - targets:
+          - rp3-smi-sql-000:9104
