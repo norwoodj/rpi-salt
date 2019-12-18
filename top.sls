@@ -18,3 +18,9 @@ base:
 
   '*mdb*':
     - mongo
+
+  '*mon*':
+    - monitoring
+
+  '*sql*':
+    - mariadb
