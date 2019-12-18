@@ -2,7 +2,7 @@ Raspberry Pi Salt
 =================
 
 This project is a set of salt states and pillar configuration I use to set up my Raspberry
-Pi cluster. All of these start from a base [hypriot image](todo).
+Pi cluster. All of these start from a base [raspbian image](https://www.raspberrypi.org/downloads/raspbian/).
 
 ## Installing Salt on instances
 This codebase assumes there is a running salt cluster of raspberry pis somewhere that you can
@@ -12,13 +12,9 @@ salt-ssh to be exact. You'll have to use some commands in my other code base
 
 ## Running salt states
 After you've set up the instances, you're going to ssh into the master, mine's called:
-`rp3-sma-kbw-000` or Raspberry Pi 3 - Salt Master - Kubernetes Worker - The first one of this type.
+`rp4-sma-mon-rmq-000` or Raspberry Pi 4 - Salt Master - Monitoring - Rabbitmq - The first one of this type.
 
 ```
-ssh rp3-sma-kbw-000
-
-sudo salt '*kbm*' state.apply kubernetes-master pillar='{"kubernetes": {"token": "5a3d09.8b2d382a36c0e0a7"}}'
-sudo salt '*kbw*' state.apply kubernetes-worker pillar='{"kubernetes": {"token": "5a3d09.8b2d382a36c0e0a7"}}'
+ssh rp4-sma-mon-rmq-000
+sudo salt "*" state.show_top
 ```
-
-Obviously don't actually use this token.
