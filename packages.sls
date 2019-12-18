@@ -4,5 +4,6 @@ packages:
         - htop
         - git
         - nginx
+        - prometheus-node-exporter
         - vim
         - zsh

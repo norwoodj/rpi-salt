@@ -2,6 +2,7 @@ mongo:
   pkg.installed:
     - pkgs:
         - mongodb
+        - prometheus-mongodb-exporter
 
   file.managed:
     - name: /etc/mongodb.conf
