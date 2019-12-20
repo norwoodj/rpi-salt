@@ -9,7 +9,7 @@ scrape_configs:
   - job_name: prometheus
     static_configs:
       - targets:
-          - localhost:9090
+          - rp4-sma-mon-rmq-000:9090
 
   # node-exporters for each raspberry pi in the cluster
   - job_name: rpi-nodes
