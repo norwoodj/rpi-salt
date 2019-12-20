@@ -1,8 +1,8 @@
 install-stupidchess:
   pkg.installed:
     - sources:
-        - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/19.1207.0/stupidchess-nginx_19.1207.0_armhf.deb
-        - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/19.1205.1/stupidchess-uwsgi_19.1205.1_armhf.deb
+        - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/{{ pillar["stupidchess"]["nginx-version"] }}/stupidchess-nginx_{{ pillar["stupidchess"]["nginx-version"] }}_armhf.deb
+        - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/{{ pillar["stupidchess"]["uwsgi-version"] }}/stupidchess-uwsgi_{{ pillar["stupidchess"]["uwsgi-version"] }}_armhf.deb
 
 stupidchess-app-secret-key:
   file.managed:

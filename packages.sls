@@ -3,6 +3,7 @@ packages:
     - pkgs:
         - htop
         - git
+        - jq
         - nginx
         - prometheus-node-exporter
         - vim
