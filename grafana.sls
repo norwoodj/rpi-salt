@@ -12,11 +12,3 @@ grafana:
     - context:
         admin_password: {{ pillar["grafana"]["admin-password"] }}
         secret_key: {{ pillar["grafana"]["secret-key"] }}
-
-grafana-dashboards:
-  file.recurse:
-    - name: /etc/grafana/dashboards
-    - source: salt://files/etc/grafana/dashboards
-    - user: grafana
-    - group: grafana
-    - file_mode: "0644"
