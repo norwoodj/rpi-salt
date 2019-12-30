@@ -10,15 +10,10 @@ grafana:
     - source: salt://files/etc/grafana/grafana.ini
     - template: jinja
     - context:
-        admin-password: {{ pillar["grafana"]["admin-password"] }}
-        secret-key: {{ pillar["grafana"]["secret-key"] }}
+        admin_password: {{ pillar["grafana"]["admin-password"] }}
+        secret_key: {{ pillar["grafana"]["secret-key"] }}
 
-  file.directory:
-    - name: /etc/grafana/dashboards
-    - user: grafana
-    - group: grafana
-    - mode: 644
-
+grafana-dashboards:
   file.recurse:
     - name: /etc/grafana/dashboards
     - source: salt://files/etc/grafana/dashboards
