@@ -21,7 +21,7 @@ base:
 
   '*mon*':
     - grafana
-    - monitoring
+    - prometheus
 
   '*sql*':
     - mariadb
