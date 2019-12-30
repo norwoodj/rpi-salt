@@ -20,6 +20,7 @@ base:
     - mongo
 
   '*mon*':
+    - grafana
     - monitoring
 
   '*sql*':
