@@ -1,2 +1,2 @@
 rpi-loadbalancer:
-  version: 19.1230.0
+  version: 19.1231.0
