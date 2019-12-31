@@ -8,6 +8,7 @@ base:
     - remove-pi
     - motd
     - stupidchess
+    - hashbash
 
   '*elb*':
     - rpi-loadbalancer

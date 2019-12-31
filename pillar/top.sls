@@ -4,6 +4,7 @@ base:
     - sshd
     - oh-my-zsh
     - stupidchess
+    - hashbash
 
   '*git*':
     - git
