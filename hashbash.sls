@@ -10,7 +10,7 @@ install-hashbash:
     - makedirs: true
     - template: jinja
     - context:
-        mysql_password: {{ pillar["hashbash"]["mysql-password"] }}
+        postgres_password: {{ pillar["hashbash"]["postgres-password"] }}
         rabbitmq_password: {{ pillar["hashbash"]["rabbitmq-password"] }}
 
 hashbash-nginx:
