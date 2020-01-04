@@ -30,4 +30,4 @@ scrape_configs:
   - job_name: postgresql
     static_configs:
       - targets:
-          - rp3-smi-sql-000:9104
+          - rp3-smi-sql-000:9187
