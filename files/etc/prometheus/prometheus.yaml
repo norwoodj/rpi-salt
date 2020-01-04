@@ -26,8 +26,8 @@ scrape_configs:
       - targets:
           - rp3-smi-mdb-000:9001
 
-  # mysql-exporter
-  - job_name: mariadb
+  # postgres-exporter
+  - job_name: postgresql
     static_configs:
       - targets:
           - rp3-smi-sql-000:9104
