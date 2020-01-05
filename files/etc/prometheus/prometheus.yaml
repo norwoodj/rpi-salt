@@ -1,7 +1,5 @@
-# Sample config for Prometheus.
-
 global:
-  scrape_interval:     60s
+  scrape_interval: 60s
   evaluation_interval: 60s
 
 scrape_configs:
@@ -31,3 +29,21 @@ scrape_configs:
     static_configs:
       - targets:
           - rp3-smi-sql-000:9187
+
+  # hashbash-engine
+  - job_name: hashbash-engine
+    static_configs:
+      - targets:
+          - rp4-sma-mon-rmq-000:8082
+          - rp3-smi-elb-git-000:8082
+          - rp3-smi-mdb-000:8082
+          - rp3-smi-sql-000:8082
+
+  # hashbash-webapp
+  - job_name: hashbash-webapp
+    static_configs:
+      - targets:
+          - rp4-sma-mon-rmq-000:8081
+          - rp3-smi-elb-git-000:8081
+          - rp3-smi-mdb-000:8081
+          - rp3-smi-sql-000:8081
