@@ -25,4 +25,4 @@ base:
     - prometheus
 
   '*sql*':
-    - mariadb
+    - postgres
