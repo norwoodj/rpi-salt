@@ -6,8 +6,11 @@ base:
     - stupidchess
     - hashbash
 
+  '*elb*':
+    - rpi-loadbalancer
+
   '*git*':
     - git
 
-  '*elb*':
-    - rpi-loadbalancer
+  '*mon*':
+    - grafana
