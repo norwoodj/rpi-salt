@@ -17,3 +17,6 @@ base:
 
   '*mon*':
     - grafana
+
+  '*sql*':
+    - postgres
