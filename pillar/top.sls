@@ -1,22 +1,25 @@
 base:
-  '*':
+  "*":
     - users
     - sshd
     - oh-my-zsh
     - stupidchess
     - hashbash
 
-  '*elb*':
+  "*elb*":
     - rpi-loadbalancer
 
-  '*git*':
+  "*git*":
     - git
 
-  '*mdb*':
+  "*mdb*":
     - mongo
 
-  '*mon*':
+  "*mon*":
     - grafana
 
-  '*sql*':
+  "*rmq*":
+    - rabbitmq
+
+  "*sql*":
     - postgres

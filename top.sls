@@ -1,5 +1,5 @@
 base:
-  '*':
+  "*":
     - packages
     - users
     - oh-my-zsh
@@ -10,19 +10,22 @@ base:
     - stupidchess
     - hashbash
 
-  '*elb*':
+  "*elb*":
     - rpi-loadbalancer
 
-  '*git*':
+  "*git*":
     - build-tools
     - git-access
 
-  '*mdb*':
+  "*mdb*":
     - mongo
 
-  '*mon*':
+  "*mon*":
     - grafana
     - prometheus
 
-  '*sql*':
+  "*rmq*":
+    - rabbitmq
+
+  "*sql*":
     - postgres
