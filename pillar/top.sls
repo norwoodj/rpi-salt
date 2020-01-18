@@ -18,7 +18,7 @@ base:
   "*mon*":
     - grafana
 
-  "*smi*":
+  "*rmq*":
     - rabbitmq
 
   "*sql*":
