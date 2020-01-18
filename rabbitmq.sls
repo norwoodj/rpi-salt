@@ -16,4 +16,6 @@ rabbitmq-users:
         vhosts: {{ pillar["rabbitmq"]["vhosts"] }}
 
   cmd.run:
-    - name: cat /tmp/rabbitmq-users.sh
+    - name: |
+        chmod +x /tmp/rabbitmq-users.sh
+        /tmp/rabbitmq-users.sh

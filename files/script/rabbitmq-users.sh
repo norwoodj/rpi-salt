@@ -7,7 +7,7 @@ rabbitmqctl set_user_tags mqadmin administrator
 rabbitmqctl add_vhost {{ v }}
 
   {% for u in users %}
-rabbitmqctl add user {{ u["username"] }} {{ u["password"] }}
+rabbitmqctl add_user {{ u["username"] }} {{ u["password"] }}
 rabbitmqctl set_permissions -p {{ v }} {{ u["username"] }} ".*" ".*" ".*"
   {% endfor %}
 {% endfor %}
