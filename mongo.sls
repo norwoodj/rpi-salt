@@ -16,6 +16,7 @@ mongo:
         curl -O http://facat.github.io/mongodb-2.6.4-arm.7z
         7z x mongodb-2.6.4-arm.7z
         cp -v mongodb/bin/mongod /usr/bin/mongod
+    - creates: /usr/bin/mongod
 
 mongo-exporter-config:
   file.managed:

@@ -6,3 +6,6 @@ install-rpi-loadbalancer:
 rpi-loadbalancer:
   service.running:
     - enable: true
+
+  cmd.run:
+    - name: chown -R nobody:nogroup /var/lib/nginx
