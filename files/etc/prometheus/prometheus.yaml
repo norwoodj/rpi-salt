@@ -7,16 +7,16 @@ scrape_configs:
   - job_name: prometheus
     static_configs:
       - targets:
-          - rp4-sma-mon-rmq-000:9090
+          - rp4-sma-git-mon-sql-000:9090
 
   # node-exporters for each raspberry pi in the cluster
   - job_name: rpi-nodes
     static_configs:
       - targets:
-          - rp4-sma-mon-rmq-000:9100
-          - rp3-smi-elb-git-000:9100
+          - rp4-sma-git-mon-sql-000:9100
+          - rp3-smi-elb-000:9100
           - rp3-smi-mdb-000:9100
-          - rp3-smi-sql-000:9100
+          - rp3-smi-rmq-000:9100
 
   # mongodb-exporter
   - job_name: mongodb
@@ -28,24 +28,24 @@ scrape_configs:
   - job_name: postgresql
     static_configs:
       - targets:
-          - rp3-smi-sql-000:9187
+          - rp4-sma-git-mon-sql-000:9187
 
   # hashbash-engine
   - job_name: hashbash-engine
     metrics_path: /prometheus
     static_configs:
       - targets:
-          - rp4-sma-mon-rmq-000:8082
-          - rp3-smi-elb-git-000:8082
+          - rp4-sma-git-mon-sql-000:8082
+          - rp3-smi-elb-000:8082
           - rp3-smi-mdb-000:8082
-          - rp3-smi-sql-000:8082
+          - rp3-smi-rmq-000:8082
 
   # hashbash-webapp
   - job_name: hashbash-webapp
     metrics_path: /prometheus
     static_configs:
       - targets:
-          - rp4-sma-mon-rmq-000:8081
-          - rp3-smi-elb-git-000:8081
+          - rp4-sma-git-mon-sql-000:8081
+          - rp3-smi-elb-000:8081
           - rp3-smi-mdb-000:8081
-          - rp3-smi-sql-000:8081
+          - rp3-smi-rmq-000:8081
