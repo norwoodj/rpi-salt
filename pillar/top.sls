@@ -12,5 +12,8 @@ base:
   '*git*':
     - git
 
+  '*mdb*':
+    - mongo
+
   '*mon*':
     - grafana

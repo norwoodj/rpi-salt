@@ -1,0 +1,1 @@
+MONGODB_URL=cluster-admin:{{ ca_password }}@localhost:27017
