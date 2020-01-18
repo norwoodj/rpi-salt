@@ -12,3 +12,7 @@ grafana:
     - context:
         admin_password: {{ pillar["grafana"]["admin-password"] }}
         secret_key: {{ pillar["grafana"]["secret-key"] }}
+
+grafana-server:
+  service.running:
+    - enable: true
