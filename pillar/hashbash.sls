@@ -1,7 +1,7 @@
 #!yaml|gpg
 
 hashbash:
-  backend-version: 20.0105.0
+  backend-version: 20.0119.0
   nginx-version: 20.0105.0
 
   postgres-password: |
