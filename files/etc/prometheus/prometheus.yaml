@@ -49,3 +49,21 @@ scrape_configs:
           - rp3-smi-elb-000:8081
           - rp3-smi-mdb-000:8081
           - rp3-smi-rmq-000:8081
+
+  # hashbash-nginx-exporter
+  - job_name: hashbash-nginx
+    static_configs:
+      - targets:
+          - rp4-sma-git-mon-sql-000:4041
+          - rp3-smi-elb-000:4041
+          - rp3-smi-mdb-000:4041
+          - rp3-smi-rmq-000:4041
+
+  # stupidchess-nginx-exporter
+  - job_name: stupidchess-nginx
+    static_configs:
+      - targets:
+          - rp4-sma-git-mon-sql-000:4040
+          - rp3-smi-elb-000:4040
+          - rp3-smi-mdb-000:4040
+          - rp3-smi-rmq-000:4040
