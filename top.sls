@@ -9,6 +9,7 @@ base:
     - motd
     - stupidchess
     - hashbash
+    - nginx-log-exporters
 
   "*elb*":
     - rpi-loadbalancer

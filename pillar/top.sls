@@ -5,6 +5,7 @@ base:
     - oh-my-zsh
     - stupidchess
     - hashbash
+    - nginx-log-exporters
 
   "*elb*":
     - rpi-loadbalancer
