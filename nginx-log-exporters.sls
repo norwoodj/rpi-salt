@@ -11,13 +11,13 @@ prometheus-nginxlog-exporter:
   file.managed:
     - source: salt://files/systemd/stupidchess-nginx-exporter.service
 
-/opt/prometheus-nginxlog-exporter/hashbash-nginx-exporter.hcl:
+/etc/prometheus-nginxlog-exporter/hashbash-nginx-exporter.hcl:
   file.managed:
-    - source: salt://files/opt/prometheus-nginxlog-exporter/hashbash-nginx-exporter.hcl
+    - source: salt://files/etc/prometheus-nginxlog-exporter/hashbash-nginx-exporter.hcl
 
-/opt/prometheus-nginxlog-exporter/stupidchess-nginx-exporter.hcl:
+/etc/prometheus-nginxlog-exporter/stupidchess-nginx-exporter.hcl:
   file.managed:
-    - source: salt://files/opt/prometheus-nginxlog-exporter/stupidchess-nginx-exporter.hcl
+    - source: salt://files/etc/prometheus-nginxlog-exporter/stupidchess-nginx-exporter.hcl
 
 hashbash-nginx-exporter:
   service.running:
