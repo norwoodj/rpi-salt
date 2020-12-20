@@ -1,7 +1,7 @@
 prometheus-nginxlog-exporter:
   pkg.installed:
     - sources:
-        - prometheus-nginxlog-exporter: https://github.com/norwoodj/rpi-salt/releases/download/{{ pillar["prometheus-nginxlog-exporter"]["version"] }}/nginx-log-exporters_{{ pillar["prometheus-nginxlog-exporter"]["version"] }}_armhf.deb
+        - prometheus-nginxlog-exporter: https://github.com/norwoodj/rpi-salt/releases/download/{{ pillar["prometheus-nginxlog-exporter"]["version"] }}/prometheus-nginxlog-exporter_{{ pillar["prometheus-nginxlog-exporter"]["version"] }}_armhf.deb
 
 /lib/systemd/system/hashbash-nginx-exporter.service:
   file.managed:
@@ -22,7 +22,9 @@ prometheus-nginxlog-exporter:
 hashbash-nginx-exporter:
   service.running:
     - enable: true
+    - reload: true
 
 stupidchess-nginx-exporter:
   service.running:
     - enable: true
+    - reload: true

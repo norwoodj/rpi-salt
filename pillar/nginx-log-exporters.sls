@@ -1,2 +1,2 @@
-nginx-log-exporters:
-  version: 20.1219.0
+prometheus-nginxlog-exporter:
+  version: 20.1220.0
