@@ -1,0 +1,12 @@
+[Unit]
+Description=hashbash nginx log exporter
+
+[Service]
+ExecStart=/opt/prometheus-nginxlog-exporter/bin/prometheus-nginxlog-exporter -config-file /etc/prometheus-nginxlog-exporter/hashbash-nginx-exporter.hcl
+Restart=always
+KillSignal=SIGQUIT
+Type=simple
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
