@@ -8,4 +8,4 @@ rpi-loadbalancer:
     - enable: true
 
   cmd.run:
-    - name: chown -R nobody:nogroup /var/lib/nginx
+    - name: chmod -R 644 /var/lib/nginx
