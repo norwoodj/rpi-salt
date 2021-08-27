@@ -7,26 +7,18 @@ base:
     - openssh.config
     - remove-pi
     - motd
-    - stupidchess
-    - hashbash
-    - nginx-log-exporters
-
-  "*elb*":
-    - rpi-loadbalancer
-
-  "*git*":
     - build-tools
     - git-access
 
-  "*mdb*":
-    - mongo
-
-  "*mon*":
+  "*p*":
     - grafana
-    - prometheus
-
-  "*rmq*":
-    - rabbitmq
-
-  "*sql*":
+    - mongo
     - postgres
+    - prometheus
+    - rabbitmq
+    - rpi-loadbalancer
+
+  "*s*":
+    - hashbash
+    - nginx-log-exporters
+    - stupidchess
