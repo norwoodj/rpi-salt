@@ -3,67 +3,64 @@ global:
   evaluation_interval: 60s
 
 scrape_configs:
-  # prometheus server
-  - job_name: prometheus
-    static_configs:
-      - targets:
-          - rp4-sma-git-mon-sql-000:9090
-
   # node-exporters for each raspberry pi in the cluster
   - job_name: rpi-nodes
     static_configs:
       - targets:
-          - rp4-sma-git-mon-sql-000:9100
-          - rp3-smi-elb-000:9100
-          - rp3-smi-mdb-000:9100
-          - rp3-smi-rmq-000:9100
-
-  # mongodb-exporter
-  - job_name: mongodb
-    static_configs:
-      - targets:
-          - rp3-smi-mdb-000:9001
-
-  # postgres-exporter
-  - job_name: postgresql
-    static_configs:
-      - targets:
-          - rp4-sma-git-mon-sql-000:9187
+          - 0p0:9100
+          - 0s0:9100
+          - 0s1:9100
+          - 0s2:9100
 
   # hashbash-engine
   - job_name: hashbash-engine
     metrics_path: /prometheus
     static_configs:
       - targets:
-          - rp4-sma-git-mon-sql-000:8082
-          - rp3-smi-elb-000:8082
-          - rp3-smi-mdb-000:8082
-          - rp3-smi-rmq-000:8082
+          - 0p0:8082
+          - 0s0:8082
+          - 0s1:8082
+          - 0s2:8082
 
   # hashbash-webapp
   - job_name: hashbash-webapp
     metrics_path: /prometheus
     static_configs:
       - targets:
-          - rp4-sma-git-mon-sql-000:8081
-          - rp3-smi-elb-000:8081
-          - rp3-smi-mdb-000:8081
-          - rp3-smi-rmq-000:8081
+          - 0s0:8081
+          - 0s1:8081
+          - 0s2:8081
 
   # hashbash-nginx-exporter
   - job_name: hashbash-nginx
     static_configs:
       - targets:
-          - rp4-sma-git-mon-sql-000:4041
-          - rp3-smi-elb-000:4041
-          - rp3-smi-mdb-000:4041
-          - rp3-smi-rmq-000:4041
+          - 0s0:4041
+          - 0s1:4041
+          - 0s2:4041
 
   # stupidchess-nginx-exporter
   - job_name: stupidchess-nginx
     static_configs:
       - targets:
-          - rp4-sma-git-mon-sql-000:4040
-          - rp3-smi-elb-000:4040
-          - rp3-smi-mdb-000:4040
-          - rp3-smi-rmq-000:4040
+          - 0s0:4040
+          - 0s1:4040
+          - 0s2:4040
+
+  # prometheus server
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - 0p0:9090
+
+  # mongodb-exporter
+  - job_name: mongodb
+    static_configs:
+      - targets:
+          - 0p0:9001
+
+  # postgres-exporter
+  - job_name: postgresql
+    static_configs:
+      - targets:
+          - 0p0:9187

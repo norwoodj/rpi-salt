@@ -4,16 +4,15 @@ mongo:
   ca-password: |
     -----BEGIN PGP MESSAGE-----
 
-    hQGMA2OxwgtcZY84AQv+LgJxLeD850LyT6rsdFaD0vXuRyC2JKYQ8E+hWckXWb5L
-    i60xRng19byE9mvy1d805sOtuMszDFuwmUSJgOHW7JJVgysXkRkei9neLwUFhQwf
-    fzO+5mvWBfMIG1YDiWkyw7/sQazoCqaR2Njk/rJhPHL+E5PGzkQYwjbnvfvUPlak
-    lVLg+gsCVvL4aSzm/OQj7Zc9nBdjgRt1BpekMCEK/5W5Kx6R1TQjyUQjg3dqbKqH
-    Er5xZ7il1Qu62dKa1G50McmTSd8A2kEjFjXCSszPJ///RGUqz56c8nyJwDWjEA+s
-    GZUNFGUQc3L4VJ0nkm28tMB+pzKu+PD5KBDzTZZYl/85PFJwD1M6wixLqfhrIfJr
-    42J7n67r28Ri/yW9/m5b9zz2b4WJutE51KLz/4q6csd/0Sjjqm8Z3xuWgJofIn4A
-    +HOZU9dsZYukLwDI/MmwxTLSGyuFZwfTtUFBHN6q6NtLnkHfxGlZPwZMahtykW2M
-    2MqqSIlQSK94PTQzm5E20lsBQbiKZo/zvawF/TqbFA4FTanAYeU2Eaab3eVc20IS
-    F1Nw7qzqi7it2kc/oR4TZGv8mIx4zFO2GhAR6WDNxUCWFB53tpCyxLFzVgV1zomB
-    mTee8Do4TSQU7j8D
-    =krX8
+    hQGMA1BYCT8biEodAQv6As5fDQzwj+nrq1VE1B2Euliy+8E45ll9qpsBjCQJFOJA
+    5NjGlnSXE1RMORIFS+PL0kgi1R+s6nnmP9yAXIhUu/ys23ZBlJmhyJSNmbuN8NIa
+    4TBNVirMFXkobez7U+4baY0ZiNxqwvTUiynwzTBnwL3eWgOKFYcDCptaZT1YC3GJ
+    rKZlVs2z36kExrrs3T/jatdBmUqxUrZR8rpYfWseSIdcAgbfdiAk5iwx6H7DWKl2
+    az/szjstvGsPZl++BXw4mv9LoeVHM0avaGqQs+JXFHsJxQ3htTqXuMIftRq2uRXc
+    T6825zvyuMTFmwEPMRNUIelDdCFE29JN2o0SmW+gYmHJEPE8NZLjl41kVDFbkg6x
+    24Pv1K+1zwEFVMGYIX4ejU74a/ZkeclCJOtLC1QGrYR/NGn6D8t9UD4FNJaCd7b1
+    X7zFrM3Mz13loady/G2DwboJnN/sBbxDL6IvEuBuwotBvYsz/OXYw+Eu1EaKiOu+
+    0nI/HA0kdVdcnlZyvy/C0jwBKjBX/VBtb4Y5dV5nKDLeM/ctwm4wftHBTyj9He9g
+    4AVTeZwEFFS43H+XF2emJ4/4Ce1ATV2CGCxT7Ic=
+    =gWLA
     -----END PGP MESSAGE-----
