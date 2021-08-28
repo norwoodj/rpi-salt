@@ -20,5 +20,5 @@ base:
 
   "*s*":
     - hashbash
-    - nginx-log-exporters
     - stupidchess
+    - nginx-log-exporters
