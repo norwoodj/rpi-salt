@@ -7,33 +7,33 @@ stupidchess:
   mongo-password: |
     -----BEGIN PGP MESSAGE-----
 
-    hQGMA1BYCT8biEodAQv/SqsqZkFhWbUFXsKvXmx/z6t2NZ6c8PvJB2vzXCL/gcj0
-    NZsRcHzD62o5YlijuwWGYyZeynTZTk5a180Zb9qaS8SjSO5CnqNI74IDHuwqMwLf
-    yXBMBqfwqVHZLiQf9PA9fA751nMcAKNl0qxVtQPRvCNOkioV11C8yzRY/qoQPnWQ
-    MRTWhwMQbtoQ5QjUuxf622EBNdrHY7zX4BoEnOTvfQ2PnOnUHd7/xwF63F9iWi00
-    UMiifcfyev/RIZ8MtdnMSHAYPfZj4D3a2w0J4TjyfewfMCnOUT6oiy+T2ZgOAi1e
-    7+MjVXPM6vMTDLO3tDTB6x7Mi724aOByFO1++lpdkXzgtlyaFR5Av1tVx1kIZLLs
-    q88ItEmTcKuXsZPnMQ8as0DttOOU6I8eQYDyOyI1Y6gRQrXg8Wd5PYTQprdwdxVH
-    xpgRIQ33HmQUmc30f88kLwgDbTysUXx4rPubMCqq275efgmR5nretbn8dGb9lyNQ
-    zc3zruAnAHAqpJb8HeQf0lsBHycgDuRdbY7xFJt4JRj+KiV7ch/VCfD/io31XWpN
-    fHKhc+U5I4hUAtdCBqxJvRUnEZyX5VntPGMjJrw4U++K+ppzMloA5gNXwCoLCs9p
-    O2ftXBvH6y+MhOgv
-    =3XQ8
+    hQGMA4rzglNLQgSYAQv/clMJt+msU/ifl27t3SmNM0zn5FfbmoTtglFZe+kwz4+E
+    OZ29pNeCni5p5fcqkLDkF0PRyO/zjOavoCf723Y140Qfr5N3v+mY/aufcd1zrAGk
+    sLJcW39WBmYTEfJ5aKma/Ack3H2NnJX6yWjevT7MAl6hmXwRqJcOKf3dYF+LHoNh
+    5k/kY8KJz6M6dAINyjcaphgSrO69LOcHxEvAdLGAOSr5auXYyuNUjmK4wyudiIvU
+    /T26vyCvcGcLKQVhx5Kl8Y29OPdvCDdYf1SxUOk51aF9hKTlA8xDYmd8ZNMeSzvA
+    Ww1y0iMYTJsiQ9iP6p7lm6QyFzAOndk4qx0PhvfBXqAP/Ah2ZnFxzIFwd5xMpJ1f
+    E8BhWldoFZg8kYRJihjwfuUhpK3gA8xUMiqkMi0YZBN2YvJ3CLrYqvIpC22kcuED
+    FcLf1zhESOdj8pP3w8mwtq+cIxkQv3QzqAN7u/mKfxeTVPpQr7P1TZSfew6RXfoF
+    vKiwKuffSItsIL0nkg8V0lsBhmBx1L03vhDVDYBQQMC5G9nFTd4xncChI+Lp/tux
+    /qTN8JZoRqplaCLUj/D/+Q2u9lnFvYkxUVIojcBjEjy80JKOe/E6hBHcvFhbFeso
+    clXLBbaXKfvw8vIT
+    =Ywsj
     -----END PGP MESSAGE-----
 
   flask-app-secret-key: |
     -----BEGIN PGP MESSAGE-----
 
-    hQGMA1BYCT8biEodAQv/UYb4XtR3JLEGiStk5li9FGdQhjvEeTy+PI9nR58b+iSp
-    7UwdmLXaW3Dhvo12tsOjl45ZSlzMDN/JwTWbyzSv8MbhvtOSDC+D6SNdFs2tpKgn
-    1X4UfSGOQu2CutY08E08MNzupeOVM0k2esaYVHmQlGw7qjxgBfKVOfME9M8lrEPU
-    Pytt/xYGDNBBIRIHHYg/bXxjSipV/7QKavctCZ9W53jpM26lXWYyI3D8mcyxyxOv
-    Nr+8RK3L4l3sVF8YB0RppkZVMCR/47MVZTN6JrUOW5nuA9zYS8r5RfsSmAAvNp+i
-    l4eCh0Yzr8GqXSUU5OyoMSyTDPJ0uq8+4RcFOhz+fsgiJWoZJinZm551rq7WYcX1
-    WNwvL/Q7vg3QToXHG3fXW/FTNe6BPqPTreh7CWdFzeTWavVbyjfYB198KodVXp34
-    7B/HWYPGN3NZkP20YSDXnXEeCSNBOcHqkppNUWHlMAtVN3U3S4X5RZ0Lu6KQc98d
-    LXURoC92C1JSQqO8Jf930lsBfu8fPKawdzLoH+aBIIqxqig7aVKghFPVu8YPH+ja
-    7ImilQt4ISLyxhdlyLa6MJk+eewKHkQeMVyxGtUvG2neClgSMojErJ1NyIIY+k3V
-    GP6wv5KZ933A52OC
-    =FsiU
+    hQGMA4rzglNLQgSYAQwAiERrtqx+fIAx8ZzBvCh4rlVA2Rq7WVt8h3JjA8FviRvj
+    e0BZDfsNLfgzOo7v5rnBSNXIKfCHrlDfrWApOc6fU59XACld/meARHJ+3ZWpBUSw
+    fYGB5ScB1bsTIEBfQhQSc5xFs/Cl+fa5LqrND2nBwaQSuadlbN6dMWN9jG8XzRTR
+    PgbYKZ0VEs0ynLwS6zVa/FqYkvuxSIMqC4bAXdXijCwZ4UQ7SBE6tp6v9yrYwjWw
+    APK6Wvc+JWgfikW2ZBAUSwYvvHi47OR323R/o2fm6ZXBt3YGGAtVvetk4u63O/lS
+    +GNigki4foPd8jC74sMKspwZPJLVX4wrsZ5VT+0hWtB2TzBuDRs6j/89Jiu8cGxk
+    f0STGieNa08hKFTGpp6/t2Ngj6xSnmEvsiL6ucQruVN+O4FVHUp9j1zFLh/64yYG
+    ljJ8NwMEVJKTui0EoWo/5+2iBXKJiALvBAXJotIHJw9IhJWvOE+l/D1BOoDpLcMx
+    Z4HD0sM5CKEW7lsTIAYB0lsBaf56fq84BjkM3SD/lre/ujpQe+a5acoVwSo0wnim
+    FZdmkQKgzD0yGVEQu7DAqHr3rWjgLtjKea/hNSKULz/9bQpEat2HaGruUgv63QcO
+    fM5t/g4I9KH7rJRa
+    =tDUu
     -----END PGP MESSAGE-----
