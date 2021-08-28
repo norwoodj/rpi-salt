@@ -7,18 +7,18 @@ postgres:
       password: |
         -----BEGIN PGP MESSAGE-----
 
-        hQGMA1BYCT8biEodAQv+JwtoomeaEIjSpTUzwEmoCw4BRYyKhTcxYfsk+MWg9rzw
-        hVYXkIn6z5N3w3NmrsvzTV+Vl62H17BCSWtFgECuYRXuiOSVEDEDhEhmwcoTGtFF
-        peiAuD2rzRU3b8GHCCtFZbS+4mwI7CeStaaFqTDW+F+mYO35/c9UQctrOlM69Eg2
-        w1sJ11HodyC6iYHfZUDm0mAzkYN6mgCRGwPwFR4xDz/K06SLeq+R7k6nLRtOrZTG
-        0wHMA8netTQxslz7vGmUnOJ4eajvU6t8HhlwXoRAWj4sm2dvCcOWZHlz7hCv9Tmm
-        J31RtqSbVM09d7QSLk0Qnzp/gPL5ADz/OWl7ezWNu8PcPFMjeYVCh3XhDzTxhThr
-        ln1D1C7jlPowzHJ5jPvomopypIzFe3fHdkKcBndaAhbuliuShNPkJPF903x+NIDI
-        NGpxil6KS64v3ovmowHDrjEFkiFgIrAJKnCZuFNfEVR+kUwwPXXTnC7zsksFqDOz
-        LZCsuKVFezKMZvC8r7py0lsBeulY8uy5amGEI45MriXWiKvOKW+FYF8ZN1MUGcsm
-        tjpq/fCzv10fgyCjNp/a3MHVAJFZ386inw0isrBeCR1pL7bIBr8bnvRhI7IblIJ+
-        zZFD9JUo9s+XCa43
-        =WXdx
+        hQGMA1BYCT8biEodAQv9EQM3Bqi6LLGyMtBbTjttJYGWqZRKe1xCzLXuOvgKVJMc
+        YZfMvCF/7uY3ip3hpHjQc17hCVMovyJk+xJpT7SDOZEaN9wgCPAEbYQL60jFickN
+        1toq2bgSp1zLuaD782Fi7LAx4HjZqF6X+nCX5cSJXAK+ZVu2F9LitKmjEc2Abw92
+        By0piYfZo+xDGVn1MKPIr1bUTQkk5UKNOpPmsnaXdL8sV/N6CjQNbtV/goVzuIzs
+        wRTBeXxnDbRtAF9eG9LxKX/89v8S6SEE5yVbb1nqoeeo/bG2Ye8pZdPYemWfU+61
+        OthtMXMRoKquk99M6wUZ5Z+Kqg5sPC3zU/F/fV4NLG4b0Abc8HHDDDJCePnQdVTw
+        /bpEVEZAciYOenZdHvsSeWNE9j/K240LaEqftX1l6wu2nyfNz2Y7GpqBaIf9ZHNj
+        Pz2kHPrQDT4vYQVE0d9K9KJNQH96BDpvD0iWt/1lAef5V6N+/MaxsrhmCbhiC75C
+        HNKm6HKKXQzbY90rjHhQ0lsBQuDCqDGTu6SuJkAzEf99oaqbtOEyAsVo3pedMMYU
+        PetB5ehZLoD6pPBbWcMeHBqcVcTzMlzh5t7KH06ruWqeyjTX0W8wo+NwiQnsdo4d
+        zJjxiQNjZ9dWRQXu
+        =BcGK
         -----END PGP MESSAGE-----
 
   exporter:
