@@ -24,15 +24,16 @@ rabbitmq:
         password: |
           -----BEGIN PGP MESSAGE-----
 
-          hQGMA4rzglNLQgSYAQv+NECOkKtOU0hB3q5b1Tv2hq3vUyDISyHlJ2H34vaOC5CY
-          ZvKwOM+LCRCDAoun8MPvc85W8tMQ2jWSL4pQj2zQPaIoLJccF2YLEgTmvOivvbJ/
-          /RrLNl9UoT8L+RdEmv7d4V0D0lsyO/x1aQ0AoQ7lgDUHUgxYxUCrYR3lxZ6J0iTo
-          psV9ZngRXEaTsxEDzgHv+ChSsLfvUEVh1PPJrpmqJ+l/Js9KY/u7iRhGTNIaFMcE
-          2BD80Fv4eUU9ryXvqFNnFyxIpoPxFNaMOl+speaJL5+5A+ZUGK4Z/p78El67RXmE
-          04i1kEW51vLA2CU86GPXbmHIm9I6hlGQ/q/Xh1iZ5fe0Vm/I5bHCP2hfcaNWnCTg
-          owyBmFAVZaHgqy3++TS+mkjzB0bccYGcmN7y/b4DaFqGtQix+EHU88oJhtX6llHe
-          ltBalq+S75gl5RkIcPvXKC4GnNCxEM20zyVAEW6XBc7LHodC0f6zr9Ma3cVOT9rn
-          OhftE3+fyOeqLlZhJoww0jwB9F/1q5E60BYAfpU4nsSIs1H534rIMZ9a9cTTwej2
-          bpm5CpJ5UZdtGAMo8ypu+25ha9tpXcX16+hV3IQ=
-          =PrGo
+          hQGMA4rzglNLQgSYAQwAqF+Bmqm7nhUmECY74fxrPToZcCzdseNhFCu2/qqtdA/3
+          FY0dF9A5/a6Qn1vjTGKN52T0i/DWDvkzWzX75go67bB2ZEDNFfRCbklSJLu0EopB
+          0Va/s2Un34U2xPR1FCKgcVhuab+QpLapKznTdG0yiicU9VAni0rb99FQOHXSGl3l
+          p2Ej5sLrQ3WE6iW0nG76/euxZMMqM8in0GkWHcMdGLqmKft48kLq96sxPJ09gwbB
+          p7zFeaQLm5D2hqPKbz2KC0ciP4q6F8YrbggS40Fhh+S7JQb6b7zpaLTLkPLxpwF/
+          bUwwVT9xnjgWFO1WqRJQ4khscw+X3EXUayabUEEQ9IUuJfnrNMWcQYhlbqlXQiqU
+          EY2VO18nzDfsAI6L8suxfdMnG8lUTTHA67pwbkwC1vOD/nDBGbnpic4jMRyjVohn
+          +uv+WtnAE8ao+Pq0LPoyjlbVUw8I+UKC+f4G7hVUZ4I6kQxu0aCw3ov2cMEkUlMK
+          UgOskSBXLgmmoWWgvDuj0lsBWNhAvWHM1gsT5A0lKoKq1r8+Q+6V+Ky4z+eFfM4F
+          vHWAmmapAKDQ2RrUhu4pBoqPwSZdft+9+RrCwf7AmCx9dNJW2XxsFSOoXUKTqD7y
+          NOZ8TvRIWVHCxfOF
+          =YDFe
           -----END PGP MESSAGE-----
