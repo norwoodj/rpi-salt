@@ -1,8 +1,8 @@
 #!yaml|gpg
 
 hashbash:
-  backend-version: 21.0828.0
-  nginx-version: 21.0828.0
+  backend-version: 21.0828.1
+  nginx-version: 21.0828.1
 
   postgres-password: |
     -----BEGIN PGP MESSAGE-----
