@@ -1,8 +1,8 @@
 #!yaml|gpg
 
 stupidchess:
-  nginx-version: 20.0105.0
-  uwsgi-version: 19.1220.0
+  nginx-version: 21.0828.0
+  uwsgi-version: 21.0828.0
 
   mongo-password: |
     -----BEGIN PGP MESSAGE-----
