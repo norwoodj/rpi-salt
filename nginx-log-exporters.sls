@@ -14,10 +14,12 @@ prometheus-nginxlog-exporter:
 /etc/prometheus-nginxlog-exporter/hashbash-nginx-exporter.hcl:
   file.managed:
     - source: salt://files/etc/prometheus-nginxlog-exporter/hashbash-nginx-exporter.hcl
+    - makedirs: true
 
 /etc/prometheus-nginxlog-exporter/stupidchess-nginx-exporter.hcl:
   file.managed:
     - source: salt://files/etc/prometheus-nginxlog-exporter/stupidchess-nginx-exporter.hcl
+    - makedirs: true
 
 hashbash-nginx-exporter:
   service.running:
