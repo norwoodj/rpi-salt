@@ -1,7 +1,7 @@
 #!yaml|gpg
 
 stupidchess:
-  nginx-version: 21.0828.0
+  nginx-version: 21.1006.0
   uwsgi-version: 21.0828.0
 
   mongo-password: |
@@ -37,3 +37,10 @@ stupidchess:
     fM5t/g4I9KH7rJRa
     =tDUu
     -----END PGP MESSAGE-----
+
+users:
+  stupidchess:
+    password: '*' # http://arlimus.github.io/articles/usepam/
+    home: /opt/stupidchess
+    homedir_owner: stupidchess
+    shell: /sbin/nologin
