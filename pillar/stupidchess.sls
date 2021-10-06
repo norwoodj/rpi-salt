@@ -2,7 +2,7 @@
 
 stupidchess:
   nginx-version: 21.1006.0
-  uwsgi-version: 21.0828.0
+  uwsgi-version: 21.1006.0
 
   mongo-password: |
     -----BEGIN PGP MESSAGE-----

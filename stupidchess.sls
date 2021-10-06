@@ -4,6 +4,14 @@ install-stupidchess:
         - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/{{ pillar["stupidchess"]["nginx-version"] }}/stupidchess-nginx_{{ pillar["stupidchess"]["nginx-version"] }}_armhf.deb
         - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/{{ pillar["stupidchess"]["uwsgi-version"] }}/stupidchess-uwsgi_{{ pillar["stupidchess"]["uwsgi-version"] }}_armhf.deb
 
+/opt/venvs/stupidchess-uwsgi:
+  file.directory:
+    - user: stupidchess
+    - group: stupidchess
+    - recurse:
+      - user
+      - group
+
 stupidchess-app-secret-key:
   file.managed:
     - name: /opt/stupidchess/secrets/flask-app-secret-key
