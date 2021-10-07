@@ -1,8 +1,8 @@
 #!yaml|gpg
 
 hashbash:
-  backend-version: 21.0828.3
-  nginx-version: 21.0828.1
+  backend-version: 21.1007.0
+  nginx-version: 21.1006.0
 
   postgres-password: |
     -----BEGIN PGP MESSAGE-----
@@ -37,3 +37,10 @@ hashbash:
     FW+QnmyZf/OLt6XK
     =0Z5G
     -----END PGP MESSAGE-----
+
+users:
+  hashbash:
+    password: '*' # http://arlimus.github.io/articles/usepam/
+    home: /opt/hashbash
+    homedir_owner: hashbash
+    shell: /sbin/nologin
