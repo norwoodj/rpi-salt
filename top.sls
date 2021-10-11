@@ -19,6 +19,7 @@ base:
     - rpi-loadbalancer
 
   "*s*":
+    - secrets
     - hashbash
     - stupidchess
     - nginx-log-exporters

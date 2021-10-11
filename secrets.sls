@@ -1,0 +1,2 @@
+/opt/secrets:
+  file.directory: []
