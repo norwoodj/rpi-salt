@@ -2,7 +2,7 @@
 
 hashbash:
   backend-version: 21.1011.0
-  nginx-version: 21.1011.0
+  nginx-version: 21.1011.1
 
   postgres-password: |
     -----BEGIN PGP MESSAGE-----
@@ -41,6 +41,4 @@ hashbash:
 users:
   hashbash:
     password: '*' # http://arlimus.github.io/articles/usepam/
-    home: /opt/hashbash
-    homedir_owner: hashbash
     shell: /sbin/nologin
