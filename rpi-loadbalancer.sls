@@ -1,3 +1,13 @@
+/run/rpi-loadbalancer:
+  file.directory:
+    - user: loadbalancer
+    - group: loadbalancer
+
+/var/log/rpi-loadbalancer:
+  file.directory:
+    - user: loadbalancer
+    - group: loadbalancer
+
 install-rpi-loadbalancer:
   pkg.installed:
       - sources:
