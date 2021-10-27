@@ -1,5 +1,5 @@
 rpi-loadbalancer:
-  version: 21.1014.0
+  version: 21.1027.0
 
 users:
   loadbalancer:
