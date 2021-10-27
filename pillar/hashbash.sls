@@ -2,7 +2,7 @@
 
 hashbash:
   backend-version: 21.1027.0
-  nginx-version: 21.1027.0
+  nginx-version: 21.1027.1
 
   postgres-password: |
     -----BEGIN PGP MESSAGE-----

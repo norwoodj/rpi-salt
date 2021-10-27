@@ -1,8 +1,3 @@
-/run/stupidchess:
-  file.directory:
-    - user: stupidchess
-    - group: stupidchess
-
 /var/log/stupidchess:
   file.directory:
     - user: stupidchess

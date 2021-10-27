@@ -1,7 +1,7 @@
 #!yaml|gpg
 
 stupidchess:
-  nginx-version: 21.1027.0
+  nginx-version: 21.1027.1
   uwsgi-version: 21.1027.0
 
   mongo-password: |

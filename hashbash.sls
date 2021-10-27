@@ -1,8 +1,3 @@
-/run/hashbash:
-  file.directory:
-    - user: hashbash
-    - group: hashbash
-
 /var/log/hashbash:
   file.directory:
     - user: hashbash
