@@ -4,15 +4,13 @@ base:
     - git
     - sshd
     - oh-my-zsh
-
-  "*p*":
+    - ips
     - rpi-loadbalancer
     - mongo
     - grafana
     - rabbitmq
     - postgres
-
-  "*s*":
     - stupidchess
     - hashbash
     - nginx-log-exporters
+    - secrets
