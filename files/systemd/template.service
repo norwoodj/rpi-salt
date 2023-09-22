@@ -1,0 +1,80 @@
+[Unit]
+{%- if Description is defined %}
+Description={{ Description }}
+{%- endif %}
+
+{%- if After is defined %}
+After={{ After }}
+{%- endif %}
+
+{%- if Requires is defined %}
+  {%- for r in Requires %}
+Requires={{ r }}
+  {%- endfor %}
+{%- endif %}
+
+{%- if Wants is defined %}
+Wants={{ Wants }}
+{%- endif %}
+
+[Service]
+ExecStart={{ ExecStart }}
+User={{ User }}
+Group={{ Group }}
+Restart={{ Restart | default("always", true) }}
+Type={{ Type | default("simple", true) }}
+
+{%- if Sockets is defined %}
+  {%- for s in Sockets %}
+Sockets={{ s }}
+  {%- endfor %}
+{%- endif %}
+
+{%- if EnvironmentFile is defined %}
+EnvironmentFile={{ EnvironmentFile }}
+{%- endif %}
+
+{%- if Environment is defined %}
+  {%- for e in Environment %}
+Environment={{ e }}
+  {%- endfor %}
+{%- endif %}
+
+{%- if RuntimeDirectory is defined %}
+RuntimeDirectory={{ RuntimeDirectory }}
+{%- endif %}
+
+{%- if LimitFSIZE is defined %}
+LimitFSIZE={{ LimitFSIZE }}
+{%- endif %}
+
+{%- if LimitCPU is defined %}
+LimitCPU={{ LimitCPU }}
+{%- endif %}
+
+{%- if LimitAS is defined %}
+LimitAS={{ LimitAS }}
+{%- endif %}
+
+{%- if LimitNOFILE is defined %}
+LimitNOFILE={{ LimitNOFILE }}
+{%- endif %}
+
+{%- if LimitNPROC is defined %}
+LimitNPROC={{ LimitNPROC }}
+{%- endif %}
+
+{%- if LimitMEMLOCK is defined %}
+LimitMEMLOCK={{ LimitMEMLOCK }}
+{%- endif %}
+
+{%- if TasksMax is defined %}
+TasksMax={{ TasksMax }}
+{%- endif %}
+
+{%- if TasksAccounting is defined %}
+TasksAccounting={{ TasksAccounting }}
+{%- endif %}
+
+[Install]
+WantedBy=multi-user.target

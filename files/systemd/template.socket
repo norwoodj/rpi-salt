@@ -1,0 +1,21 @@
+[Unit]
+PartOf={{ PartOf }}
+{%- if Description %}
+Description={{ Description }}
+{%- endif %}
+
+[Socket]
+FileDescriptorName={{ FileDescriptorName }}
+SocketUser={{ SocketUser }}
+SocketGroup={{ SocketGroup }}
+
+{%- if Service is defined %}
+Service={{ Service }}
+{%- endif %}
+
+{%- for l in ListenStream %}
+ListenStream={{ l }}
+{%- endfor %}
+
+[Install]
+WantedBy=sockets.target

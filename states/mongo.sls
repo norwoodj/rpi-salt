@@ -35,7 +35,7 @@ mongodb-org:
     - source: salt://files/etc/mongod.conf
     - template: jinja
     - context:
-        bind_ip: {{ pillar["ips_by_service"]["mongodb"] }}
+        bind_ip: {{ pillar.ips_by_service.mongodb }}
 
 prometheus-mongodb-exporter:
   pkg.installed: []
@@ -46,7 +46,7 @@ mongo-exporter-config:
     - source: salt://files/etc/default/prometheus-mongodb-exporter
     - template: jinja
     - context:
-        ca_password: {{ pillar["mongo"]["ca_password"] }}
+        ca_password: {{ pillar.mongo.ca_password }}
 
 mongod:
   service.running:
@@ -59,7 +59,7 @@ mongod:
     - source: salt://files/script/mongo-create-ca.js
     - template: jinja
     - context:
-        ca_password: {{ pillar["mongo"]["ca_password"] }}
+        ca_password: {{ pillar.mongo.ca_password }}
 
 create-ca:
   cmd.run:
@@ -70,8 +70,8 @@ create-ca:
     - source: salt://files/script/mongo-create-users.js
     - template: jinja
     - context:
-        users: {{ pillar["mongo"]["users"] }}
+        users: {{ pillar.mongo.users }}
 
 create-users:
   cmd.run:
-    - name: mongo -u admin -p '{{ pillar["mongo"]["ca_password"] }}' 127.0.0.1/admin /tmp/mongo-create-users.js
+    - name: mongo -u admin -p '{{ pillar.mongo.ca_password }}' 127.0.0.1/admin /tmp/mongo-create-users.js

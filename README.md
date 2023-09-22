@@ -1,6 +1,5 @@
 Raspberry Pi Salt
 =================
-
 This project is a set of salt states and pillar configuration I use to set up my Raspberry
 Pi cluster. All of these start from a base [raspbian image](https://www.raspberrypi.org/downloads/raspbian/).
 
