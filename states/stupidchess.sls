@@ -47,20 +47,6 @@ stupidchess-nginx:
     - group: stupidchess
     - mode: 400
 
-/lib/systemd/system/stupidchess-uwsgi-local.socket:
-  file.managed:
-    - source: salt://files/systemd/template.socket
-    - template: jinja
-    - context:
-        PartOf: stupidchess-uwsgi.service
-        Description: stupidchess uwsgi socket
-        Service: stupidchess-uwsgi.service
-        FileDescriptorName: stupidchess-uwsgi-local
-        ListenStream:
-          - {{ pillar.ips_by_service.stupidchess }}:80
-        SocketUser: stupidchess
-        SocketGroup: stupidchess
-
 /lib/systemd/system/stupidchess-uwsgi.socket:
   file.managed:
     - source: salt://files/systemd/template.socket
@@ -83,7 +69,6 @@ stupidchess-nginx:
         After: syslog.target
         Requires:
           - stupidchess-uwsgi.socket
-          - stupidchess-uwsgi-local.socket
         Environment:
           - JCONFIGURE_ACTIVE_PROFILES=RPI
           - JCONFIGURE_CONFIG_DIRECTORIES=/etc/stupidchess/config
@@ -92,8 +77,7 @@ stupidchess-nginx:
         User: stupidchess
         Group: stupidchess
         Sockets:
-          - stupidchess-uwsgi
-          - stupidchess-uwsgi-local
+          - stupidchess-uwsgi.socket
         RuntimeDirectory: stupidchess
 
 /lib/systemd/system/stupidchess-nginx.service:
@@ -105,7 +89,7 @@ stupidchess-nginx:
         Type: forking
         PIDFile: /run/stupidchess-nginx/nginx.pid
         ExecStartPre: /usr/sbin/nginx -t -c /etc/stupidchess/nginx.conf
-        ExecStart: /usr/sbin/nginx -c /etc/stupidchess/nginx.conf -g "user stupidchess;"
+        ExecStart: /usr/sbin/nginx -c /etc/stupidchess/nginx.conf
         ExecReload: /usr/sbin/nginx -c /etc/stupidchess/nginx.conf -s reload
         ExecStop: /bin/kill -s QUIT $MAINPID
         User: stupidchess
@@ -113,4 +97,3 @@ stupidchess-nginx:
         LogsDirectory: stupidchess
         RuntimeDirectory: stupidchess-nginx
         PrivateTmp: true
-
