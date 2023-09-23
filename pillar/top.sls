@@ -1,11 +1,10 @@
 base:
   "*":
-    - users
+    - veintitres
     - git
     - sshd
     - oh-my-zsh
     - ips
-    - rpi-loadbalancer
     - mongo
     - grafana
     - rabbitmq

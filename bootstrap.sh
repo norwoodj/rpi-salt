@@ -15,7 +15,7 @@ fi
 sed -i 's|#file_client: remote|file_client: local|g' /etc/salt/minion
 
 # Setup the salt-minion to run remote git states
-if ! grep gitfs_remotes /etc/salt/minion; then
+if ! grep gitfs_remotes /etc/salt/minion > /dev/null; then
 	salt-pip install pygit2
 	cat >> /etc/salt/minion <<EOF
 
