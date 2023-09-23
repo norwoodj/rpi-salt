@@ -7,6 +7,7 @@ stupidchess-uwsgi:
     - watch:
         - file: /etc/stupidchess/config/flask-app-secret-key
         - file: /etc/stupidchess/config/mongo-password
+        - file: /etc/stupidchess/config/RPI.yaml
         - file: /lib/systemd/system/stupidchess-uwsgi.service
         - file: /lib/systemd/system/stupidchess-uwsgi.socket
         - pkg: stupidchess-uwsgi
@@ -21,6 +22,16 @@ stupidchess-nginx:
     - watch:
         - file: /lib/systemd/system/stupidchess-nginx.service
         - pkg: stupidchess-nginx
+
+/etc/stupidchess/config/RPI.yaml:
+  file.managed:
+    - source: salt://files/etc/stupidchess/config/RPI.yaml
+    - user: stupidchess
+    - group: stupidchess
+    - mode: 644
+    - template: jinja
+    - context:
+        mongo_host: mongodb.{{ pillar.hosts.base_internal_domain }}
 
 /etc/stupidchess/config/flask-app-secret-key:
    file.managed:

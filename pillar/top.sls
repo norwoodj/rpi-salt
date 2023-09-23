@@ -1,6 +1,7 @@
 base:
   "*":
     - veintitres
+    - hosts
     - git
     - sshd
     - oh-my-zsh

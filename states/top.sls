@@ -1,5 +1,6 @@
 base:
   "*":
+    - hosts
     - packages
     - users
     - oh-my-zsh
