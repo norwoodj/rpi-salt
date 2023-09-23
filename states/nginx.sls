@@ -7,7 +7,7 @@ nginx:
 # to bind to port 80
 allow-priveleged-ports:
   cmd.run:
-  - name: setcap 'cap_net_bind_service=+ep' /usr/sbin/nginx
+    - name: setcap 'cap_net_bind_service=+ep' /usr/sbin/nginx
 
 /var/log/nginx:
   file.directory:

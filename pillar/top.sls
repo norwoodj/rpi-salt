@@ -8,7 +8,6 @@ base:
     - ips
     - mongo
     - grafana
-    - rabbitmq
     - postgres
     - stupidchess
     - hashbash
