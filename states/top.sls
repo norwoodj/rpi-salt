@@ -14,7 +14,7 @@ base:
     - postgres
     - prometheus
     - rabbitmq
-    - rpi-loadbalancer
+    - nginx
     - secrets
     - hashbash
     - stupidchess

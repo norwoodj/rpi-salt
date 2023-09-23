@@ -1,3 +1,27 @@
+stupidchess-uwsgi:
+  pkg.installed:
+    - sources:
+        - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/{{ pillar["stupidchess"]["uwsgi-version"] }}/stupidchess-uwsgi_{{ pillar["stupidchess"]["uwsgi-version"] }}_{{ grains.osarch }}.deb
+
+  service.running:
+    - watch:
+        - file: /etc/stupidchess/config/flask-app-secret-key
+        - file: /etc/stupidchess/config/mongo-password
+        - file: /lib/systemd/system/stupidchess-uwsgi.service
+        - file: /lib/systemd/system/stupidchess-uwsgi.socket
+        - pkg: stupidchess-uwsgi
+
+stupidchess-nginx:
+  pkg.installed:
+    - sources:
+        - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/{{ pillar["stupidchess"]["nginx-version"] }}/stupidchess-nginx_{{ pillar["stupidchess"]["nginx-version"] }}_{{ grains.osarch }}.deb
+
+  service.running:
+    - reload: true
+    - watch:
+        - file: /lib/systemd/system/stupidchess-nginx.service
+        - pkg: stupidchess-nginx
+
 /etc/stupidchess/config/flask-app-secret-key:
    file.managed:
      - contents: {{ pillar.stupidchess.flask_app_secret_key }}
@@ -61,7 +85,21 @@
           - stupidchess-uwsgi-local
         RuntimeDirectory: stupidchess
 
-stupidchess-uwsgi:
-  service.running:
-    - watch:
-        - file: /lib/systemd/system/stupidchess-uwsgi.service
+/lib/systemd/system/stupidchess-nginx.service:
+  file.managed:
+    - source: salt://files/systemd/template.service
+    - template: jinja
+    - context:
+        Description: stupidchess nginx and frontend code
+        Type: forking
+        PIDFile: /run/stupidchess-nginx/nginx.pid
+        ExecStartPre: /usr/sbin/nginx -t -c /etc/stupidchess/nginx.conf
+        ExecStart: /usr/sbin/nginx -c /etc/stupidchess/nginx.conf -g "user stupidchess;"
+        ExecReload: /usr/sbin/nginx -c /etc/stupidchess/nginx.conf -s reload
+        ExecStop: /bin/kill -s QUIT $MAINPID
+        User: stupidchess
+        Group: stupidchess
+        LogsDirectory: stupidchess
+        RuntimeDirectory: stupidchess-nginx
+        PrivateTmp: true
+

@@ -24,6 +24,18 @@ Group={{ Group }}
 Restart={{ Restart | default("always", true) }}
 Type={{ Type | default("simple", true) }}
 
+{%- if ExecStartPre is defined %}
+ExecStartPre={{ ExecStartPre }}
+{%- endif %}
+
+{%- if ExecReload is defined %}
+ExecReload={{ ExecReload }}
+{%- endif %}
+
+{%- if ExecStop is defined %}
+ExecStop={{ ExecStop }}
+{%- endif %}
+
 {%- if Sockets is defined %}
   {%- for s in Sockets %}
 Sockets={{ s }}
@@ -38,6 +50,18 @@ EnvironmentFile={{ EnvironmentFile }}
   {%- for e in Environment %}
 Environment={{ e }}
   {%- endfor %}
+{%- endif %}
+
+{%- if PIDFile is defined %}
+PIDFile={{ PIDFile }}
+{%- endif %}
+
+{%- if PrivateTmp is defined %}
+PrivateTmp={{ PrivateTmp }}
+{%- endif %}
+
+{%- if LogsDirectory is defined %}
+LogsDirectory={{ LogsDirectory }}
 {%- endif %}
 
 {%- if RuntimeDirectory is defined %}
