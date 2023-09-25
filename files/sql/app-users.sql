@@ -1,9 +1,9 @@
-{% for u in app_users %}
+{% for username, config in app_users.items() %}
 
-CREATE DATABASE {{ u["database"] }};
+CREATE DATABASE {{ config["database"] }};
 
-CREATE USER "{{ u['username'] }}" WITH PASSWORD '{{ u["password"] }}';
+CREATE USER "{{ username }}" WITH PASSWORD '{{ config["password"] }}';
 
-GRANT ALL ON DATABASE {{ u["database"] }} TO "{{ u['username'] }}";
+GRANT ALL ON DATABASE {{ config["database"] }} TO "{{ username }}";
 
 {% endfor %}

@@ -13,3 +13,11 @@ rabbitmq:
     hashbash:
       - username: hashbash-rw
         password: best-day-ever
+
+postgres:
+  app_users:
+    hashbash-rw:
+      password: best-day-ever
+
+  exporter:
+    password: postgres-exporter-password

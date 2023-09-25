@@ -1,26 +1,31 @@
-postgres:
+postgresql:
   pkg.installed:
-    - pkgs:
-        - postgresql
-        - prometheus-postgres-exporter
+    - version: {{ pillar.postgres.version }}
 
-postgres-config:
+  service.running:
+    - watch:
+      - file: /etc/postgresql/14/main/postgresql.conf
+      - file: /etc/postgresql/14/main/pg_hba.conf
+
+postgresql-conf:
   file.managed:
-    - name: /etc/postgresql/11/main/postgresql.conf
-    - source: salt://files/etc/postgresql/11/main/postgresql.conf
+    - name: /etc/postgresql/14/main/postgresql.conf
+    - source: salt://files/etc/postgresql/14/main/postgresql.conf
 
-postgres-net-config:
+postgresql-net-conf:
   file.managed:
-    - name: /etc/postgresql/11/main/pg_hba.conf
-    - source: salt://files/etc/postgresql/11/main/pg_hba.conf
+    - name: /etc/postgresql/14/main/pg_hba.conf
+    - source: salt://files/etc/postgresql/14/main/pg_hba.conf
 
-postgres-exporter-config:
+prometheus-postgres-exporter:
+  pkg.installed: []
+
   file.managed:
     - name: /etc/default/prometheus-postgres-exporter
     - source: salt://files/etc/default/prometheus-postgres-exporter
     - template: jinja
     - context:
-        db_password: {{ pillar["postgres"]["exporter"]["password"] }}
+        db_password: {{ pillar.postgres.exporter.password }}
 
 postgres-exporter-user:
   file.managed:
@@ -40,7 +45,7 @@ postgres-app-users:
     - source: salt://files/sql/app-users.sql
     - template: jinja
     - context:
-        app_users: {{ pillar["postgres"]["app-users"] }}
+        app_users: {{ pillar.postgres.app_users }}
 
   cmd.run:
     - name: psql --file=/tmp/app-users.sql

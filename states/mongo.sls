@@ -21,7 +21,7 @@ mongodb-org:
     - key_url: https://www.mongodb.org/static/pgp/server-4.4.asc
 
   pkg.installed:
-    - version: 4.4.24
+    - version: {{ pillar.mongo.version }}
 
 /data/mongodb:
   file.directory:
