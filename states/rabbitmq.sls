@@ -9,11 +9,6 @@ enable-management:
   cmd.run:
     - name: rabbitmq-plugins enable rabbitmq_management
 
-# This is to allow the management server to bind to port 80
-allow-priveleged-ports:
-  cmd.run:
-    - name: setcap 'cap_net_bind_service=+ep' /usr/lib/erlang/erts-12.2.1/bin/beam.smp
-
 /etc/rabbitmq/rabbitmq.conf:
   file.managed:
     - source: salt://files/etc/rabbitmq/rabbitmq.conf
@@ -22,7 +17,7 @@ allow-priveleged-ports:
     - mode: 644
     - template: jinja
     - context:
-        bind_ip: {{ pillar.ips_by_service.rabbitmq }}
+        rabbitmq_host: {{ pillar.network.instance_ip }}
 
 rabbitmq-users:
   file.managed:

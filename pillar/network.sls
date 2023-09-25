@@ -19,4 +19,5 @@ network:
   hosts:
     - mongodb
     - postgres
+    - rabbitmq
     - stupidchess
