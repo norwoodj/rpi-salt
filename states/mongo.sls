@@ -35,7 +35,8 @@ mongodb-org:
     - source: salt://files/etc/mongod.conf
     - template: jinja
     - context:
-        bind_ip: {{ pillar.ips_by_service.mongodb }}
+        bind_host: mongodb
+        unix_socket_directory: {{ pillar.mongo.unix_socket_directory }}
 
 prometheus-mongodb-exporter:
   pkg.installed: []
@@ -63,7 +64,7 @@ mongod:
 
 create-ca:
   cmd.run:
-    - name: mongo admin /tmp/mongo-create-ca.js || true
+    - name: mongo --host mongodb admin /tmp/mongo-create-ca.js || true
 
 /tmp/mongo-create-users.js:
   file.managed:
@@ -74,4 +75,4 @@ create-ca:
 
 create-users:
   cmd.run:
-    - name: mongo -u admin -p '{{ pillar.mongo.ca_password }}' 127.0.0.1/admin /tmp/mongo-create-users.js
+    - name: mongo -u admin -p '{{ pillar.mongo.ca_password }}' --host mongodb admin /tmp/mongo-create-users.js

@@ -31,7 +31,7 @@ stupidchess-nginx:
     - mode: 644
     - template: jinja
     - context:
-        mongo_host: mongodb.{{ pillar.hosts.base_internal_domain }}
+        mongo_host: mongodb
 
 /etc/stupidchess/config/flask-app-secret-key:
    file.managed:

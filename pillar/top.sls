@@ -1,11 +1,12 @@
 base:
-  "*":
+  "0p0":
     - veintitres
-    - hosts
+
+  "*":
     - git
     - sshd
     - oh-my-zsh
-    - ips
+    - network
     - mongo
     - grafana
     - postgres

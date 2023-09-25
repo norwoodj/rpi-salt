@@ -1,0 +1,10 @@
+[Match]
+Name={{ Match.Name }}
+
+{%- if Network is defined %}
+
+[Network]
+  {%- if Network.Address is defined %}
+Address={{ Network.Address }}
+  {%- endif %}
+{%- endif %}

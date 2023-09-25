@@ -1,6 +1,5 @@
 # Only create the main user on raspberry pis. My personal machines will already
 # have this user
-{% if grains.osarch == "armhf" %}
 users:
   veintitres:
     groups:
@@ -14,4 +13,3 @@ users:
     sudouser: True
     sudo_rules:
       - "ALL=(root) NOPASSWD:ALL"
-{% endif %}

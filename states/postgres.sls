@@ -11,11 +11,18 @@ postgresql-conf:
   file.managed:
     - name: /etc/postgresql/14/main/postgresql.conf
     - source: salt://files/etc/postgresql/14/main/postgresql.conf
+    - template: jinja
+    - context:
+        bind_host: {{ pillar.postgres.bind_host }}
+        unix_socket_directory: {{ pillar.postgres.unix_socket_directory }}
 
 postgresql-net-conf:
   file.managed:
     - name: /etc/postgresql/14/main/pg_hba.conf
     - source: salt://files/etc/postgresql/14/main/pg_hba.conf
+    - template: jinja
+    - context:
+        instance_ip: {{ pillar.network.instance_ip }}
 
 prometheus-postgres-exporter:
   pkg.installed: []
@@ -33,7 +40,7 @@ postgres-exporter-user:
     - source: salt://files/sql/postgres-exporter.sql
     - template: jinja
     - context:
-        db_password: {{ pillar["postgres"]["exporter"]["password"] }}
+        db_password: {{ pillar.postgres.exporter.password }}
 
   cmd.run:
     - name: psql --file=/tmp/postgres-exporter.sql

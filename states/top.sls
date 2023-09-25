@@ -1,6 +1,5 @@
 base:
   "*":
-    - hosts
     - packages
     - users
     - oh-my-zsh
@@ -12,6 +11,7 @@ base:
     - git-access
     - grafana
     - mongo
+    - network
     - postgres
     - prometheus
     - rabbitmq
