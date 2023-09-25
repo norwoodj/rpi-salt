@@ -41,9 +41,8 @@ mongodb-org:
 prometheus-mongodb-exporter:
   pkg.installed: []
 
-mongo-exporter-config:
+/etc/default/prometheus-mongodb-exporter:
   file.managed:
-    - name: /etc/default/prometheus-mongodb-exporter
     - source: salt://files/etc/default/prometheus-mongodb-exporter
     - template: jinja
     - context:
