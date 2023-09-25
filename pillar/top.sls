@@ -8,7 +8,6 @@ base:
     - oh-my-zsh
     - network
     - mongo
-    - grafana
     - postgres
     - stupidchess
     - hashbash

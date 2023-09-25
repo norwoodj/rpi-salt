@@ -17,8 +17,11 @@ network:
   base_domain: {{ instance }}.{{ datacenter }}.jmn23.internal
   instance_ip: {{ instance_ip | yaml_dquote }}
   hosts:
+    - grafana
+    - hashbash
     - mongodb
     - postgres
+    - prometheus
     - rabbitmq
     - rpi-loadbalancer
     - stupidchess

@@ -1,22 +1,23 @@
 base:
-  "*":
-    - packages
-    - users
+  "0p0":
     - oh-my-zsh
     - openssh
     - openssh.config
     - remove-pi
-    - motd
-    - build-tools
     - git-access
-    - grafana
-    - mongo
     - network
-    - postgres
+    - grafana
     - prometheus
+    - mongo
+    - postgres
     - rabbitmq
     - nginx
-    - secrets
     - hashbash
     - stupidchess
+    - rpi-loadbalancer
     - nginx-log-exporters
+
+  "*":
+    - packages
+    - users
+    - build-tools

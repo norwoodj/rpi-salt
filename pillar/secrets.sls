@@ -1,3 +1,7 @@
+grafana:
+  admin_password: password
+  secret_key: please-change-me
+
 mongo:
   ca_password: password
   users:
@@ -11,8 +15,7 @@ rabbitmq:
   admin_password: password
   vhosts:
     hashbash:
-      - username: hashbash-rw
-        password: best-day-ever
+      hashbash-rw: best-day-ever
 
 postgres:
   app_users:

@@ -5,13 +5,14 @@ grafana:
         sudo dpkg -i grafana-rpi_6.5.2_armhf.deb
     - creates: /etc/grafana/grafana.ini
 
+/etc/grafana/grafana.ini:
   file.managed:
-    - name: /etc/grafana/grafana.ini
     - source: salt://files/etc/grafana/grafana.ini
     - template: jinja
     - context:
-        admin_password: {{ pillar["grafana"]["admin-password"] }}
-        secret_key: {{ pillar["grafana"]["secret-key"] }}
+        admin_password: {{ pillar.grafana.admin_password }}
+        secret_key: {{ pillar.grafana.secret_key }}
+        dashboards_directory: {{ pillar.grafana.secret_key }}
 
 grafana-server:
   service.running:

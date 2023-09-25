@@ -1,8 +1,11 @@
-packages:
-  pkg.installed:
-    - pkgs:
-        - prometheus
+prometheus:
+  pkg.installed: []
 
+  service.running:
+    - watch:
+        - pkg: prometheus
+        - file: /etc/prometheus/prometheus.yml
+
+/etc/prometheus/prometheus.yml:
   file.managed:
-    - name: /etc/prometheus/prometheus.yml
     - source: salt://files/etc/prometheus/prometheus.yaml

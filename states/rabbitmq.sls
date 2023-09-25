@@ -23,6 +23,7 @@ rabbitmq-users:
   file.managed:
     - name: /tmp/rabbitmq-users.sh
     - source: salt://files/script/rabbitmq-users.sh
+    - mode: 744
     - template: jinja
     - context:
         admin_password: {{ pillar.rabbitmq.admin_password }}
