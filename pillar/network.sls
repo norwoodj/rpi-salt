@@ -20,4 +20,5 @@ network:
     - mongodb
     - postgres
     - rabbitmq
+    - rpi-loadbalancer
     - stupidchess
