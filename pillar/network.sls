@@ -14,7 +14,8 @@
 {%- set instance_ip = "10.{}.0.{}".format(datacenter, instance) %}
 
 network:
-  base_domain: jmn23.internal
+  internal_base_domain: jmn23.internal
+  public_base_domain: jmn23.com
   instance_ip: {{ instance_ip | yaml_dquote }}
   hosts:
     - bolas

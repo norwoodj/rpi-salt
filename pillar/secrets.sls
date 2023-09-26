@@ -24,3 +24,9 @@ postgres:
 
   exporter:
     password: postgres-exporter-password
+
+tunnels:
+  account_tag: FILL_THIS_IN
+  instances:
+    12d87c41-7480-4870-acf3-5e56fb14aa90:
+      secret: FILL_THIS_IN

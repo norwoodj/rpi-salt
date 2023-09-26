@@ -45,6 +45,7 @@ install-hashbash-nginx:
           - hashbash-engine-management.socket
           - postgresql.service
         ExecStart: /usr/bin/hashbash-engine
+        RestartSec: 5s
         User: hashbash
         Group: hashbash
         EnvironmentFile: /etc/hashbash/hashbash.env
@@ -93,6 +94,7 @@ install-hashbash-nginx:
           - hashbash-webapp.socket
           - hashbash-webapp-management.socket
           - postgresql.service
+        RestartSec: 5s
         ExecStart: /usr/bin/hashbash-webapp
         Type: simple
         EnvironmentFile: /etc/hashbash/hashbash.env

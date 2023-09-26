@@ -13,5 +13,5 @@ dnsmasq:
     - template: jinja
     - context:
         listen_ip: {{ pillar.network.instance_ip }}
-        base_domain: {{ pillar.network.base_domain }}
+        base_domain: {{ pillar.network.internal_base_domain }}
         

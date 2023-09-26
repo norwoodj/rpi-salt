@@ -17,3 +17,23 @@ After you've set up the instances, you're going to ssh into the master, mine's c
 ssh rp4-sma-mon-rmq-000
 sudo salt "*" state.show_top
 ```
+
+## Generating the tunnels
+* Create the tunnel. I use the instance name (0p0 or 255p0) for the tunnel name
+```
+cloudflared tunnel create <tunnel_name>
+```
+
+This will yield a credentials file stored at `$HOME/.cloudflared/<tunnel_id>.json`.
+You will need to pull the tunnel_secret from this file to fill out `secrets.sls`
+
+To create the routes to that tunnel
+```
+# DNS routes
+cloudflared tunnel route dns <tunnel_name> bolas.jmn23.com
+cloudflared tunnel route dns <tunnel_name> hashbash.jmn23.com
+cloudflared tunnel route dns <tunnel_name> stupidchess.jmn23.com
+
+# Private Network
+cloudflared tunnel route ip add <node_ip>/32 <tunnel_name>
+```

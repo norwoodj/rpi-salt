@@ -1,14 +1,15 @@
 base:
   "*":
+    - packages
     - users
-    - git-access
     - network
-    - grafana
     - prometheus
+    - grafana
     - mongo
     - postgres
     - rabbitmq
     - nginx
+    - tunnels
     - bolas
     - hashbash
     - stupidchess
@@ -16,8 +17,8 @@ base:
 
   "0p0":
     - remove-pi
+    - git-access
     - oh-my-zsh
     - openssh
     - openssh.config
-    - packages
     - build-tools

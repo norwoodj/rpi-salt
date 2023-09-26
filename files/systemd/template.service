@@ -20,11 +20,15 @@ Wants={{ Wants }}
 {%- endif %}
 
 [Service]
+Type={{ Type | default("simple", true) }}
 ExecStart={{ ExecStart }}
 User={{ User }}
 Group={{ Group }}
 Restart={{ Restart | default("always", true) }}
-Type={{ Type | default("simple", true) }}
+
+{%- if RestartSec is defined %}
+RestartSec={{ RestartSec }}
+{%- endif %}
 
 {%- if ExecStartPre is defined %}
 ExecStartPre={{ ExecStartPre }}
@@ -56,6 +60,10 @@ Environment={{ e }}
 
 {%- if PIDFile is defined %}
 PIDFile={{ PIDFile }}
+{%- endif %}
+
+{%- if TimeoutStartSec is defined %}
+TimeoutStartSec={{ TimeoutStartSec }}
 {%- endif %}
 
 {%- if PrivateTmp is defined %}

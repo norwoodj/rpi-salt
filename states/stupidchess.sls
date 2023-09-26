@@ -1,7 +1,7 @@
 stupidchess-uwsgi:
   pkg.installed:
     - sources:
-        - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/{{ pillar.stupidchess["uwsgi-version"] }}/stupidchess-uwsgi_{{ pillar["stupidchess"]["uwsgi-version"] }}_{{ grains.osarch }}.deb
+        - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/{{ pillar.stupidchess.uwsgi_version }}/stupidchess-uwsgi_{{ pillar.stupidchess.uwsgi_version }}_{{ grains.osarch }}.deb
 
   service.running:
     - watch:
@@ -15,7 +15,7 @@ stupidchess-uwsgi:
 stupidchess-nginx:
   pkg.installed:
     - sources:
-        - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/{{ pillar.stupidchess["nginx-version"] }}/stupidchess-nginx_{{ pillar["stupidchess"]["nginx-version"] }}_{{ grains.osarch }}.deb
+        - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/{{ pillar.stupidchess.nginx_version }}/stupidchess-nginx_{{ pillar.stupidchess.nginx_version }}_{{ grains.osarch }}.deb
 
   service.running:
     - reload: true
@@ -52,6 +52,8 @@ stupidchess-nginx:
     - source: salt://files/systemd/template.socket
     - template: jinja
     - context:
+        After:
+          - network.target
         PartOf: stupidchess-uwsgi.service
         Description: stupidchess uwsgi socket
         FileDescriptorName: stupidchess-uwsgi
@@ -85,6 +87,8 @@ stupidchess-nginx:
     - source: salt://files/systemd/template.service
     - template: jinja
     - context:
+        After:
+          - network.target
         Description: stupidchess nginx and frontend code
         Type: forking
         PIDFile: /run/stupidchess-nginx/nginx.pid

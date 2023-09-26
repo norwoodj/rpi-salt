@@ -2,6 +2,9 @@
   file.managed:
     - source: salt://files/etc/rpi-loadbalancer/nginx.conf
     - makedirs: true
+    - template: jinja
+    - context:
+        internal_base_domain: {{ pillar.network.internal_base_domain }}
 
 /lib/systemd/system/rpi-loadbalancer.service:
   file.managed:

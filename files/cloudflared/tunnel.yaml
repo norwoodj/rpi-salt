@@ -1,0 +1,16 @@
+credentials-file: {{ credentials_file }}
+tunnel: {{ tunnel_id }}
+
+{%- if private_network %}
+warp-routing:
+  enabled: true
+{%- endif %}
+
+ingress:
+{%- if hostnames is defined %}
+  {%- for hostname, service in hostnames.items() %}
+  - hostname: {{ hostname }}
+    service: {{ service }}
+  {%- endfor  %}
+{%- endif %}
+  - service: http_status:404

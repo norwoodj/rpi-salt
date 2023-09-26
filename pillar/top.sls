@@ -9,6 +9,7 @@ base:
     - network
     - mongo
     - postgres
+    - tunnels
     - bolas
     - hashbash
     - stupidchess
