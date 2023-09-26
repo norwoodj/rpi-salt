@@ -12,6 +12,5 @@ base:
     - bolas
     - hashbash
     - stupidchess
-    - nginx-log-exporters
     - rpi-loadbalancer
     - secrets

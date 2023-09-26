@@ -1,9 +1,6 @@
 base:
-  "0p0":
-    - oh-my-zsh
-    - openssh
-    - openssh.config
-    - remove-pi
+  "*":
+    - users
     - git-access
     - network
     - grafana
@@ -16,9 +13,11 @@ base:
     - hashbash
     - stupidchess
     - rpi-loadbalancer
-    - nginx-log-exporters
 
-  "*":
+  "0p0":
+    - remove-pi
+    - oh-my-zsh
+    - openssh
+    - openssh.config
     - packages
-    - users
     - build-tools
