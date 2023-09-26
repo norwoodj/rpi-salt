@@ -6,8 +6,18 @@ Description={{ Description }}
 
 [Socket]
 FileDescriptorName={{ FileDescriptorName }}
+
+{%- if SocketUser is defined %}
 SocketUser={{ SocketUser }}
+{%- endif %}
+
+{%- if SocketGroup is defined %}
 SocketGroup={{ SocketGroup }}
+{%- endif %}
+
+{%- if SocketMode is defined %}
+SocketMode={{ SocketMode }}
+{%- endif %}
 
 {%- if Service is defined %}
 Service={{ Service }}

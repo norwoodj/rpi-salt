@@ -28,6 +28,7 @@ bolas:
         FileDescriptorName: bolas
         ListenStream:
           - /run/bolas/bolas.sock
+        SocketMode: 660
         SocketUser: bolas
         SocketGroup: bolas
 

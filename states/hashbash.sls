@@ -32,8 +32,6 @@ install-hashbash-nginx:
         BindIPv6Only: both
         FileDescriptorName: hashbash-engine-management
         Service: hashbash-engine.service
-        SocketUser: hashbash
-        SocketGroup: hashbash
 
 /lib/systemd/system/hashbash-engine.service:
   file.managed:
@@ -67,8 +65,6 @@ install-hashbash-nginx:
         BindIPv6Only: both
         FileDescriptorName: hashbash-webapp-management
         Service: hashbash-webapp.service
-        SocketUser: hashbash
-        SocketGroup: hashbash
 
 /lib/systemd/system/hashbash-webapp.socket:
   file.managed:
@@ -81,6 +77,7 @@ install-hashbash-nginx:
           - /run/hashbash/webapp.sock
         FileDescriptorName: hashbash-webapp
         Service: hashbash-webapp.service
+        SocketMode: 660
         SocketUser: hashbash
         SocketGroup: hashbash
 

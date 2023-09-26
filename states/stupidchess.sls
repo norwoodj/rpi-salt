@@ -57,6 +57,7 @@ stupidchess-nginx:
         FileDescriptorName: stupidchess-uwsgi
         ListenStream:
           - /run/stupidchess/uwsgi.sock
+        SocketMode: 660
         SocketUser: stupidchess
         SocketGroup: stupidchess
 

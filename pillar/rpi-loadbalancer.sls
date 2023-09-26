@@ -4,4 +4,5 @@ users:
     password: '*' # http://arlimus.github.io/articles/usepam/
     shell: /sbin/nologin
     groups:
+      - bolas
       - grafana
