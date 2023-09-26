@@ -1,5 +1,5 @@
 db.createUser({
-	user: "admin",
+	user: "{{ ca_username }}",
 	pwd: "{{ ca_password }}",
 	roles: [
 		"dbAdminAnyDatabase",

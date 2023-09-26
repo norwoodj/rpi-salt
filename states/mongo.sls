@@ -28,7 +28,7 @@ mongodb-org:
     - user: mongodb
     - group: mongodb
     - mode: 744
-    - makedirs: True
+    - makedirs: true
 
 /etc/mongod.conf:
   file.managed:
@@ -41,16 +41,22 @@ mongodb-org:
 prometheus-mongodb-exporter:
   pkg.installed: []
 
+  service.running:
+    - enable: true
+    - watch:
+        - file: /etc/default/prometheus-mongodb-exporter
+
 /etc/default/prometheus-mongodb-exporter:
   file.managed:
     - source: salt://files/etc/default/prometheus-mongodb-exporter
     - template: jinja
     - context:
+        ca_username: {{ pillar.mongo.ca_username }}
         ca_password: {{ pillar.mongo.ca_password }}
 
 mongod:
   service.running:
-    - enable: True
+    - enable: true
     - watch:
         - file: /etc/mongod.conf
 
@@ -59,6 +65,7 @@ mongod:
     - source: salt://files/script/mongo-create-ca.js
     - template: jinja
     - context:
+        ca_username: {{ pillar.mongo.ca_username }}
         ca_password: {{ pillar.mongo.ca_password }}
 
 create-ca:

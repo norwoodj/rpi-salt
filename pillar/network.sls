@@ -20,6 +20,7 @@ network:
     - grafana
     - hashbash
     - mongodb
+    - node-exporter
     - postgres
     - prometheus
     - rabbitmq
