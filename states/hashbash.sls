@@ -40,9 +40,12 @@ install-hashbash-nginx:
     - source: salt://files/systemd/template.service
     - template: jinja
     - context:
+        After: 
+          - postgresql.service
         Description: hashbash engine service
         Requires:
           - hashbash-engine-management.socket
+          - postgresql.service
         ExecStart: /usr/bin/hashbash-engine
         User: hashbash
         Group: hashbash
@@ -86,10 +89,13 @@ install-hashbash-nginx:
     - source: salt://files/systemd/template.service
     - template: jinja
     - context:
+        After:
+          - postgresql.service
         Description: hashbash webapp service
         Requires:
           - hashbash-webapp.socket
           - hashbash-webapp-management.socket
+          - postgresql.service
         ExecStart: /usr/bin/hashbash-webapp
         Type: simple
         EnvironmentFile: /etc/hashbash/hashbash.env

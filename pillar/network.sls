@@ -17,6 +17,7 @@ network:
   base_domain: {{ instance }}.{{ datacenter }}.jmn23.internal
   instance_ip: {{ instance_ip | yaml_dquote }}
   hosts:
+    - bolas
     - grafana
     - hashbash
     - mongodb

@@ -4,7 +4,9 @@ Description={{ Description }}
 {%- endif %}
 
 {%- if After is defined %}
-After={{ After }}
+  {%- for a in After %}
+After={{ a }}
+  {%- endfor %}
 {%- endif %}
 
 {%- if Requires is defined %}

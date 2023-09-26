@@ -9,8 +9,9 @@ base:
     - network
     - mongo
     - postgres
-    - stupidchess
+    - bolas
     - hashbash
+    - stupidchess
     - nginx-log-exporters
     - rpi-loadbalancer
     - secrets

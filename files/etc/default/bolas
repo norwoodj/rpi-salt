@@ -1,0 +1,11 @@
+# default command-line args for bolas. Available options:
+# 	Usage: bolas [OPTIONS] --static-file-path <STATIC_FILE_PATH>
+# 	
+# 	Options:
+# 	  -s, --static-file-path <STATIC_FILE_PATH>  Path to folder containing static files to be served
+# 	      --systemd-names <SYSTEMD_NAMES>        List of Systemd file descriptor names to listen on
+# 	      --tcp-addrs <TCP_ADDRS>                List of TCP addresses to listen for http on
+# 	      --unix-addrs <UNIX_ADDRS>              List of Unix socket addresses to listen for http on
+# 	  -h, --help                                 Print help
+# 	  -V, --version                              Print version
+ARGS="--static-file-path=/etc/bolas/static --systemd-names=bolas"

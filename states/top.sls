@@ -12,6 +12,7 @@ base:
     - postgres
     - rabbitmq
     - nginx
+    - bolas
     - hashbash
     - stupidchess
     - rpi-loadbalancer
