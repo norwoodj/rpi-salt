@@ -1,9 +1,6 @@
-#!yaml|gpg
-
 hashbash:
-  backend_version: 21.1027.0
-  nginx_version: 2023.9.0
-
+  backend_version: 2023.9.2
+  nginx_version: 2023.9.1
 
 users:
   hashbash:

@@ -66,7 +66,6 @@ stupidchess-nginx:
     - template: jinja
     - context:
         Description: stupidchess uwsgi server
-        After: syslog.target
         Requires:
           - stupidchess-uwsgi.socket
         Environment:

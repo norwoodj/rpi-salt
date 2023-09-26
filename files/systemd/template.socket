@@ -13,6 +13,10 @@ SocketGroup={{ SocketGroup }}
 Service={{ Service }}
 {%- endif %}
 
+{%- if BindIPv6Only is defined %}
+BindIPv6Only={{ BindIPv6Only }}
+{%- endif %}
+
 {%- for l in ListenStream %}
 ListenStream={{ l }}
 {%- endfor %}
