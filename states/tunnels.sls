@@ -3,6 +3,37 @@ cloudflared:
     - sources:
         - cloudflared: https://github.com/cloudflare/cloudflared/releases/download/{{ pillar.tunnels.version }}/cloudflared-linux-{{ grains.osarch }}.deb
 
+{%- set tunnel_services = [] %}
+{%- for tunnel_id in pillar.tunnels.instances.keys() %}
+  {%- do tunnel_services.append("tunnel-{}.service".format(tunnel_id)) %}
+{%- endfor %}
+
+/lib/systemd/system/cloudflared-update.service:
+  file.managed:
+    - source: salt://files/systemd/template.service
+    - template: jinja
+    - context:
+        Description: Update cloudflared
+        After:
+          - network.target
+        ExecStart: /bin/bash -c '/usr/bin/cloudflared update; code=$?; if [ $code -eq 11 ]; then systemctl restart {{ tunnel_services | join(" ") }}; exit 0; fi; exit $code'
+
+/lib/systemd/system/cloudflared-update.timer:
+  file.managed:
+    - source: salt://files/systemd/template.timer
+    - template: jinja
+    - context:
+        Description: Update cloudflared
+        OnCalendar: daily
+        WantedBy: timers.target
+
+cloudflared-update.timer:
+  service.running:
+    - enable: true
+    - watch:
+        - file: /lib/systemd/system/cloudflared-update.service
+        - file: /lib/systemd/system/cloudflared-update.timer
+
 {%- for tunnel_id, config in pillar.tunnels.instances.items() %}
 
 /etc/cloudflared/{{ tunnel_id }}-credentials.json:

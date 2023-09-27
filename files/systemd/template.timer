@@ -1,0 +1,10 @@
+[Unit]
+{%- if Description is defined %}
+Description={{ Description }}
+{%- endif %}
+
+[Timer]
+OnCalendar={{ OnCalendar }}
+
+[Install]
+WantedBy=timers.target

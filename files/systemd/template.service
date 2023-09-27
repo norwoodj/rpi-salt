@@ -22,8 +22,8 @@ Wants={{ Wants }}
 [Service]
 Type={{ Type | default("simple", true) }}
 ExecStart={{ ExecStart }}
-User={{ User }}
-Group={{ Group }}
+User={{ User | default("root", true) }}
+Group={{ Group | default("root", true) }}
 Restart={{ Restart | default("always", true) }}
 
 {%- if RestartSec is defined %}
