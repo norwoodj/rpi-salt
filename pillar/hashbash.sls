@@ -1,6 +1,6 @@
 hashbash:
   backend_version: 2023.9.2
-  nginx_version: 2023.9.1
+  nginx_version: 2023.9.2
 
 users:
   hashbash:
