@@ -9,21 +9,24 @@ scrape_configs:
       - targets:
           - node-exporter:9100
 
-  # hashbash-engine
+  - job_name: cloudflared
+    static_configs:
+      - targets:
+          - tunnel:2323
+
   - job_name: hashbash-engine
     metrics_path: /metrics
     static_configs:
       - targets:
           - hashbash:8082
 
-  # hashbash-webapp
   - job_name: hashbash-webapp
     metrics_path: /metrics
     static_configs:
       - targets:
           - hashbash:8081
 
-  # prometheus server
+  # prometheus server itself
   - job_name: prometheus
     static_configs:
       - targets:

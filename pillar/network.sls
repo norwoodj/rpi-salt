@@ -28,3 +28,4 @@ network:
     - rabbitmq
     - rpi-loadbalancer
     - stupidchess
+    - tunnel

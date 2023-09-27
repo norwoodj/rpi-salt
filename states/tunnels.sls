@@ -58,6 +58,7 @@ cloudflared-update.timer:
     - makedirs: true
     - context:
         credentials_file: /etc/cloudflared/{{ tunnel_id }}-credentials.json
+        metrics_addr: tunnel:2323
         tunnel_id: {{ tunnel_id }}
         private_network: {{ config.private_network }}
 {%- if config.hostnames is defined %}

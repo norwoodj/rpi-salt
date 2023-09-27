@@ -1,6 +1,10 @@
 credentials-file: {{ credentials_file }}
 tunnel: {{ tunnel_id }}
 
+{%- if metrics_addr is defined %}
+metrics: {{ metrics_addr }}
+{%- endif %}
+
 {%- if private_network %}
 warp-routing:
   enabled: true
