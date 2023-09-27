@@ -3,6 +3,7 @@ postgresql:
     - version: {{ pillar.postgres.version }}
 
   service.running:
+    - enable: true
     - watch:
       - file: /etc/postgresql/14/main/postgresql.conf
       - file: /etc/postgresql/14/main/pg_hba.conf
@@ -25,8 +26,13 @@ postgresql:
 prometheus-postgres-exporter:
   pkg.installed: []
 
+  service.running:
+    - enable: true
+    - watch:
+      - file: /etc/default/prometheus-postgres-exporter
+
+/etc/default/prometheus-postgres-exporter:
   file.managed:
-    - name: /etc/default/prometheus-postgres-exporter
     - source: salt://files/etc/default/prometheus-postgres-exporter
     - template: jinja
     - context:

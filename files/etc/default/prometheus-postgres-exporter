@@ -1,7 +1,7 @@
 # Connection string for the PostgreSQL database. You need to either connect as
 # superuser, or create a user with enough rights, as described in
 # /usr/share/doc/prometheus-postgres-exporter/README.Debian
-DATA_SOURCE_NAME='user=postgres_exporter password={{ db_password }} host=localhost dbname=postgres'
+DATA_SOURCE_NAME='user=postgres_exporter password={{ db_password }} host=postgres dbname=postgres'
 
 # Set the command-line arguments to pass to the server.
 ARGS=''
