@@ -5,6 +5,7 @@ postgresql:
   service.running:
     - enable: true
     - watch:
+      - pkg: postgresql
       - file: /etc/postgresql/14/main/postgresql.conf
       - file: /etc/postgresql/14/main/pg_hba.conf
 
@@ -29,6 +30,7 @@ prometheus-postgres-exporter:
   service.running:
     - enable: true
     - watch:
+      - pkg: prometheus-postgres-exporter
       - file: /etc/default/prometheus-postgres-exporter
 
 /etc/default/prometheus-postgres-exporter:
