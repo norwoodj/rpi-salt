@@ -71,6 +71,8 @@ stupidchess-nginx:
         Description: stupidchess uwsgi server
         Requires:
           - stupidchess-uwsgi.socket
+        After:
+          - mongod.service
         Environment:
           - JCONFIGURE_ACTIVE_PROFILES=RPI
           - JCONFIGURE_CONFIG_DIRECTORIES=/etc/stupidchess/config

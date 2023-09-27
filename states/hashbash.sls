@@ -40,6 +40,7 @@ install-hashbash-nginx:
     - context:
         After: 
           - postgresql.service
+          - rabbitmq-server.service
         Description: hashbash engine service
         Requires:
           - hashbash-engine-management.socket
@@ -89,6 +90,7 @@ install-hashbash-nginx:
     - context:
         After:
           - postgresql.service
+          - rabbitmq-server.service
         Description: hashbash webapp service
         Requires:
           - hashbash-webapp.socket
