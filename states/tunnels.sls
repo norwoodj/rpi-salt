@@ -80,7 +80,7 @@ cloudflared-update.timer:
         Type: notify
         User: tunnel
         Group: tunnel
-        ExecStart: /usr/bin/cloudflared --no-autoupdate --config /etc/cloudflared/{{ tunnel_id }}.yaml tunnel run
+        ExecStart: /usr/bin/cloudflared --config /etc/cloudflared/{{ tunnel_id }}.yaml tunnel run
         Restart: on-failure
         RestartSec: 5s
 

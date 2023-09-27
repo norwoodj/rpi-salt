@@ -1,4 +1,5 @@
 credentials-file: {{ credentials_file }}
+no-autoupdate: true
 tunnel: {{ tunnel_id }}
 
 {%- if metrics_addr is defined %}
