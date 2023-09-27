@@ -23,18 +23,6 @@ scrape_configs:
       - targets:
           - hashbash:8081
 
-  # hashbash-nginx-exporter
-  - job_name: hashbash-nginx
-    static_configs:
-      - targets:
-          - hashbash:4041
-
-  # stupidchess-nginx-exporter
-  - job_name: stupidchess-nginx
-    static_configs:
-      - targets:
-          - stupidchess:4040
-
   # prometheus server
   - job_name: prometheus
     static_configs:
