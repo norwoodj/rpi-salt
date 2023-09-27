@@ -131,6 +131,7 @@ install-hashbash-nginx:
 hashbash-nginx:
   service.running:
     - enable: true
+    - reload: true
     - watch:
         - pkg: hashbash-nginx
         - file: /lib/systemd/system/hashbash-nginx.service

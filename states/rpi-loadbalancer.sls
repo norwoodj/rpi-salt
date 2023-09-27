@@ -27,6 +27,7 @@
 rpi-loadbalancer:
   service.running:
     - enable: true
+    - reload: true
     - watch:
         - file: /etc/rpi-loadbalancer/nginx.conf
         - file: /lib/systemd/system/rpi-loadbalancer.service

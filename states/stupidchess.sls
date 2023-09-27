@@ -18,6 +18,7 @@ stupidchess-nginx:
         - stupidchess-nginx: https://github.com/norwoodj/stupidchess-frontend/releases/download/{{ pillar.stupidchess.nginx_version }}/stupidchess-nginx_{{ pillar.stupidchess.nginx_version }}_{{ grains.osarch }}.deb
 
   service.running:
+    - enable: true
     - reload: true
     - watch:
         - file: /lib/systemd/system/stupidchess-nginx.service

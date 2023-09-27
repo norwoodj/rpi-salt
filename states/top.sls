@@ -14,6 +14,7 @@ base:
     - hashbash
     - stupidchess
     - rpi-loadbalancer
+    - logrotate
 
   "0p0":
     - remove-pi

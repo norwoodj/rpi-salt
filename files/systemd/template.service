@@ -70,6 +70,10 @@ TimeoutStartSec={{ TimeoutStartSec }}
 PrivateTmp={{ PrivateTmp }}
 {%- endif %}
 
+{%- if PrivateDevices is defined %}
+PrivateDevices={{ PrivateDevices }}
+{%- endif %}
+
 {%- if LogsDirectory is defined %}
 LogsDirectory={{ LogsDirectory }}
 {%- endif %}
