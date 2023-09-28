@@ -13,6 +13,7 @@ prometheus:
     - template: jinja
     - context:
         prometheus_host: prometheus
+        retention_time: {{ pillar.prometheus.retention_time }}
 
 /etc/prometheus/prometheus.yml:
   file.managed:

@@ -5,6 +5,7 @@
     - template: jinja
     - context:
         internal_base_domain: {{ pillar.network.internal_base_domain }}
+        upstreams: {{ pillar["rpi-loadbalancer"].upstreams }}
 
 /lib/systemd/system/rpi-loadbalancer.service:
   file.managed:

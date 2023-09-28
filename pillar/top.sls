@@ -9,6 +9,7 @@ base:
     - network
     - mongo
     - postgres
+    - prometheus
     - tunnels
     - bolas
     - hashbash
