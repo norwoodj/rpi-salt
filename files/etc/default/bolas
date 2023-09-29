@@ -1,11 +1,19 @@
-# default command-line args for bolas. Available options:
-# 	Usage: bolas [OPTIONS] --static-file-path <STATIC_FILE_PATH>
-# 	
-# 	Options:
-# 	  -s, --static-file-path <STATIC_FILE_PATH>  Path to folder containing static files to be served
-# 	      --systemd-names <SYSTEMD_NAMES>        List of Systemd file descriptor names to listen on
-# 	      --tcp-addrs <TCP_ADDRS>                List of TCP addresses to listen for http on
-# 	      --unix-addrs <UNIX_ADDRS>              List of Unix socket addresses to listen for http on
-# 	  -h, --help                                 Print help
-# 	  -V, --version                              Print version
-ARGS="--static-file-path=/etc/bolas/static --systemd-names=bolas"
+# Usage: bolas [OPTIONS] --static-file-path <STATIC_FILE_PATH>
+# 
+# Options:
+#   -b, --bolas-refresh-rate-ms <BOLAS_REFRESH_RATE_MS>
+#           Interval in milliseconds at which the bolas state is updated and sent to the websocket client [env: BOLAS_REFRESH_RATE_MS=] [default: 32]
+#   -s, --static-file-path <STATIC_FILE_PATH>
+#           Path to folder containing static files to be served [env: STATIC_FILE_PATH=]
+#       --systemd-names <SYSTEMD_NAMES>
+#           List of Systemd file descriptor names to listen on [env: SYSTEMD_NAMES=]
+#       --tcp-addrs <TCP_ADDRS>
+#           List of TCP addresses to listen for http on [env: TCP_ADDRS=]
+#       --unix-addrs <UNIX_ADDRS>
+#           List of Unix socket addresses to listen for http on [env: UNIX_ADDRS=]
+#   -h, --help
+#           Print help
+#   -V, --version
+#           Print version
+STATIC_FILE_PATH=/etc/bolas/static
+SYSTEMD_NAMES=bolas

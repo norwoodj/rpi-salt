@@ -41,7 +41,7 @@ bolas:
         Requires:
           - bolas.socket
         EnvironmentFile: /etc/default/bolas
-        ExecStart: bolas $ARGS
+        ExecStart: bolas
         User: bolas
         Group: bolas
         Sockets:
