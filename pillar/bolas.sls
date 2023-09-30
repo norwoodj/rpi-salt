@@ -1,5 +1,5 @@
 bolas:
-  version: 2023.9.3
+  version: 2023.9.4
 
 users:
   bolas:
