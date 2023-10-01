@@ -18,8 +18,8 @@ add-host-localhost:
     - ip:
       - 127.0.0.1
     - names:
-      - localhost
       - {{ grains.host }}
+      - localhost
 
 {% for hostname in pillar.network.hosts %}
 add-host-{{ hostname }}:

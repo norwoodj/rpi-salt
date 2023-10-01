@@ -27,5 +27,6 @@ network:
     - prometheus
     - rabbitmq
     - rpi-loadbalancer
+    - ssh
     - stupidchess
     - tunnel
