@@ -54,11 +54,40 @@ prometheus-mongodb-exporter:
         ca_username: {{ pillar.mongo.ca_username }}
         ca_password: {{ pillar.mongo.ca_password }}
 
+/lib/systemd/system/mongod.service:
+  file.managed:
+    - source: salt://files/systemd/template.service
+    - template: jinja
+    - context:
+        Description: MongoDB Database Server
+        Documentation: https://docs.mongodb.org/manual
+        After: network-online.target
+        User: mongodb
+        Group: mongodb
+        EnvironmentFile: -/etc/default/mongod
+        Environment:
+          - MONGODB_CONFIG_OVERRIDE_NOFORK=1
+        ExecStart: /usr/bin/mongod --config /etc/mongod.conf
+        RuntimeDirectory: mongodb
+
+        # Recommended limits for mongod as specified in
+        # https://docs.mongodb.com/manual/reference/ulimit/#recommended-ulimit-settings
+        LimitFSIZE: infinity
+        LimitCPU: infinity
+        LimitAS: infinity
+        LimitNOFILE: 64000
+        LimitNPROC: 64000
+        LimitMEMLOCK: infinity
+        TasksMaxs: infinity
+        TasksAccounting: false
+
 mongod:
   service.running:
     - enable: true
     - watch:
+        - pkg: mongodb-org-server
         - file: /etc/mongod.conf
+        - file: /lib/systemd/system/mongod.service
 
 /tmp/mongo-create-ca.js:
   file.managed:

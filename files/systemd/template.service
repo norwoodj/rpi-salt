@@ -3,6 +3,10 @@
 Description={{ Description }}
 {%- endif %}
 
+{%- if Documentation is defined %}
+Documentation={{ Documentation }}
+{%- endif %}
+
 {%- if After is defined %}
   {%- for a in After %}
 After={{ a }}
