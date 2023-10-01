@@ -4,6 +4,7 @@ bolas:
         - bolas: https://github.com/norwoodj/bolas/releases/download/{{ pillar.bolas.version }}/bolas_{{ pillar.bolas.version }}_{{ grains.osarch }}.deb
 
   service.running:
+    - enable: true
     - watch:
         - pkg: bolas
         - file: /etc/default/bolas

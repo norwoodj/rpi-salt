@@ -4,6 +4,7 @@ stupidchess-uwsgi:
         - stupidchess-uwsgi: https://github.com/norwoodj/stupidchess-backend/releases/download/{{ pillar.stupidchess.uwsgi_version }}/stupidchess-uwsgi_{{ pillar.stupidchess.uwsgi_version }}_{{ grains.osarch }}.deb
 
   service.running:
+    - enable: true
     - watch:
         - file: /etc/stupidchess/config/flask-app-secret-key
         - file: /etc/stupidchess/config/mongo-password
