@@ -15,3 +15,7 @@ install-rust:
     - group: veintitres
     - mode: "0644"
     - makedirs: true
+
+/usr/bin/cargo:
+  file.symlink:
+    - target: /home/veintitres/.cargo/bin/cargo

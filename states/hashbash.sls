@@ -4,6 +4,7 @@
     - user: hashbash
     - group: hashbash
     - mode: 400
+    - makedirs: true
     - template: jinja
     - context:
         postgres_password: {{ pillar.postgres.app_users["hashbash-rw"].password }}
