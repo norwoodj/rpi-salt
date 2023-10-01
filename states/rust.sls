@@ -1,5 +1,3 @@
-{% set username = pillar.user.username %}
-
 install-rust:
   cmd.run:
     - name: |
