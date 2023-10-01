@@ -1,4 +1,4 @@
-{% for u in pillar['oh-my-zsh']['users'] %}
+{% for u in pillar['oh-my-zsh'].users %}
 
 install-oh-my-zsh:
   cmd.run:
@@ -7,5 +7,13 @@ install-oh-my-zsh:
     - runas: {{ u }}
     - env:
       - HOME: /home/{{ u }}
+
+/home/{{ u }}/.zshrc:
+  file.managed:
+    - source:
+      - "salt://files/zshrc"
+    - user: {{ u }}
+    - group: {{ u }}
+    - mode: "0644"
 
 {% endfor %}
