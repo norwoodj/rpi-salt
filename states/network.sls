@@ -13,6 +13,14 @@ systemd-networkd:
     - watch:
         - file: /lib/systemd/network/10-lo.network
 
+add-host-localhost:
+  host.present:
+    - ip:
+      - 127.0.0.1
+    - names:
+      - localhost
+      - {{ grains.host }}
+
 {% for hostname in pillar.network.hosts %}
 add-host-{{ hostname }}:
   host.present:
