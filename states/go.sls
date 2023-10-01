@@ -10,7 +10,7 @@ install-go:
 /home/veintitres/.zshrc.d/go-path:
   file.managed:
     - source:
-        - "salt://files/go-path"
+        - "salt://files/home/veintitres/zshrc.d/go-path"
     - user: veintitres
     - group: veintitres
     - mode: "0644"

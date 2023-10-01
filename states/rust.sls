@@ -10,7 +10,7 @@ install-rust:
 /home/veintitres/.zshrc.d/rust-path:
   file.managed:
     - source:
-        - "salt://files/rust-path"
+        - "salt://files/home/veintitres/zshrc.d/rust-path"
     - user: veintitres
     - group: veintitres
     - mode: "0644"

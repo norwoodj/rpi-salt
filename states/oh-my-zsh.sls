@@ -11,7 +11,7 @@ install-oh-my-zsh:
 /home/{{ u }}/.zshrc:
   file.managed:
     - source:
-      - "salt://files/zshrc"
+      - "salt://files/home/veintitres/zshrc"
     - user: {{ u }}
     - group: {{ u }}
     - mode: "0644"
