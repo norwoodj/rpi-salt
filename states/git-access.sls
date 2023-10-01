@@ -26,5 +26,7 @@ setup-ssh-config:
     - name: '/home/veintitres/.ssh/config'
     - source: 'salt://files/ssh/config'
     - template: jinja
+    - user: veintitres
+    - group: veintitres
     - context:
-        hostname: {{ grains['id'] }}
+        hostname: localhost
