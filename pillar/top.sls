@@ -1,6 +1,7 @@
 base:
   "0p0":
     - veintitres
+    - go
 
   "*":
     - git

@@ -25,5 +25,4 @@ base:
     - build-tools
     - go
     - node
-    - python
     - rust
