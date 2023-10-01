@@ -24,7 +24,10 @@ Wants={{ Wants }}
 {%- endif %}
 
 [Service]
-Type={{ Type | default("simple", true) }}
+{%- if Type is defined %}
+Type={{ Type }}
+{%- endif %}
+
 ExecStart={{ ExecStart }}
 User={{ User | default("root", true) }}
 Group={{ Group | default("root", true) }}

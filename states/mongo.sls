@@ -1,25 +1,30 @@
-"libssl1.1":
+focal-security-repo:
   pkgrepo.managed:
-    - name: deb http://security.ubuntu.com/ubuntu focal-security main
+    - name: deb http://ports.ubuntu.com focal-security main
     - humanname: focal-security
     - file: /etc/apt/sources.list.d/focal-security.list
     - require_in:
       - pkg: libssl1.1
-    - gpgcheck: 1
-    - gpg: http://security.ubuntu.com/ubuntu/dists/focal-security/Release.gpg
 
-  pkg.installed: []
-
-mongodb-org:
+mongodb-org-repo:
   pkgrepo.managed:
     - name: deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
     - humanname: mongodb-org
     - file: /etc/apt/sources.list.d/mongodb-org-4.4.list
     - require_in:
-      - pkg: mongodb-org
+      - pkg: mongodb-org-server
+      - pkg: mongodb-org-shell
     - gpgcheck: 1
     - key_url: https://www.mongodb.org/static/pgp/server-4.4.asc
 
+"libssl1.1":
+  pkg.installed: []
+
+mongodb-org-server:
+  pkg.installed:
+    - version: {{ pillar.mongo.version }}
+
+mongodb-org-shell:
   pkg.installed:
     - version: {{ pillar.mongo.version }}
 
@@ -61,7 +66,9 @@ prometheus-mongodb-exporter:
     - context:
         Description: MongoDB Database Server
         Documentation: https://docs.mongodb.org/manual
-        After: network-online.target
+        After:
+          - network-online.target
+        Wants: network-online.target
         User: mongodb
         Group: mongodb
         EnvironmentFile: -/etc/default/mongod
@@ -78,7 +85,7 @@ prometheus-mongodb-exporter:
         LimitNOFILE: 64000
         LimitNPROC: 64000
         LimitMEMLOCK: infinity
-        TasksMaxs: infinity
+        TasksMax: infinity
         TasksAccounting: false
 
 mongod:
