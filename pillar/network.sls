@@ -9,8 +9,8 @@
 # to bind services to. A private cloudflared tunnel will
 # be used to route to private IPs
 {% set name_regex = "([0-9]+)[ps]([0-9]+)" -%}
-{%- set datacenter = grains.host | regex_replace(name_regex, "\\1") %}
-{%- set instance = grains.host | regex_replace(name_regex, "\\2") %}
+{%- set datacenter = grains.nodename | regex_replace(name_regex, "\\1") %}
+{%- set instance = grains.nodename | regex_replace(name_regex, "\\2") %}
 {%- set instance_ip = "10.{}.0.{}".format(datacenter, instance) %}
 
 network:
@@ -27,6 +27,5 @@ network:
     - prometheus
     - rabbitmq
     - rpi-loadbalancer
-    - ssh
     - stupidchess
     - tunnel
