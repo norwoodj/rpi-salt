@@ -30,3 +30,4 @@ users:
     groups:
       - bolas
       - grafana
+      - nginx

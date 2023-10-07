@@ -1,5 +1,4 @@
 nginx:
-  group.present: []
   pkg.installed: []
   service.disabled: []
 
@@ -15,12 +14,20 @@ allow-priveleged-ports:
 # or config test, I don't know
 /var/log/nginx:
   file.directory:
-    - mode: 777
+    - user: nginx
+    - group: nginx
+    - mode: 774
     - recurse:
+        - user
+        - group
         - mode
 
 /var/lib/nginx:
   file.directory:
-    - mode: 777
+    - user: nginx
+    - group: nginx
+    - mode: 774
     - recurse:
+        - user
+        - group
         - mode

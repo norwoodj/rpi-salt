@@ -11,6 +11,7 @@ base:
     - network
     - process-exporter
     - mongo
+    - nginx
     - postgres
     - prometheus
     - tunnels
