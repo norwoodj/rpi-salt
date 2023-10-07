@@ -1,6 +1,8 @@
 base:
   "*":
     - packages
+    - node-exporter
+    - process-exporter
     - users
     - network
     - prometheus

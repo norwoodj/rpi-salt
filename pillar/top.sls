@@ -9,6 +9,7 @@ base:
     - sshd
     - oh-my-zsh
     - network
+    - process-exporter
     - mongo
     - postgres
     - prometheus

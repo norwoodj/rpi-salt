@@ -13,10 +13,14 @@ allow-priveleged-ports:
 # unless I get the log permissions just so, because nginx
 # apparently inherently tries to open certain files on startup
 # or config test, I don't know
-/var/log/nginx/access.log:
-  file.managed:
+/var/log/nginx:
+  file.directory:
     - mode: 777
+    - recurse:
+        - mode
 
-/var/log/nginx/error.log:
-  file.managed:
+/var/lib/nginx:
+  file.directory:
     - mode: 777
+    - recurse:
+        - mode

@@ -44,5 +44,10 @@ grafana-server:
         - pkg: grafana
         - file: /etc/grafana/grafana.ini
         - file: /etc/grafana/dashboards
-        - file: /etc/grafana/provisioning/datasources/prometheus.yaml
         - file: /etc/grafana/provisioning/dashboards/provider.yaml
+        - file: /etc/grafana/provisioning/datasources/prometheus.yaml
+
+treemap-plugin:
+  cmd.run:
+    - name: grafana-cli plugins install marcusolsson-treemap-panel
+    - creates: /var/lib/grafana/plugins/marcusolsson-treemap-panel
