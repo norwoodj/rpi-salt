@@ -9,7 +9,7 @@ bolas:
         - pkg: bolas
         - file: /etc/default/bolas
         - file: /lib/systemd/system/bolas.service
-        - file: /lib/systemd/system/bolas.service
+        - file: /lib/systemd/system/bolas.socket
 
 /etc/default/bolas:
   file.managed:

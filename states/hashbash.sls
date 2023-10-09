@@ -15,9 +15,8 @@ hashbash-backend:
     - sources:
         - hashbash-backend: https://github.com/norwoodj/hashbash-backend-go/releases/download/{{ pillar.hashbash.backend_version }}/hashbash-backend_{{ pillar.hashbash.backend_version }}_{{ grains.osarch }}.deb
 
-install-hashbash-nginx:
+hashbash-nginx:
   pkg.installed:
-    - name: hashbash-nginx
     - sources:
         - hashbash-nginx: https://github.com/norwoodj/hashbash-frontend/releases/download/{{ pillar.hashbash.nginx_version }}/hashbash-nginx_{{ pillar.hashbash.nginx_version }}_{{ grains.osarch }}.deb
 
@@ -46,7 +45,7 @@ install-hashbash-nginx:
         Requires:
           - hashbash-engine-management.socket
           - postgresql.service
-        ExecStart: /usr/bin/hashbash-engine
+        ExecStart: hashbash-engine
         RestartSec: 10s
         User: hashbash
         Group: hashbash
@@ -98,7 +97,7 @@ install-hashbash-nginx:
           - hashbash-webapp-management.socket
           - postgresql.service
         RestartSec: 10s
-        ExecStart: /usr/bin/hashbash-webapp
+        ExecStart: hashbash-webapp
         Type: simple
         EnvironmentFile: /etc/hashbash/hashbash.env
         Environment:

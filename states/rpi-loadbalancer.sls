@@ -2,6 +2,9 @@
   file.managed:
     - source: salt://files/etc/rpi-loadbalancer/nginx.conf
     - makedirs: true
+    - user: rpi-loadbalancer
+    - group: rpi-loadbalancer
+    - mode: 644
     - template: jinja
     - context:
         internal_base_domain: {{ pillar.network.internal_base_domain }}

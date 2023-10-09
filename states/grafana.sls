@@ -14,11 +14,20 @@ grafana:
 /etc/grafana/dashboards:
   file.recurse:
     - source: salt://files/etc/grafana/dashboards
+    - user: grafana
+    - group: grafana
+    - file_mode: 644
+    - recurse:
+        - user
+        - group
 
 /etc/grafana/provisioning/dashboards/provider.yaml:
   file.managed:
     - source: salt://files/etc/grafana/provisioning/dashboards/provider.yaml
     - template: jinja
+    - user: grafana
+    - group: grafana
+    - mode: 644
     - context:
         dashboards_directory: /etc/grafana/dashboards
 
@@ -26,6 +35,9 @@ grafana:
   file.managed:
     - source: salt://files/etc/grafana/provisioning/datasources/prometheus.yaml
     - template: jinja
+    - user: grafana
+    - group: grafana
+    - mode: 644
     - context:
         prometheus_host: prometheus
 
@@ -33,6 +45,9 @@ grafana:
   file.managed:
     - source: salt://files/etc/grafana/grafana.ini
     - template: jinja
+    - user: grafana
+    - group: grafana
+    - mode: 644
     - context:
         admin_password: {{ pillar.grafana.admin_password }}
         secret_key: {{ pillar.grafana.secret_key }}
@@ -51,3 +66,4 @@ treemap-plugin:
   cmd.run:
     - name: grafana-cli plugins install marcusolsson-treemap-panel
     - creates: /var/lib/grafana/plugins/marcusolsson-treemap-panel
+    - runas: grafana

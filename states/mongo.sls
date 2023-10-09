@@ -32,12 +32,15 @@ mongodb-org-shell:
   file.directory:
     - user: mongodb
     - group: mongodb
-    - mode: 744
+    - mode: 640
     - makedirs: true
 
 /etc/mongod.conf:
   file.managed:
     - source: salt://files/etc/mongod.conf
+    - user: mongodb
+    - group: mongodb
+    - mode: 644
     - template: jinja
     - context:
         bind_host: mongodb
@@ -54,6 +57,9 @@ prometheus-mongodb-exporter:
 /etc/default/prometheus-mongodb-exporter:
   file.managed:
     - source: salt://files/etc/default/prometheus-mongodb-exporter
+    - user: prometheus
+    - group: prometheus
+    - mode: 644
     - template: jinja
     - context:
         ca_username: {{ pillar.mongo.ca_username }}

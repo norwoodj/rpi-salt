@@ -1,9 +1,7 @@
-{% set go_version = pillar["go"]["version"] %}
-
 install-go:
   cmd.run:
     - name: |
-        curl -sL https://go.dev/dl/go{{ go_version }}.linux-{{ grains.osarch }}.tar.gz -o /tmp/go.tar.gz
+        curl -sL https://go.dev/dl/go{{ pillar.go.version }}.linux-{{ grains.osarch }}.tar.gz -o /tmp/go.tar.gz
         tar -C /usr/local -xzf /tmp/go.tar.gz
     - creates: /usr/local/go
 

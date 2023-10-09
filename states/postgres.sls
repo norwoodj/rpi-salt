@@ -12,6 +12,9 @@ postgresql:
 /etc/postgresql/14/main/postgresql.conf:
   file.managed:
     - source: salt://files/etc/postgresql/14/main/postgresql.conf
+    - user: postgres
+    - group: postgres
+    - mode: 644
     - template: jinja
     - context:
         bind_host: {{ pillar.postgres.bind_host }}
@@ -20,9 +23,13 @@ postgresql:
 /etc/postgresql/14/main/pg_hba.conf:
   file.managed:
     - source: salt://files/etc/postgresql/14/main/pg_hba.conf
+    - user: postgres
+    - group: postgres
+    - mode: 644
     - template: jinja
     - context:
         instance_ip: {{ pillar.network.instance_ip }}
+
 
 prometheus-postgres-exporter:
   pkg.installed: []
@@ -36,6 +43,9 @@ prometheus-postgres-exporter:
 /etc/default/prometheus-postgres-exporter:
   file.managed:
     - source: salt://files/etc/default/prometheus-postgres-exporter
+    - user: prometheus
+    - group: prometheus
+    - mode: 644
     - template: jinja
     - context:
         db_password: {{ pillar.postgres.exporter.password }}
