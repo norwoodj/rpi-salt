@@ -20,15 +20,22 @@ hashbash-nginx:
     - sources:
         - hashbash-nginx: https://github.com/norwoodj/hashbash-frontend/releases/download/{{ pillar.hashbash.nginx_version }}/hashbash-nginx_{{ pillar.hashbash.nginx_version }}_{{ grains.osarch }}.deb
 
+  service.running:
+    - enable: true
+    - reload: true
+    - watch:
+        - pkg: hashbash-nginx
+        - file: /lib/systemd/system/hashbash-nginx.service
+
 /lib/systemd/system/hashbash-engine-management.socket:
   file.managed:
     - source: salt://files/systemd/template.socket
     - template: jinja
     - context:
         Description: hashbash engine management listener
-        PartOf: hashbash-webapp.service
+        PartOf: hashbash-engine.service
         ListenStream:
-          - {{ pillar.network.instance_ip }}:8082
+          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.hashbash_engine_metrics }}
         BindIPv6Only: both
         FileDescriptorName: hashbash-engine-management
         Service: hashbash-engine.service
@@ -63,7 +70,7 @@ hashbash-nginx:
         Description: hashbash webapp management listener
         PartOf: hashbash-webapp.service
         ListenStream:
-          - {{ pillar.network.instance_ip }}:8081
+          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.hashbash_webapp_metrics }}
         BindIPv6Only: both
         FileDescriptorName: hashbash-webapp-management
         Service: hashbash-webapp.service
@@ -127,14 +134,6 @@ hashbash-nginx:
         LogsDirectory: hashbash
         RuntimeDirectory: hashbash-nginx
         PrivateTmp: true
-
-hashbash-nginx:
-  service.running:
-    - enable: true
-    - reload: true
-    - watch:
-        - pkg: hashbash-nginx
-        - file: /lib/systemd/system/hashbash-nginx.service
 
 hashbash-engine:
   service.running:

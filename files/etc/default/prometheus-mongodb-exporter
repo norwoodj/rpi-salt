@@ -1,2 +1,2 @@
-ARGS="-web.listen-address=mongodb:9001"
-MONGODB_URL="{{ ca_username }}:{{ ca_password }}@mongodb:27017"
+ARGS="-web.listen-address={{ listen_address }}"
+MONGODB_URL="{{ ca_username }}:{{ ca_password }}@{{ mongodb_address }}"

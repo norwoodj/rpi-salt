@@ -21,10 +21,10 @@ network:
     - bolas
     - grafana
     - hashbash
+    - metrics
     - mongodb
     - postgres
     - prometheus
     - rabbitmq
-    - rpi-loadbalancer
     - stupidchess
     - tunnel

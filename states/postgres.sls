@@ -18,6 +18,7 @@ postgresql:
     - template: jinja
     - context:
         bind_host: {{ pillar.postgres.bind_host }}
+        bind_port: {{ pillar.port_by_service.tcp.postgres }}
         unix_socket_directory: {{ pillar.postgres.unix_socket_directory }}
 
 /etc/postgresql/14/main/pg_hba.conf:
@@ -48,6 +49,8 @@ prometheus-postgres-exporter:
     - template: jinja
     - context:
         db_password: {{ pillar.postgres.exporter.password }}
+        listen_address: metrics:{{ pillar.port_by_service.tcp.postgres_exporter }}
+        postgres_port: {{ pillar.port_by_service.tcp.postgres }}
 
 postgres-exporter-user:
   file.managed:

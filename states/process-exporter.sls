@@ -17,4 +17,4 @@ process-exporter:
     - mode: 644
     - template: jinja
     - context:
-        bind_host: {{ grains.nodename }}
+        listen_address: metrics:{{ pillar.port_by_service.tcp.process_exporter }}

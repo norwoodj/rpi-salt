@@ -1,6 +1,10 @@
 focal-security-repo:
   pkgrepo.managed:
+{%- if grains.osarch == "arm64" %}
     - name: deb http://ports.ubuntu.com focal-security main
+{%- else %}
+    - name: deb http://security.ubuntu.com/ubuntu focal-security main
+{%- endif %}
     - humanname: focal-security
     - file: /etc/apt/sources.list.d/focal-security.list
     - require_in:
@@ -44,6 +48,7 @@ mongodb-org-shell:
     - template: jinja
     - context:
         bind_host: mongodb
+        bind_port: {{ pillar.port_by_service.tcp.mongodb }}
         unix_socket_directory: {{ pillar.mongo.unix_socket_directory }}
 
 prometheus-mongodb-exporter:
@@ -65,6 +70,8 @@ prometheus-mongodb-exporter:
     - context:
         ca_username: {{ pillar.mongo.ca_username }}
         ca_password: {{ pillar.mongo.ca_password }}
+        mongodb_address: mongodb:{{ pillar.port_by_service.tcp.mongodb }}
+        listen_address: metrics:{{ pillar.port_by_service.tcp.mongodb_exporter }}
 
 /lib/systemd/system/mongod.service:
   file.managed:

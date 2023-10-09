@@ -1228,11 +1228,6 @@
         "type": "datasource"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "255p0:9256",
-          "value": "255p0:9256"
-        },
         "datasource": {
           "type": "prometheus",
           "uid": "$PROMETHEUS_DS"

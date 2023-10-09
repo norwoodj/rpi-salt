@@ -5,6 +5,7 @@ base:
     - node
 
   "*":
+    - ports
     - git
     - sshd
     - oh-my-zsh

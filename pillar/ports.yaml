@@ -1,0 +1,26 @@
+tcp:
+  80: rpi_loadbalancer
+
+  2048: mongodb_exporter
+  2049: postgres_exporter
+  2050: rabbitmq_metrics
+
+  5432: postgres
+
+  5672: rabbitmq_aqmp
+
+  8192: node_exporter
+  8193: process_exporter
+
+  9090: prometheus
+
+  15672: rabbitmq_management
+
+  16384: hashbash_engine_metrics
+  16385: hashbash_webapp_metrics
+  16386: tunnel_metrics
+
+  27017: mongodb
+
+udp:
+  53: dnsmasq

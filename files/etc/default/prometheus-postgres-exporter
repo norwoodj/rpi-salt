@@ -1,10 +1,10 @@
 # Connection string for the PostgreSQL database. You need to either connect as
 # superuser, or create a user with enough rights, as described in
 # /usr/share/doc/prometheus-postgres-exporter/README.Debian
-DATA_SOURCE_NAME='user=postgres_exporter password={{ db_password }} host=postgres dbname=postgres'
+DATA_SOURCE_NAME='user=postgres_exporter password={{ db_password }} host=postgres port={{ postgres_port }} dbname=postgres'
 
 # Set the command-line arguments to pass to the server.
-ARGS="--web.listen-address=postgres:9187"
+ARGS="--web.listen-address={{ listen_address }}"
 
 # Available flags:
 #  --web.listen-address=":9187"  Address to listen on for web interface and telemetry.

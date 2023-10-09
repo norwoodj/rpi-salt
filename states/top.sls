@@ -11,7 +11,6 @@ base:
     - postgres
     - rabbitmq
     - nginx
-    - tunnels
     - bolas
     - hashbash
     - stupidchess
@@ -28,3 +27,4 @@ base:
     - go
     - node
     - rust
+    - tunnels
