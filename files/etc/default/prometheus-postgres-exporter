@@ -4,7 +4,7 @@
 DATA_SOURCE_NAME='user=postgres_exporter password={{ db_password }} host=postgres dbname=postgres'
 
 # Set the command-line arguments to pass to the server.
-ARGS=''
+ARGS="--web.listen-address=postgres:9187"
 
 # Available flags:
 #  --web.listen-address=":9187"  Address to listen on for web interface and telemetry.

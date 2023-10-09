@@ -32,7 +32,7 @@ mongodb-org-shell:
   file.directory:
     - user: mongodb
     - group: mongodb
-    - mode: 640
+    - mode: 770
     - makedirs: true
 
 /etc/mongod.conf:
@@ -52,6 +52,7 @@ prometheus-mongodb-exporter:
   service.running:
     - enable: true
     - watch:
+        - pkg: prometheus-mongodb-exporter
         - file: /etc/default/prometheus-mongodb-exporter
 
 /etc/default/prometheus-mongodb-exporter:

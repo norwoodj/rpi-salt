@@ -14,6 +14,7 @@ grafana:
 /etc/grafana/dashboards:
   file.recurse:
     - source: salt://files/etc/grafana/dashboards
+    - makedirs: true
     - user: grafana
     - group: grafana
     - file_mode: 644
@@ -24,30 +25,32 @@ grafana:
 /etc/grafana/provisioning/dashboards/provider.yaml:
   file.managed:
     - source: salt://files/etc/grafana/provisioning/dashboards/provider.yaml
-    - template: jinja
+    - makedirs: true
     - user: grafana
     - group: grafana
     - mode: 644
+    - template: jinja
     - context:
         dashboards_directory: /etc/grafana/dashboards
 
 /etc/grafana/provisioning/datasources/prometheus.yaml:
   file.managed:
     - source: salt://files/etc/grafana/provisioning/datasources/prometheus.yaml
-    - template: jinja
+    - makedirs: true
     - user: grafana
     - group: grafana
     - mode: 644
+    - template: jinja
     - context:
         prometheus_host: prometheus
 
 /etc/grafana/grafana.ini:
   file.managed:
     - source: salt://files/etc/grafana/grafana.ini
-    - template: jinja
     - user: grafana
     - group: grafana
     - mode: 644
+    - template: jinja
     - context:
         admin_password: {{ pillar.grafana.admin_password }}
         secret_key: {{ pillar.grafana.secret_key }}

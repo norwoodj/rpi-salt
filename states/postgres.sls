@@ -30,7 +30,6 @@ postgresql:
     - context:
         instance_ip: {{ pillar.network.instance_ip }}
 
-
 prometheus-postgres-exporter:
   pkg.installed: []
 

@@ -33,3 +33,7 @@ rabbitmq-users:
     - name: |
         chmod +x /tmp/rabbitmq-users.sh
         /tmp/rabbitmq-users.sh
+
+enable-prometheus:
+  cmd.run:
+    - name: rabbitmq-plugins enable rabbitmq_prometheus
