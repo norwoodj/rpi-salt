@@ -27,4 +27,3 @@ network:
     - prometheus
     - rabbitmq
     - stupidchess
-    - tunnel
