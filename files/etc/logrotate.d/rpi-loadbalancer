@@ -7,6 +7,6 @@
     notifempty
     dateext
     postrotate
-        systemctl reload rpi-loadbalancer
+        kill -USR1 $(cat /run/rpi-loadbalancer/nginx.pid)
     endscript
 }
