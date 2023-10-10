@@ -1,4 +1,4 @@
-rpi-loadbalancer:
+rpi_loadbalancer:
   upstreams:
     bolas:
       address: http://unix:/run/bolas/bolas.sock;

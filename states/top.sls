@@ -1,6 +1,7 @@
 base:
   "*":
     - packages
+    - dns
     - node-exporter
     - process-exporter
     - users

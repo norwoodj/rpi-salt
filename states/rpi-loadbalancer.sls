@@ -7,9 +7,10 @@
     - mode: 644
     - template: jinja
     - context:
-        listen_address: {{ grains.nodename }}:{{ pillar.port_by_service.tcp.rpi_loadbalancer }}
+        default_listen_address: {{ grains.nodename }}
+        listen_port: {{ pillar.port_by_service.tcp.rpi_loadbalancer }}
         internal_base_domain: {{ pillar.network.internal_base_domain }}
-        upstreams: {{ pillar["rpi-loadbalancer"].upstreams }}
+        upstreams: {{ pillar.rpi_loadbalancer.upstreams }}
 
 /lib/systemd/system/rpi-loadbalancer.service:
   file.managed:
