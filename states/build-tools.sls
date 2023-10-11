@@ -1,4 +1,4 @@
-packages:
+build_tools:
   pkg.installed:
     - pkgs:
         - build-essential
