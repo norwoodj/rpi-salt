@@ -22,6 +22,6 @@
 #   -V, --version
 #           Print version
 
+MANAGEMENT_SYSTEMD_NAMES=bolas-management
 STATIC_FILE_PATH=/etc/bolas/static
 SYSTEMD_NAMES=bolas
-MANAGEMENT_SYSTEMD_NAMES=bolas-management

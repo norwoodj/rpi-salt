@@ -25,7 +25,7 @@ bolas:
     - context:
         PartOf: bolas.service
         Service: bolas.service
-        Description: bolas http socket
+        Description: bolas application socket
         FileDescriptorName: bolas
         ListenStream:
           - /run/bolas/bolas.sock
@@ -38,13 +38,13 @@ bolas:
     - source: salt://files/systemd/template.socket
     - template: jinja
     - context:
-        Description: bolas management listener
         PartOf: bolas.service
+        Service: bolas.service
+        Description: bolas management socket
+        FileDescriptorName: bolas-management
         ListenStream:
           - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.bolas_management }}
         BindIPv6Only: both
-        FileDescriptorName: bolas-management
-        Service: bolas.service
 
 /lib/systemd/system/bolas.service:
   file.managed:
