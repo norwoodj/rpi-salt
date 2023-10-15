@@ -10,6 +10,7 @@ bolas:
         - file: /etc/default/bolas
         - file: /lib/systemd/system/bolas.service
         - file: /lib/systemd/system/bolas.socket
+        - file: /lib/systemd/system/bolas-management.socket
 
 /etc/default/bolas:
   file.managed:
