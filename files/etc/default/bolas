@@ -6,14 +6,22 @@
 #   -s, --static-file-path <STATIC_FILE_PATH>
 #           Path to folder containing static files to be served [env: STATIC_FILE_PATH=]
 #       --systemd-names <SYSTEMD_NAMES>
-#           List of Systemd file descriptor names to listen on [env: SYSTEMD_NAMES=]
+#           List of Systemd file descriptor names to listen on for the application server [env: SYSTEMD_NAMES=]
 #       --tcp-addrs <TCP_ADDRS>
-#           List of TCP addresses to listen for http on [env: TCP_ADDRS=]
+#           List of TCP addresses to listen on for the application server [env: TCP_ADDRS=]
 #       --unix-addrs <UNIX_ADDRS>
-#           List of Unix socket addresses to listen for http on [env: UNIX_ADDRS=]
+#           List of Unix socket addresses to listen on for the application server [env: UNIX_ADDRS=]
+#       --management-systemd-names <MANAGEMENT_SYSTEMD_NAMES>
+#           List of Systemd file descriptor names to listen on for the management server [env: MANAGEMENT_SYSTEMD_NAMES=]
+#       --management-tcp-addrs <MANAGEMENT_TCP_ADDRS>
+#           List of TCP addresses to listen on for the management server [env: MANAGEMENT_TCP_ADDRS=]
+#       --management-unix-addrs <MANAGEMENT_UNIX_ADDRS>
+#           List of Unix socket addresses to listen on for the management server [env: MANAGEMENT_UNIX_ADDRS=]
 #   -h, --help
 #           Print help
 #   -V, --version
 #           Print version
+
 STATIC_FILE_PATH=/etc/bolas/static
 SYSTEMD_NAMES=bolas
+MANAGEMENT_SYSTEMD_NAMES=bolas-management

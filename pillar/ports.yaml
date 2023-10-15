@@ -16,9 +16,10 @@ tcp:
 
   15672: rabbitmq_management
 
-  16384: hashbash_engine_metrics
-  16385: hashbash_webapp_metrics
+  16384: hashbash_engine_management
+  16385: hashbash_webapp_management
   16386: tunnel_metrics
+  16387: bolas_management
 
   27017: mongodb
 

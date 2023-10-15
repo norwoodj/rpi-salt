@@ -13,6 +13,17 @@ scrape_configs:
       - targets:
           - {{ metrics_host }}:{{ ports.process_exporter }}
 
+  # prometheus server itself
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - {{ metrics_host }}:{{ ports.prometheus }}
+
+  - job_name: bolas
+    static_configs:
+      - targets:
+          - {{ metrics_host }}:{{ ports.bolas_management }}
+
   - job_name: cloudflared
     static_configs:
       - targets:
@@ -22,19 +33,13 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
       - targets:
-          - {{ metrics_host }}:{{ ports.hashbash_engine_metrics }}
+          - {{ metrics_host }}:{{ ports.hashbash_engine_management }}
 
   - job_name: hashbash-webapp
     metrics_path: /metrics
     static_configs:
       - targets:
-          - {{ metrics_host }}:{{ ports.hashbash_webapp_metrics }}
-
-  # prometheus server itself
-  - job_name: prometheus
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.prometheus }}
+          - {{ metrics_host }}:{{ ports.hashbash_webapp_management }}
 
   # mongodb-exporter
   - job_name: mongodb

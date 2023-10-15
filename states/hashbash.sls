@@ -35,7 +35,7 @@ hashbash-nginx:
         Description: hashbash engine management listener
         PartOf: hashbash-engine.service
         ListenStream:
-          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.hashbash_engine_metrics }}
+          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.hashbash_engine_management }}
         BindIPv6Only: both
         FileDescriptorName: hashbash-engine-management
         Service: hashbash-engine.service
@@ -70,7 +70,7 @@ hashbash-nginx:
         Description: hashbash webapp management listener
         PartOf: hashbash-webapp.service
         ListenStream:
-          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.hashbash_webapp_metrics }}
+          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.hashbash_webapp_management }}
         BindIPv6Only: both
         FileDescriptorName: hashbash-webapp-management
         Service: hashbash-webapp.service

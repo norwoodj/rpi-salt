@@ -33,6 +33,19 @@ bolas:
         SocketUser: bolas
         SocketGroup: bolas
 
+/lib/systemd/system/bolas-management.socket:
+  file.managed:
+    - source: salt://files/systemd/template.socket
+    - template: jinja
+    - context:
+        Description: bolas management listener
+        PartOf: bolas.service
+        ListenStream:
+          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.bolas_management }}
+        BindIPv6Only: both
+        FileDescriptorName: bolas-management
+        Service: bolas.service
+
 /lib/systemd/system/bolas.service:
   file.managed:
     - source: salt://files/systemd/template.service
@@ -41,10 +54,12 @@ bolas:
         Description: bolas server
         Requires:
           - bolas.socket
+          - bolas-management.socket
         EnvironmentFile: /etc/default/bolas
         ExecStart: bolas
         User: bolas
         Group: bolas
         Sockets:
           - bolas.socket
+          - bolas-management.socket
         RuntimeDirectory: bolas
