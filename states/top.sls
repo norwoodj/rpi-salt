@@ -3,6 +3,7 @@ base:
     - packages
     - dns
     - node-exporter
+    - nginx-log-exporter
     - process-exporter
     - users
     - network

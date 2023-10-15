@@ -11,6 +11,7 @@ base:
     - oh-my-zsh
     - network
     - process-exporter
+    - nginx-log-exporter
     - mongo
     - nginx
     - postgres

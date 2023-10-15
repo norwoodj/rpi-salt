@@ -105,3 +105,34 @@ stupidchess-nginx:
         LogsDirectory: stupidchess
         RuntimeDirectory: stupidchess-nginx
         PrivateTmp: true
+
+/etc/stupidchess/nginx-log-exporter.hcl:
+  file.managed:
+    - source: salt://files/etc/stupidchess/nginx-log-exporter.hcl
+    - user: stupidchess
+    - group: stupidchess
+    - mode: 644
+    - template: jinja
+    - context:
+        listen_address: {{ pillar.network.instance_ip }}
+        listen_port: {{ pillar.port_by_service.tcp.stupidchess_nginx_exporter }}
+        syslog_listen_address: unix:///run/stupidchess-nginx-exporter/syslog.sock
+
+/lib/systemd/system/stupidchess-nginx-exporter.service:
+  file.managed:
+    - source: salt://files/systemd/template.service
+    - template: jinja
+    - context:
+        ExecStart: prometheus-nginxlog-exporter -config-file /etc/stupidchess/nginx-log-exporter.hcl
+        User: stupidchess
+        Restart: always
+        KillSignal: SIGQUIT
+        NotifyAccess: all
+        RuntimeDirectory: stupidchess-nginx-exporter
+
+stupidchess-nginx-exporter:
+  service.running:
+    - enable: true
+    - watch:
+        - file: /etc/stupidchess/nginx-log-exporter.hcl
+        - file: /lib/systemd/system/stupidchess-nginx-exporter.service
