@@ -20,6 +20,8 @@ tcp:
   16385: hashbash_webapp_management
   16386: tunnel_metrics
   16387: bolas_management
+  16388: stupidchess_nginx_exporter
+  16389: hashbash_nginx_exporter
 
   27017: mongodb
 

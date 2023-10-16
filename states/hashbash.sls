@@ -153,3 +153,34 @@ hashbash-webapp:
         - file: /lib/systemd/system/hashbash-webapp.socket
         - file: /lib/systemd/system/hashbash-webapp.service
         - file: /etc/hashbash/hashbash.env
+
+/etc/hashbash/nginx-log-exporter.hcl:
+  file.managed:
+    - source: salt://files/etc/hashbash/nginx-log-exporter.hcl
+    - user: hashbash
+    - group: hashbash
+    - mode: 644
+    - template: jinja
+    - context:
+        listen_address: {{ pillar.network.instance_ip }}
+        listen_port: {{ pillar.port_by_service.tcp.hashbash_nginx_exporter }}
+        syslog_listen_address: unix:///run/hashbash-nginx-exporter/syslog.sock
+
+/lib/systemd/system/hashbash-nginx-exporter.service:
+  file.managed:
+    - source: salt://files/systemd/template.service
+    - template: jinja
+    - context:
+        ExecStart: prometheus-nginxlog-exporter -config-file /etc/hashbash/nginx-log-exporter.hcl
+        User: hashbash
+        Restart: always
+        KillSignal: SIGQUIT
+        NotifyAccess: all
+        RuntimeDirectory: hashbash-nginx-exporter
+
+hashbash-nginx-exporter:
+  service.running:
+    - enable: true
+    - watch:
+        - file: /etc/hashbash/nginx-log-exporter.hcl
+        - file: /lib/systemd/system/hashbash-nginx-exporter.service
