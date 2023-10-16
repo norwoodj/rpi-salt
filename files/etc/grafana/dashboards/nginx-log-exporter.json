@@ -59,7 +59,7 @@
       },
       "gridPos": {
         "h": 15,
-        "w": 22,
+        "w": 24,
         "x": 0,
         "y": 0
       },
@@ -89,7 +89,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^2..\", app=~\"$app\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\"}[$__range])) > 0) * 100",
+          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^2..\", app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) * 100",
           "hide": false,
           "interval": "",
           "legendFormat": "2xx status codes",
@@ -103,7 +103,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^3..\", app=~\"$app\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\"}[$__range])) > 0) * 100 ",
+          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^3..\", app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) * 100 ",
           "interval": "",
           "legendFormat": "3xx status codes",
           "range": true,
@@ -116,7 +116,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^4..\", app=~\"$app\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\"}[$__range])) > 0) * 100 ",
+          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^4..\", app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) * 100 ",
           "hide": false,
           "interval": "",
           "legendFormat": "4xx status codes",
@@ -130,7 +130,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^5..\", app=~\"$app\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\"}[$__range])) > 0) * 100",
+          "expr": "(sum(increase(nginx_http_response_count_total{status=~\"^5..\", app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) / (sum(increase(nginx_http_response_count_total{app=~\"$app\", method=~\"$method\", path=~\"$path\"}[$__range])) > 0) * 100",
           "hide": false,
           "interval": "",
           "legendFormat": "5xx status codes",
@@ -216,7 +216,7 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
+        "w": 12,
         "x": 0,
         "y": 16
       },
@@ -243,7 +243,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum by (app, method, path)(rate(nginx_http_response_time_seconds_count{app=~\"$app\"}[$__rate_interval])) > 0",
+          "expr": "sum by (app, method, path)(rate(nginx_http_response_time_seconds_count{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -316,8 +316,8 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
-        "x": 11,
+        "w": 12,
+        "x": 12,
         "y": 16
       },
       "id": 4,
@@ -343,7 +343,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum by (app)(rate(nginx_http_response_time_seconds_count{app=~\"$app\"}[$__rate_interval])) > 0",
+          "expr": "sum by (app)(rate(nginx_http_response_time_seconds_count{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -429,7 +429,7 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
+        "w": 12,
         "x": 0,
         "y": 27
       },
@@ -456,7 +456,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(nginx_http_response_count_total{app=~\"$app\"}[$__rate_interval])) by (app, method, path, status) > 0",
+          "expr": "sum(rate(nginx_http_response_count_total{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) by (app, method, path, status) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -529,8 +529,8 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
-        "x": 11,
+        "w": 12,
+        "x": 12,
         "y": 27
       },
       "id": 15,
@@ -556,7 +556,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(nginx_http_response_count_total{app=~\"$app\"}[$__rate_interval])) by (app, status) > 0",
+          "expr": "sum(rate(nginx_http_response_count_total{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) by (app, status) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -642,7 +642,7 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
+        "w": 12,
         "x": 0,
         "y": 38
       },
@@ -671,7 +671,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.$percentiles, sum by (app, method, path, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\"}[$__rate_interval]))) > 0",
+          "expr": "histogram_quantile(0.$percentiles, sum by (app, method, path, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval]))) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -744,8 +744,8 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
-        "x": 11,
+        "w": 12,
+        "x": 12,
         "y": 38
       },
       "id": 13,
@@ -773,7 +773,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.$percentiles, sum by (app, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\"}[$__rate_interval]))) > 0",
+          "expr": "histogram_quantile(0.$percentiles, sum by (app, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval]))) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -860,7 +860,7 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
+        "w": 12,
         "x": 0,
         "y": 69
       },
@@ -886,7 +886,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum by (app, method, path)(rate(nginx_http_request_size_bytes{app=~\"$app\"}[$__rate_interval])) > 0",
+          "expr": "sum by (app, method, path)(rate(nginx_http_request_size_bytes{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) > 0",
           "hide": false,
           "instant": false,
           "legendFormat": "{{ app }} - {{ method }} {{ path }} Request",
@@ -900,7 +900,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum by (app, method, path)(rate(nginx_http_response_size_bytes{app=~\"$app\"}[$__rate_interval])) > 0",
+          "expr": "sum by (app, method, path)(rate(nginx_http_response_size_bytes{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -974,8 +974,8 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
-        "x": 11,
+        "w": 12,
+        "x": 12,
         "y": 69
       },
       "id": 27,
@@ -1000,7 +1000,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum by (app)(rate(nginx_http_request_size_bytes{app=~\"$app\"}[$__rate_interval])) > 0",
+          "expr": "sum by (app)(rate(nginx_http_request_size_bytes{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) > 0",
           "hide": false,
           "instant": false,
           "legendFormat": "{{ app }} - Request",
@@ -1014,7 +1014,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum by (app)(rate(nginx_http_response_size_bytes{app=~\"$app\"}[$__rate_interval])) > 0",
+          "expr": "sum by (app)(rate(nginx_http_response_size_bytes{app=~\"$app\", method=~\"$method\", path=~\"$path\", status=~\"$status\"}[$__rate_interval])) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1036,7 +1036,7 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
@@ -1101,6 +1101,102 @@
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "definition": "label_values(nginx_http_response_count_total{app=~\"$app\"},method)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Method",
+        "multi": true,
+        "name": "method",
+        "options": [],
+        "query": {
+          "query": "label_values(nginx_http_response_count_total{app=~\"$app\"},method)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "definition": "label_values(nginx_http_response_count_total{app=~\"$app\"},path)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Path",
+        "multi": true,
+        "name": "path",
+        "options": [],
+        "query": {
+          "query": "label_values(nginx_http_response_count_total{app=~\"$app\"},path)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "definition": "label_values(nginx_http_response_count_total{app=~\"$app\"},status)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Status Code",
+        "multi": true,
+        "name": "status",
+        "options": [],
+        "query": {
+          "query": "label_values(nginx_http_response_count_total{app=~\"$app\"},status)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 3,
+        "type": "query"
       }
     ]
   },
@@ -1136,6 +1232,6 @@
   "timezone": "",
   "title": "NGINX Metrics",
   "uid": "4aBQsjSmz",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
