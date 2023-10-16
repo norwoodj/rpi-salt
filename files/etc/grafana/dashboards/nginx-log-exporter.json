@@ -26,7 +26,6 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 15947,
   "graphTooltip": 0,
-  "id": 8,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -81,7 +80,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.1.5",
       "targets": [
         {
           "datasource": {
@@ -217,7 +216,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum by (app)(rate(nginx_http_response_time_seconds_count{app=~\"$app\"}[$__rate_interval])) ",
+          "expr": "sum by (app)(rate(nginx_http_response_time_seconds_count{app=~\"$app\"}[$__rate_interval])) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -317,7 +316,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.9, sum by (app, method, path, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.9, sum by (app, method, path, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\"}[$__rate_interval]))) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -417,7 +416,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum by (app)(rate(nginx_http_request_size_bytes{app=~\"$app\"}[$__rate_interval])) ",
+          "expr": "sum by (app)(rate(nginx_http_request_size_bytes{app=~\"$app\"}[$__rate_interval])) > 0",
           "hide": false,
           "instant": false,
           "legendFormat": "{{ app }} - Request",
@@ -431,7 +430,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum by (app)(rate(nginx_http_response_size_bytes{app=~\"$app\"}[$__rate_interval])) ",
+          "expr": "sum by (app)(rate(nginx_http_response_size_bytes{app=~\"$app\"}[$__rate_interval])) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -531,7 +530,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.5, sum by (app, method, path, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.5, sum by (app, method, path, le)(rate(nginx_http_response_time_seconds_hist_bucket{app=~\"$app\"}[$__rate_interval]))) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -631,7 +630,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(nginx_http_response_count_total{app=~\"$app\"}[$__rate_interval])) by (app, status)",
+          "expr": "sum(rate(nginx_http_response_count_total{app=~\"$app\"}[$__rate_interval])) by (app, status) > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -712,6 +711,6 @@
   "timezone": "",
   "title": "NGINX Metrics",
   "uid": "4aBQsjSmz",
-  "version": 5,
+  "version": 1,
   "weekStart": ""
 }
