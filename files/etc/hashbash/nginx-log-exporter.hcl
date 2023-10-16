@@ -21,7 +21,7 @@ namespace "nginx" {
   relabel "path" {
     from = "request"
 
-    match "^([^?]*)[0-9]+([^?]*)(\\?.*)?$" {
+    match "^([^?0-9]*)[0-9]+([^?]*)(\\?.*)?$" {
       replacement = "$1:id$2"
     }
 
