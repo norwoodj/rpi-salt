@@ -125,7 +125,7 @@ stupidchess-nginx:
     - context:
         ExecStart: prometheus-nginxlog-exporter -config-file /etc/stupidchess/nginx-log-exporter.hcl
         User: stupidchess
-        Restart: always
+        Group: stupidchess
         KillSignal: SIGQUIT
         NotifyAccess: all
         RuntimeDirectory: stupidchess-nginx-exporter

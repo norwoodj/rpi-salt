@@ -1,5 +1,5 @@
 hashbash:
-  backend_version: 2023.10.0
+  backend_version: 2023.10.1
   nginx_version: 2023.10.1
 
 users:

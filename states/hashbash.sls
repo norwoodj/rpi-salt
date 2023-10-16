@@ -173,7 +173,7 @@ hashbash-webapp:
     - context:
         ExecStart: prometheus-nginxlog-exporter -config-file /etc/hashbash/nginx-log-exporter.hcl
         User: hashbash
-        Restart: always
+        Group: hashbash
         KillSignal: SIGQUIT
         NotifyAccess: all
         RuntimeDirectory: hashbash-nginx-exporter
