@@ -47,7 +47,7 @@ mongodb-org-shell:
     - mode: 644
     - template: jinja
     - context:
-        bind_host: mongodb
+        bind_host: 0.0.0.0
         bind_port: {{ pillar.port_by_service.tcp.mongodb }}
         unix_socket_directory: {{ pillar.mongo.unix_socket_directory }}
 
@@ -120,7 +120,9 @@ mongod:
 
 create-ca:
   cmd.run:
-    - name: mongo --host mongodb admin /tmp/mongo-create-ca.js || true
+    # Must be run against localhost to utilize the localhost exception
+    # https://www.mongodb.com/docs/manual/core/localhost-exception
+    - name: mongo --host localhost admin /tmp/mongo-create-ca.js || true
 
 /tmp/mongo-create-users.js:
   file.managed:
