@@ -7,17 +7,19 @@ bolas:
     - enable: true
     - watch:
         - pkg: bolas
-        - file: /etc/default/bolas
+        - file: /etc/bolas/config.yaml
         - file: /lib/systemd/system/bolas.service
         - file: /lib/systemd/system/bolas.socket
-        - file: /lib/systemd/system/bolas-management.socket
 
-/etc/default/bolas:
+/etc/bolas/config.yaml:
   file.managed:
-    - source: salt://files/etc/default/bolas
+    - source: salt://files/etc/bolas/config.yaml
     - user: bolas
     - group: bolas
     - mode: 644
+    - template: jinja
+    - context:
+        bolas_telemetry_addr: {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.bolas_telemetry }}
 
 /lib/systemd/system/bolas.socket:
   file.managed:
@@ -34,19 +36,6 @@ bolas:
         SocketUser: bolas
         SocketGroup: bolas
 
-/lib/systemd/system/bolas-management.socket:
-  file.managed:
-    - source: salt://files/systemd/template.socket
-    - template: jinja
-    - context:
-        PartOf: bolas.service
-        Service: bolas.service
-        Description: bolas management socket
-        FileDescriptorName: bolas-management
-        ListenStream:
-          - {{ pillar.network.instance_ip }}:{{ pillar.port_by_service.tcp.bolas_management }}
-        BindIPv6Only: both
-
 /lib/systemd/system/bolas.service:
   file.managed:
     - source: salt://files/systemd/template.service
@@ -55,12 +44,9 @@ bolas:
         Description: bolas server
         Requires:
           - bolas.socket
-          - bolas-management.socket
-        EnvironmentFile: /etc/default/bolas
-        ExecStart: bolas
+        ExecStart: bolas --config /etc/bolas/config.yaml
         User: bolas
         Group: bolas
         Sockets:
           - bolas.socket
-          - bolas-management.socket
         RuntimeDirectory: bolas

@@ -1,0 +1,33 @@
+---
+# Interval in milliseconds at which the bolas state is
+# updated and sent to the websocket client
+bolas_refresh_rate_ms: 32
+
+# Path to folder containing static files to be served
+static_file_path: /etc/bolas/static
+
+# Listener configuration for the application http server
+application_http_server:
+  # List of Systemd file descriptor names to listen on
+  systemd_names:
+    - bolas
+
+telemetry:
+  # Logging settings.
+  logging:
+    # Specifies log output.
+    output: terminal
+
+    # The format to use for log messages.
+    format: json
+
+    # Set the logging verbosity level.
+    verbosity: INFO
+
+  # Server settings.
+  server:
+    # Enables telemetry server
+    enabled: true
+
+    # Telemetry server address.
+    addr: {{ bolas_telemetry_addr }}
