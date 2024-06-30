@@ -41,7 +41,7 @@ scrape_configs:
   - job_name: bolas
     static_configs:
       - targets:
-          - {{ metrics_host }}:{{ ports.bolas_management }}
+          - {{ metrics_host }}:{{ ports.bolas_telemetry }}
 
   - job_name: hashbash-engine
     metrics_path: /metrics
