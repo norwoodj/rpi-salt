@@ -1,5 +1,4 @@
 .idea/
-states/states
+salt/salt
 pillar/pillar
-states/files
-files/files
+salt/files/files

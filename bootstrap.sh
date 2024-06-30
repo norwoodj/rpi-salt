@@ -29,6 +29,5 @@ EOF
 fi
 
 # Symlink the state tree into place
-ln -svf $(pwd)/states /srv/salt
+ln -svf $(pwd)/salt /srv/salt
 ln -svf $(pwd)/pillar /srv/pillar
-ln -svf $(pwd)/files /srv/salt/files
