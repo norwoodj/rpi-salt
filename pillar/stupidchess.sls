@@ -1,6 +1,6 @@
 stupidchess:
-  nginx_version: 2024.7.0
-  uwsgi_version: 2023.10.1
+  nginx_version: 2024.7.1
+  uwsgi_version: 2024.7.0
 
 users:
   stupidchess:
