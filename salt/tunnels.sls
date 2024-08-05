@@ -3,11 +3,6 @@ cloudflared:
     - sources:
         - cloudflared: https://github.com/cloudflare/cloudflared/releases/download/{{ pillar.tunnels.version }}/cloudflared-linux-{{ grains.osarch }}.deb
 
-{%- set tunnel_services = [] %}
-{%- for tunnel_id in pillar.tunnels.instances.keys() %}
-  {%- do tunnel_services.append("tunnel-{}.service".format(tunnel_id)) %}
-{%- endfor %}
-
 {%- for tunnel_id, config in pillar.tunnels.instances.items() %}
 
 /etc/cloudflared/{{ tunnel_id }}-credentials.json:
