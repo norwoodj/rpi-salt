@@ -1,18 +1,15 @@
 Raspberry Pi Salt
 =================
 This project is a set of salt states and pillar configuration I use to set up my Raspberry
-Pi cluster. All of these start from a base ubuntu image that I install using
-the [rpi-imager](https://ubuntu.com/blog/how-to-install-ubuntu-with-the-new-raspberry-pi-imager).
+Pi on which I run all of my personal websites and associated supporting software.
+
+At present, I use a Raspberry Pi 5 with 8GB RAM, on which I run an Ubuntu Server 24.04.1 LTS
+image. I create the boot image using [rpi-imager](https://ubuntu.com/blog/how-to-install-ubuntu-with-the-new-raspberry-pi-imager).
 
 ## Setting up the root filesystem on an external harddrive
-There seems to be a (hacky sounding) way to [boot ubuntu directly from an SSD](https://www.blackmoreops.com/2023/05/19/boot-ubuntu-server-22-04-lts-from-usb-ssd-on-raspberry-pi-4/).
-I didn't try this. It might be nice to remove the need for an SD card entirely, but
-I had already used a method like the following for older raspbian and raspberry pi OS
-setups and didn't want to try anything too new.
-
-That in mind, the setup described here will have your boot partition on an SD card
+The setup described here will have your boot partition on an SD card
 (that you write with `rpi-imager`), and your root filesystem on some external hard
-drive (or flash drive, the way I used to do it).
+drive.
 
 First thing to do is format whatever external drive you'll use as an ext4 filesystem.
 Then, use `e2label` to label the partition you've formatted:
