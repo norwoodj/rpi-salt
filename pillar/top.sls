@@ -4,7 +4,6 @@ base:
     - go
     - node
     - ports
-    - git
     - oh-my-zsh
     - network
     - process-exporter
