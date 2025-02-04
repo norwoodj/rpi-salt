@@ -7,7 +7,7 @@
     - mode: 644
     - template: jinja
     - context:
-        default_listen_address: {{ grains.nodename }}
+        default_listen_address: 0.0.0.0
         listen_port: {{ pillar.port_by_service.tcp.rpi_loadbalancer }}
         internal_base_domain: {{ pillar.network.internal_base_domain }}
         upstreams: {{ pillar.rpi_loadbalancer.upstreams }}
