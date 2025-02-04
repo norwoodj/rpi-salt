@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -o errexit; set -o nounset; set -o pipefail
 
+BOOTSTRAP_SCRIPT_URL="https://github.com/saltstack/salt-bootstrap/releases/latest/download/bootstrap-salt.sh"
+
 # Install the salt-minion binary if it doesn't already exist
 if ! hash salt-minion; then
-	curl -L https://bootstrap.saltstack.com | sh
+	curl -L "${BOOTSTRAP_SCRIPT_URL}" | sh
 fi
 
 # In masterless mode we don't need the salt-minion service running
