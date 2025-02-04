@@ -1,7 +1,0 @@
-UseRoaming no
-
-Host {{ hostname }}
-  HostName localhost
-  User git
-  Port 22
-  IdentityFile ~/.ssh/rpi_git.id_ecdsa
