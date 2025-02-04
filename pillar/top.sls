@@ -1,5 +1,6 @@
 base:
   "*":
+    - swapfile
     - veintitres
     - go
     - node

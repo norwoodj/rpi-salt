@@ -1,5 +1,6 @@
 base:
   "*":
+    - swapfile
     - packages
     - users
     - remove-default-users
