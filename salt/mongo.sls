@@ -11,15 +11,14 @@ mongodb-org-repo:
     - file: /etc/apt/sources.list.d/mongodb-org.list
     - require_in:
       - pkg: mongodb-org-server
-      - pkg: mongodb-org-shell
+      - pkg: mongocli
 
 mongodb-org-server:
   pkg.installed:
     - version: {{ pillar.mongo.version }}
 
-mongodb-org-shell:
-  pkg.installed:
-    - version: {{ pillar.mongo.version }}
+mongocli:
+  pkg.installed: []
 
 /data/mongodb:
   file.directory:
@@ -77,6 +76,7 @@ prometheus-mongodb-exporter:
         EnvironmentFile: -/etc/default/mongod
         Environment:
           - MONGODB_CONFIG_OVERRIDE_NOFORK=1
+          - GLIBC_TUNABLES=glibc.pthread.rseq=0
         ExecStart: /usr/bin/mongod --config /etc/mongod.conf
         RuntimeDirectory: mongodb
 
