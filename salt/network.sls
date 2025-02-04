@@ -9,6 +9,12 @@
   file.managed:
     - source: salt://files/etc/netplan/50-eth0.yaml
 
+/etc/netplan/50-cloud-init.yaml:
+  file.absent: []
+
+wpa_supplicant:
+  service.dead: []
+
 add-instance-ip-hosts:
   host.present:
     - ip:
