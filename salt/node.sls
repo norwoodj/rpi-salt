@@ -7,6 +7,5 @@ nodejs:
     - file: /etc/apt/sources.list.d/nodejs.list
     - require_in:
       - pkg: nodejs
-    - gpgcheck: 1
 
   pkg.installed: []
