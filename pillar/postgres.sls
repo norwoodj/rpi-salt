@@ -1,5 +1,5 @@
 postgres:
-  version: 14+238
+  version: 16
 
   app_users:
     hashbash-rw:

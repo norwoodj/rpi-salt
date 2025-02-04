@@ -6,12 +6,12 @@ postgresql:
     - enable: true
     - watch:
       - pkg: postgresql
-      - file: /etc/postgresql/14/main/postgresql.conf
-      - file: /etc/postgresql/14/main/pg_hba.conf
+      - file: /etc/postgresql/{{ pillar.postgres.version }}/main/postgresql.conf
+      - file: /etc/postgresql/{{ pillar.postgres.version }}/main/pg_hba.conf
 
-/etc/postgresql/14/main/postgresql.conf:
+/etc/postgresql/{{ pillar.postgres.version }}/main/postgresql.conf:
   file.managed:
-    - source: salt://files/etc/postgresql/14/main/postgresql.conf
+    - source: salt://files/etc/postgresql/{{ pillar.postgres.version }}/main/postgresql.conf
     - user: postgres
     - group: postgres
     - mode: 644
@@ -21,9 +21,9 @@ postgresql:
         bind_port: {{ pillar.port_by_service.tcp.postgres }}
         unix_socket_directory: {{ pillar.postgres.unix_socket_directory }}
 
-/etc/postgresql/14/main/pg_hba.conf:
+/etc/postgresql/{{ pillar.postgres.version }}/main/pg_hba.conf:
   file.managed:
-    - source: salt://files/etc/postgresql/14/main/pg_hba.conf
+    - source: salt://files/etc/postgresql/{{ pillar.postgres.version }}/main/pg_hba.conf
     - user: postgres
     - group: postgres
     - mode: 644
