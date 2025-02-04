@@ -23,7 +23,6 @@ fileserver_backend:
   - git
   - roots
 gitfs_remotes:
-  - https://github.com/saltstack-formulas/openssh-formula.git
   - https://github.com/saltstack-formulas/users-formula.git
 EOF
 fi

@@ -1,3 +1,3 @@
-pi:
+ubuntu:
   user.absent:
     - purge: True
