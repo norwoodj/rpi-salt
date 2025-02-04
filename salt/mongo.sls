@@ -1,6 +1,6 @@
 mongodb-org-repo-key:
   cmd.run:
-    - name: |
+    - name: >
         curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc |
         sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
     - creates: /usr/share/keyrings/mongodb-server-8.0.gpg
@@ -10,15 +10,11 @@ mongodb-org-repo:
     - name: deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
     - file: /etc/apt/sources.list.d/mongodb-org.list
     - require_in:
-      - pkg: mongodb-org-server
-      - pkg: mongocli
+      - pkg: mongodb-org
 
-mongodb-org-server:
+mongodb-org:
   pkg.installed:
     - version: {{ pillar.mongo.version }}
-
-mongocli:
-  pkg.installed: []
 
 /data/mongodb:
   file.directory:
@@ -95,7 +91,7 @@ mongod:
   service.running:
     - enable: true
     - watch:
-        - pkg: mongodb-org-server
+        - pkg: mongodb-org
         - file: /etc/mongod.conf
         - file: /lib/systemd/system/mongod.service
 
@@ -111,7 +107,12 @@ create-ca:
   cmd.run:
     # Must be run against localhost to utilize the localhost exception
     # https://www.mongodb.com/docs/manual/core/localhost-exception
-    - name: mongo --host localhost admin /tmp/mongo-create-ca.js || true
+    - name: >
+        mongosh
+        --host localhost
+        admin
+        /tmp/mongo-create-ca.js
+        || true
 
 /tmp/mongo-create-users.js:
   file.managed:
@@ -122,4 +123,10 @@ create-ca:
 
 create-users:
   cmd.run:
-    - name: mongo -u admin -p '{{ pillar.mongo.ca_password }}' --host mongodb admin /tmp/mongo-create-users.js
+    - name: >
+        mongosh
+        --host mongodb
+        --username admin
+        --password '{{ pillar.mongo.ca_password }}'
+        admin
+        /tmp/mongo-create-users.js
