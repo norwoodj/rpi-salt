@@ -13,9 +13,6 @@ install-go:
     - group: veintitres
     - mode: "0644"
     - makedirs: true
-    - template: jinja
-    - defaults:
-        username: veintitres
 
 /usr/bin/go:
   file.symlink:

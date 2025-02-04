@@ -1,10 +1,10 @@
 base:
   "*":
     - swapfile
+    - network
     - packages
     - users
     - remove-default-users
-    - network
     - oh-my-zsh
     - build-tools
     - go

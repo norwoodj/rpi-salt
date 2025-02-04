@@ -1,17 +1,13 @@
-/lib/systemd/network/10-lo.network:
+/etc/netplan/50-lo.yaml:
   file.managed:
-    - source: salt://files/systemd/template.network
+    - source: salt://files/etc/netplan/50-lo.yaml
     - template: jinja
     - context:
-        Match:
-          Name: lo
-        Network:
-          Address: {{ pillar.network.instance_ip }}/32
+        instance_ip: {{ pillar.network.instance_ip }}
 
-systemd-networkd:
-  service.running:
-    - watch:
-        - file: /lib/systemd/network/10-lo.network
+/etc/netplan/50-eth0.yaml:
+  file.managed:
+    - source: salt://files/etc/netplan/50-eth0.yaml
 
 add-instance-ip-hosts:
   host.present:

@@ -11,7 +11,7 @@
 {% set name_regex = "([0-9]+)[ps]([0-9]+)" -%}
 {%- set datacenter = grains.nodename | regex_replace(name_regex, "\\1") %}
 {%- set instance = grains.nodename | regex_replace(name_regex, "\\2") %}
-{%- set instance_ip = "10.{}.0.{}".format(datacenter, instance) %}
+{%- set instance_ip = "10.0.{}.{}".format(datacenter, instance) %}
 
 network:
   internal_base_domain: jmn23.internal
