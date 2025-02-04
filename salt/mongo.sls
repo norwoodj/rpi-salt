@@ -1,28 +1,17 @@
-focal-security-repo:
-  pkgrepo.managed:
-{%- if grains.osarch == "arm64" %}
-    - name: deb http://ports.ubuntu.com focal-security main
-{%- else %}
-    - name: deb http://security.ubuntu.com/ubuntu focal-security main
-{%- endif %}
-    - humanname: focal-security
-    - file: /etc/apt/sources.list.d/focal-security.list
-    - require_in:
-      - pkg: libssl1.1
+mongodb-org-repo-key:
+  cmd.run:
+    - name: |
+        curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc |
+        sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
+    - creates: /usr/share/keyrings/mongodb-server-8.0.gpg
 
 mongodb-org-repo:
   pkgrepo.managed:
-    - name: deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
-    - humanname: mongodb-org
-    - file: /etc/apt/sources.list.d/mongodb-org-4.4.list
+    - name: deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
+    - file: /etc/apt/sources.list.d/mongodb-org.list
     - require_in:
       - pkg: mongodb-org-server
       - pkg: mongodb-org-shell
-    - gpgcheck: 1
-    - key_url: https://www.mongodb.org/static/pgp/server-4.4.asc
-
-"libssl1.1":
-  pkg.installed: []
 
 mongodb-org-server:
   pkg.installed:

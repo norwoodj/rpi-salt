@@ -6,4 +6,4 @@ swapfile:
         mkswap /.swapfile
         echo '/.swapfile      none      swap     sw       0       0' >> /etc/fstab
         swapon -a
-    - unless: test -f /.swapfile
+    - creates: /.swapfile

@@ -1,7 +1,6 @@
 grafana:
   pkgrepo.managed:
     - name: deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main
-    - humanname: grafana-oss
     - key_url: https://apt.grafana.com/gpg.key
     - aptkey: false
     - file: /etc/apt/sources.list.d/grafana.list
