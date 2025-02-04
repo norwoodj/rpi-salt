@@ -12,6 +12,7 @@ postgresql:
 /etc/postgresql/{{ pillar.postgres.major_version }}/main/postgresql.conf:
   file.managed:
     - source: salt://files/etc/postgresql/{{ pillar.postgres.major_version }}/main/postgresql.conf
+    - makedirs: True
     - user: postgres
     - group: postgres
     - mode: 644
@@ -24,6 +25,7 @@ postgresql:
 /etc/postgresql/{{ pillar.postgres.major_version }}/main/pg_hba.conf:
   file.managed:
     - source: salt://files/etc/postgresql/{{ pillar.postgres.major_version }}/main/pg_hba.conf
+    - makedirs: True
     - user: postgres
     - group: postgres
     - mode: 644
