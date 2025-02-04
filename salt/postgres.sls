@@ -1,17 +1,17 @@
 postgresql:
   pkg.installed:
-    - version: {{ pillar.postgres.version }}
+    - version: {{ pillar.postgres.apt_version }}
 
   service.running:
     - enable: true
     - watch:
       - pkg: postgresql
-      - file: /etc/postgresql/{{ pillar.postgres.version }}/main/postgresql.conf
-      - file: /etc/postgresql/{{ pillar.postgres.version }}/main/pg_hba.conf
+      - file: /etc/postgresql/{{ pillar.postgres.major_version }}/main/postgresql.conf
+      - file: /etc/postgresql/{{ pillar.postgres.major_version }}/main/pg_hba.conf
 
-/etc/postgresql/{{ pillar.postgres.version }}/main/postgresql.conf:
+/etc/postgresql/{{ pillar.postgres.major_version }}/main/postgresql.conf:
   file.managed:
-    - source: salt://files/etc/postgresql/{{ pillar.postgres.version }}/main/postgresql.conf
+    - source: salt://files/etc/postgresql/{{ pillar.postgres.major_version }}/main/postgresql.conf
     - user: postgres
     - group: postgres
     - mode: 644
@@ -21,9 +21,9 @@ postgresql:
         bind_port: {{ pillar.port_by_service.tcp.postgres }}
         unix_socket_directory: {{ pillar.postgres.unix_socket_directory }}
 
-/etc/postgresql/{{ pillar.postgres.version }}/main/pg_hba.conf:
+/etc/postgresql/{{ pillar.postgres.major_version }}/main/pg_hba.conf:
   file.managed:
-    - source: salt://files/etc/postgresql/{{ pillar.postgres.version }}/main/pg_hba.conf
+    - source: salt://files/etc/postgresql/{{ pillar.postgres.major_version }}/main/pg_hba.conf
     - user: postgres
     - group: postgres
     - mode: 644
