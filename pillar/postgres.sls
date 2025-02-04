@@ -5,6 +5,8 @@ postgres:
   app_users:
     hashbash-rw:
       database: hashbash
+    grafana-rw:
+      database: grafana
 
   bind_host: 0.0.0.0
   unix_socket_directory: /run/postgresql
