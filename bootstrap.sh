@@ -5,6 +5,8 @@ BOOTSTRAP_SCRIPT_URL="https://github.com/saltstack/salt-bootstrap/releases/lates
 
 # Install the salt-minion binary if it doesn't already exist
 if ! hash salt-minion; then
+	apt update
+	apt install patchelf
 	curl -L "${BOOTSTRAP_SCRIPT_URL}" | sh
 fi
 
