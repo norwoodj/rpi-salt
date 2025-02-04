@@ -1,5 +1,5 @@
 tunnels:
-  version: 2023.8.2
+  version: 2025.1.1
 
   instances:
     4ee6f69e-b202-4be9-825d-803b306c4e9a:
