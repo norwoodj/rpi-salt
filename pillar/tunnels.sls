@@ -2,7 +2,7 @@ tunnels:
   version: 2023.8.2
 
   instances:
-    9a4c0fd4-c83d-47a6-b9da-386ce712fcf0:
+    4ee6f69e-b202-4be9-825d-803b306c4e9a:
       private_network: true
       hostnames:
         bolas: unix:/run/bolas/bolas.sock

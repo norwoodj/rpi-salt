@@ -81,7 +81,12 @@ This will install salt and create the symlinks to run these states as a salt-mas
 setup.
 
 ## Generating the tunnels
-* Create the tunnel. I use the instance name (0p0 or 255p0) for the tunnel name
+* Log into cloudflare using the `cloudflared` binary:
+```
+cloudflared login
+```
+
+* Create the tunnel. I use the instance name (1p2) for the tunnel name
 ```
 cloudflared tunnel create <tunnel_name>
 ```
