@@ -6,3 +6,4 @@ build_tools:
         - devscripts
         - dh-virtualenv
         - equivs
+        - libffi-dev
