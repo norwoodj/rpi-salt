@@ -2,11 +2,11 @@
 
 CREATE DATABASE {{ db }};
 
-  {% for username, password in config["rw_users"].items() %}
+  {% for username, password in config.rw_users.items() %}
 
 CREATE USER "{{ username }}" WITH PASSWORD '{{ password }}';
 
-GRANT ALL ON DATABASE {{ config["database"] }} TO "{{ username }}";
+GRANT ALL ON DATABASE {{ db }} TO "{{ username }}";
 
 \c {{ db }}
 GRANT ALL ON SCHEMA public TO "{{ username }}";

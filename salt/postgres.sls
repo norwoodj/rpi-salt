@@ -70,7 +70,7 @@ postgres-app-users:
     - source: salt://files/sql/app-users.sql
     - template: jinja
     - context:
-        app_users: {{ pillar.postgres.app_users }}
+        databases: {{ pillar.postgres.databases }}
 
   cmd.run:
     - name: psql --file=/tmp/app-users.sql
