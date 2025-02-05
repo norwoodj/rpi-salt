@@ -7,7 +7,7 @@
     - makedirs: true
     - template: jinja
     - context:
-        postgres_password: {{ pillar.postgres.app_users["hashbash-rw"].password }}
+        postgres_password: {{ pillar.postgres.databases.hashbash.rw_users["hashbash-rw"] }}
         rabbitmq_password: {{ pillar.rabbitmq.vhosts.hashbash["hashbash-rw"] }}
 
 hashbash-backend:
