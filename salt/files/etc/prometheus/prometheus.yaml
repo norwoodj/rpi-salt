@@ -3,64 +3,9 @@ global:
   evaluation_interval: 60s
 
 scrape_configs:
-  - job_name: prometheus
+  {%- for job, port in scrape_jobs.items() %}
+  - job_name: {{ job }}
     static_configs:
       - targets:
-          - {{ metrics_host }}:{{ ports.prometheus }}
-
-  - job_name: node-exporter
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.node_exporter }}
-
-  - job_name: process-exporter
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.process_exporter }}
-
-  - job_name: mongo
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.mongodb_exporter }}
-
-  - job_name: postgresql
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.postgres_exporter }}
-
-  - job_name: rabbitmq
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.rabbitmq_metrics }}
-
-  - job_name: cloudflared
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.tunnel_metrics }}
-
-  - job_name: bolas
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.bolas_telemetry }}
-
-  - job_name: hashbash-engine
-    metrics_path: /metrics
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.hashbash_engine_management }}
-
-  - job_name: hashbash-webapp
-    metrics_path: /metrics
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.hashbash_webapp_management }}
-
-  - job_name: stupidchess-nginx
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.stupidchess_nginx_exporter }}
-
-  - job_name: hashbash-nginx
-    static_configs:
-      - targets:
-          - {{ metrics_host }}:{{ ports.hashbash_nginx_exporter }}
+          - {{ metrics_host }}:{{ port }}
+  {% endfor %}
