@@ -27,7 +27,8 @@ tailscaled:
     - source: salt://files/etc/hosts-tailscale
     - template: jinja
     - context:
-        hostnames: {{ pillar.network.hosts }}
+        hostname: {{ grains.nodename }}
+        hosts: {{ pillar.network.hosts }}
         tailscale_ip: {{ pillar.network.tailscale_ip }}
 
 /etc/dnsmasq-tailscale.conf:
