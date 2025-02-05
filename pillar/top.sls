@@ -1,21 +1,21 @@
 base:
   "*":
     - swapfile
+    - network
+    - ports
     - veintitres
+    - oh-my-zsh
     - go
     - node
-    - ports
-    - oh-my-zsh
-    - network
-    - process-exporter
-    - nginx-log-exporter
-    - mongo
     - nginx
+    - rpi-loadbalancer
+    - nginx-log-exporter
+    - process-exporter
+    - mongo
     - postgres
     - prometheus
-    - tunnels
     - bolas
     - hashbash
     - stupidchess
-    - rpi-loadbalancer
+    - tunnels
     - secrets

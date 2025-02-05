@@ -10,18 +10,18 @@ base:
     - go
     - node
     - rust
-    - dns
     - nginx
+    - rpi-loadbalancer
+    - dns
     - node-exporter
     - nginx-log-exporter
     - process-exporter
     - prometheus
-    - grafana
     - mongo
     - postgres
     - rabbitmq
     - bolas
     - hashbash
     - stupidchess
-    - rpi-loadbalancer
     - tunnels
+    - grafana
