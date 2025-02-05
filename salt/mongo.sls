@@ -31,7 +31,6 @@ mongodb-org:
     - mode: 644
     - template: jinja
     - context:
-        bind_host: 0.0.0.0
         bind_port: {{ pillar.port_by_service.tcp.mongodb }}
         unix_socket_directory: {{ pillar.mongo.unix_socket_directory }}
 

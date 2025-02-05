@@ -17,9 +17,7 @@ enable-management:
     - mode: 644
     - template: jinja
     - context:
-        rabbitmq_aqmp_host: {{ pillar.network.instance_ip }}
         rabbitmq_aqmp_port: {{ pillar.port_by_service.tcp.rabbitmq_aqmp }}
-        rabbitmq_management_host: {{ pillar.network.instance_ip }}
         rabbitmq_management_port: {{ pillar.port_by_service.tcp.rabbitmq_management }}
         rabbitmq_metrics_host: {{ pillar.network.instance_ip }}
         rabbitmq_metrics_port: {{ pillar.port_by_service.tcp.rabbitmq_metrics }}

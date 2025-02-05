@@ -9,5 +9,4 @@ postgres:
     hashbash:
       rw_users: {}
 
-  bind_host: 0.0.0.0
   unix_socket_directory: /run/postgresql

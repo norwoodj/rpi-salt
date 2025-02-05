@@ -17,7 +17,6 @@ postgresql:
     - mode: 644
     - template: jinja
     - context:
-        bind_host: {{ pillar.postgres.bind_host }}
         bind_port: {{ pillar.port_by_service.tcp.postgres }}
         unix_socket_directory: {{ pillar.postgres.unix_socket_directory }}
 
