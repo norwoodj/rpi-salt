@@ -3,7 +3,7 @@ include:
 
 tailscale-repo:
   pkgrepo.managed:
-    - name: deb [signed-by=/usr/share/keyrings/tailscale.gpg] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
+    - name: deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu noble main
     - file: /etc/apt/sources.list.d/tailscale.list
     - keyurl: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
     - require_in:
@@ -16,9 +16,16 @@ tailscaled:
   service.running:
     - enable: true
 
+/etc/hosts-tailscale:
+  file.managed:
+    - source: salt://files/etc/hosts-tailscale
+    - template: jinja
+    - context:
+        hostnames: {{ pillar.network.hosts }}
+
 /etc/dnsmasq-tailscale.conf:
   file.managed:
-    - source: salt://files/etc/dnsmasq.conf
+    - source: salt://files/etc/dnsmasq-tailscale.conf
     - template: jinja
     - context:
         base_domain: {{ pillar.network.internal_base_domain }}
