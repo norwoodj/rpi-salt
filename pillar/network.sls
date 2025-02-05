@@ -12,11 +12,13 @@
 {%- set datacenter = grains.nodename | regex_replace(name_regex, "\\1") %}
 {%- set instance = grains.nodename | regex_replace(name_regex, "\\2") %}
 {%- set instance_ip = "10.0.{}.{}".format(datacenter, instance) %}
+{%- set tailscale_ip = "100.64.{}.{}".format(datacenter, instance) %}
 
 network:
   internal_base_domain: jmn23.internal
   public_base_domain: jmn23.com
   instance_ip: {{ instance_ip | yaml_dquote }}
+  tailscale_ip: {{ tailscale_ip | yaml_dquote }}
   hosts:
     - bolas
     - grafana

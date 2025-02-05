@@ -1,0 +1,54 @@
+include:
+  - dns
+
+tailscale-repo:
+  pkgrepo.managed:
+    - name: deb [signed-by=/usr/share/keyrings/tailscale.gpg] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse
+    - file: /etc/apt/sources.list.d/tailscale.list
+    - keyurl: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
+    - require_in:
+      - pkg: tailscale
+
+tailscale:
+  pkg.installed: []
+
+tailscaled:
+  service.running:
+    - enable: true
+
+/etc/dnsmasq-tailscale.conf:
+  file.managed:
+    - source: salt://files/etc/dnsmasq.conf
+    - template: jinja
+    - context:
+        base_domain: {{ pillar.network.internal_base_domain }}
+        listen_ip: {{ pillar.network.tailscale_ip }}
+        listen_port: {{ pillar.port_by_service.udp.dnsmasq }}
+
+/lib/systemd/system/dnsmasq-tailscale.service:
+  file.managed:
+    - source: salt://files/systemd/template.service
+    - template: jinja
+    - context:
+        Description: dnsmasq - DNS server for tailscale-private addresses
+        Requires:
+          - network.target
+        Wants: nss-lookup.target
+        Before:
+          - nss-lookup.target
+        After:
+          - network.target
+        Type: forking
+        RuntimeDirectory: dnsmasq-tailscale
+        PIDFile: /run/dnsmasq-tailscale/dnsmasq.pid
+        ExecStart: dnsmasq --conf-file=/etc/dnsmasq-tailscale.conf
+        ExecReload: /bin/kill -HUP $MAINPID
+        WantedBy: multi-user.target
+
+dnsmasq-tailscale:
+  service.running:
+    - enable: true
+    - watch:
+        - pkg: dnsmasq
+        - file: /etc/dnsmasq-tailscale.conf
+

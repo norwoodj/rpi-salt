@@ -14,6 +14,7 @@ base:
     - rpi-loadbalancer
     - dns
     - tunnels
+    - tailscale
     - node-exporter
     - nginx-log-exporter
     - process-exporter

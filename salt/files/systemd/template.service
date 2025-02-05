@@ -7,6 +7,12 @@ Description={{ Description }}
 Documentation={{ Documentation }}
 {%- endif %}
 
+{%- if Before is defined %}
+  {%- for b in Before %}
+Before={{ b }}
+  {%- endfor %}
+{%- endif %}
+
 {%- if After is defined %}
   {%- for a in After %}
 After={{ a }}
