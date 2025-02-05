@@ -46,13 +46,15 @@ tailscaled:
     - template: jinja
     - context:
         Description: dnsmasq - DNS server for tailscale-private addresses
-        Requires:
-          - network.target
-        Wants: nss-lookup.target
         Before:
           - nss-lookup.target
         After:
           - network.target
+        Requires:
+          - network.target
+        Wants: nss-lookup.target
+        Restart: on-failure
+        RestartSec: 5s
         Type: forking
         ExecStart: dnsmasq --conf-file=/etc/dnsmasq-tailscale.conf
         ExecReload: /bin/kill -HUP $MAINPID
