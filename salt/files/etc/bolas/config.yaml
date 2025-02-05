@@ -3,6 +3,9 @@
 # updated and sent to the websocket client
 bolas_refresh_rate_ms: 32
 
+# Algorithm to use when detecting collisions
+collision_detection_algorithm: interval_trees
+
 # Path to folder containing static files to be served
 static_file_path: /etc/bolas/static
 
