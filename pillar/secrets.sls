@@ -18,11 +18,14 @@ rabbitmq:
       hashbash-rw: best-day-ever
 
 postgres:
-  app_users:
-    grafana-rw:
-      password: grafana-password
-    hashbash-rw:
-      password: best-day-ever
+  databases:
+    grafana:
+      rw_users:
+        grafana-rw: grafana-password
+
+    hashbash:
+      rw_users:
+        hashbash-rw: best-day-ever
 
   exporter:
     password: postgres-exporter-password

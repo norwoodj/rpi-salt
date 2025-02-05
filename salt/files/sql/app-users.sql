@@ -1,9 +1,15 @@
-{% for username, config in app_users.items() %}
+{% for db, config in databases.items() %}
 
-CREATE DATABASE {{ config["database"] }};
+CREATE DATABASE {{ db }};
 
-CREATE USER "{{ username }}" WITH PASSWORD '{{ config["password"] }}';
+  {% for username, password in config["rw_users"].items() %}
+
+CREATE USER "{{ username }}" WITH PASSWORD '{{ password }}';
 
 GRANT ALL ON DATABASE {{ config["database"] }} TO "{{ username }}";
 
+\c {{ db }}
+GRANT ALL ON SCHEMA public TO "{{ username }}";
+
+  {% endfor %}
 {% endfor %}

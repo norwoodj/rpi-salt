@@ -52,18 +52,9 @@ grafana:
     - template: jinja
     - context:
         admin_password: {{ pillar.grafana.admin_password }}
-        secret_key: {{ pillar.grafana.secret_key }}
-
-/etc/default/grafana-server:
-  file.managed:
-    - source: salt://files/etc/default/grafana-server
-    - user: grafana
-    - group: grafana
-    - mode: 400
-    - template: jinja
-    - context:
-        database_password: {{ pillar.postgres.app_users["grafana-rw"].password }}
+        database_password: {{ pillar.postgres.databases.grafana.rw_users["grafana-rw"] }}
         database_username: grafana-rw
+        secret_key: {{ pillar.grafana.secret_key }}
 
 grafana-server:
   service.running:
