@@ -1,11 +1,17 @@
 include:
   - dns
 
+tailscale-repo-key:
+  cmd.run:
+    - name: >
+        curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
+        > /usr/share/keyrings/tailscale-archive-keyring.gpg
+    - creates: /usr/share/keyrings/tailscale-archive-keyring.gpg
+
 tailscale-repo:
   pkgrepo.managed:
     - name: deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu noble main
     - file: /etc/apt/sources.list.d/tailscale.list
-    - keyurl: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
     - require_in:
       - pkg: tailscale
 
@@ -22,6 +28,7 @@ tailscaled:
     - template: jinja
     - context:
         hostnames: {{ pillar.network.hosts }}
+        tailscale_ip: {{ pillar.network.tailscale_ip }}
 
 /etc/dnsmasq-tailscale.conf:
   file.managed:
@@ -46,8 +53,6 @@ tailscaled:
         After:
           - network.target
         Type: forking
-        RuntimeDirectory: dnsmasq-tailscale
-        PIDFile: /run/dnsmasq-tailscale/dnsmasq.pid
         ExecStart: dnsmasq --conf-file=/etc/dnsmasq-tailscale.conf
         ExecReload: /bin/kill -HUP $MAINPID
         WantedBy: multi-user.target
@@ -58,4 +63,5 @@ dnsmasq-tailscale:
     - watch:
         - pkg: dnsmasq
         - file: /etc/dnsmasq-tailscale.conf
+        - file: /etc/hosts-tailscale
 
