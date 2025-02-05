@@ -19,6 +19,8 @@ rabbitmq:
 
 postgres:
   app_users:
+    grafana-rw:
+      password: grafana-password
     hashbash-rw:
       password: best-day-ever
 
