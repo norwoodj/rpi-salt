@@ -9,6 +9,7 @@ base:
     - node
     - nginx
     - rpi-loadbalancer
+    - tunnels
     - nginx-log-exporter
     - process-exporter
     - mongo
@@ -17,5 +18,4 @@ base:
     - bolas
     - hashbash
     - stupidchess
-    - tunnels
     - secrets

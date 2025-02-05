@@ -13,6 +13,7 @@ base:
     - nginx
     - rpi-loadbalancer
     - dns
+    - tunnels
     - node-exporter
     - nginx-log-exporter
     - process-exporter
@@ -23,5 +24,4 @@ base:
     - bolas
     - hashbash
     - stupidchess
-    - tunnels
     - grafana
