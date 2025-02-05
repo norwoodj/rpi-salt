@@ -3,8 +3,8 @@
 users:
   veintitres:
     groups:
-      - docker
       - ssh
+      - systemd-journal
     password: "*" # http://arlimus.github.io/articles/usepam/
     shell: /usr/bin/zsh
     ssh_auth_sources:
