@@ -14,7 +14,7 @@ prometheus:
     - group: prometheus
     - template: jinja
     - context:
-        listen_address: prometheus:{{ pillar.port_by_service.tcp.prometheus }}
+        listen_address: ":{{ pillar.port_by_service.tcp.prometheus }}"
         retention_time: {{ pillar.prometheus.retention_time }}
 
 /etc/prometheus/prometheus.yml:
