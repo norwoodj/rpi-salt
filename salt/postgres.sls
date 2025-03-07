@@ -29,6 +29,7 @@ postgresql:
     - template: jinja
     - context:
         instance_ip: {{ pillar.network.instance_ip }}
+        tailscale_cidr: {{ pillar.network.tailscale_cidr }}
 
 prometheus-postgres-exporter:
   pkg.installed: []

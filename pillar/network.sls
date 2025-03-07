@@ -18,6 +18,7 @@ network:
   internal_base_domain: jmn23.internal
   public_base_domain: jmn23.com
   instance_ip: {{ instance_ip | yaml_dquote }}
+  tailscale_cidr: 100.64.0.0/10
   tailscale_ip: {{ tailscale_ip | yaml_dquote }}
   hosts:
     - bolas
