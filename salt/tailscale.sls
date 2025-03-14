@@ -46,13 +46,12 @@ tailscaled:
     - template: jinja
     - context:
         Description: dnsmasq - DNS server for tailscale-private addresses
-        Before:
-          - nss-lookup.target
         After:
           - network.target
+          - tailscaled.service
         Requires:
           - network.target
-        Wants: nss-lookup.target
+          - tailscaled.service
         Restart: on-failure
         RestartSec: 5s
         Type: forking
