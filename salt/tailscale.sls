@@ -1,20 +1,20 @@
 # Here's how this works:
 #
 # I run a number of internal services on this server (grafana, prometheus, postgres, etc.) which
-# each bind to all interfaces. In addition to tailscale, I install in this state a dnsmasq service
+# each bind to all interfaces. In addition to tailscale, in this state I install a dnsmasq service
 # which binds to 100.64.2.2:53 (the node IP within my tailnet for this server), and which resolves
-# {service}.jmn23.internal for each of those services to 100.64.2.2.
+# {service}.jmn23.internal for each of those services to 100.64.2.2 (the same IP).
 #
 # Therefore, when I enable tailscale on my laptop, and navigate to, say, grafana.jmn23.internal, 
-# tailscale DNS settings cause that to be directed to the aforementioned dnsmasq service, via the
-# wireguard tunnel between my laptop and this server, resolving to the tailnet IP of this node, and
-# thus connecting my laptop and the running service.
+# tailscale DNS settings cause that query to be directed to the aforementioned dnsmasq service,
+# via the wireguard tunnel between my laptop and this server. That resolver responds with the
+# tailnet IP of this node, and my laptop then connects to the running service via the same tunnel.
 #
 # As an aside, if you look at the configuration in dns.sls and tunnels.sls, I have the same setup
 # for cloudflare, except that the dnsmasq service for that purpose binds to 10.0.2.2:53 and resolves
 # those same service names to 10.0.2.2. In this way, I can enable either cloudflare warp or tailscale
 # on my laptop, and the same DNS names resolve to the correct IP address to be accessed via the
-# active client
+# active client.
 include:
   - dns
 
